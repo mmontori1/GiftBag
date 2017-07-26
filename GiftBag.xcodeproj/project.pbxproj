@@ -8,20 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4571F291EA9007B4AD2 /* AppDelegate.swift */; };
-		01F3C45A1F291EA9007B4AD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4591F291EA9007B4AD2 /* ViewController.swift */; };
-		01F3C45D1F291EA9007B4AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C45B1F291EA9007B4AD2 /* Main.storyboard */; };
 		01F3C45F1F291EA9007B4AD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C45E1F291EA9007B4AD2 /* Assets.xcassets */; };
 		01F3C4621F291EA9007B4AD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C4601F291EA9007B4AD2 /* LaunchScreen.storyboard */; };
+		01F3C4741F291F94007B4AD2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4691F291F94007B4AD2 /* AuthService.swift */; };
+		01F3C4751F291F94007B4AD2 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C46A1F291F94007B4AD2 /* UserService.swift */; };
+		01F3C4761F291F94007B4AD2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C46B1F291F94007B4AD2 /* Login.storyboard */; };
+		01F3C4771F291F94007B4AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C46C1F291F94007B4AD2 /* Main.storyboard */; };
+		01F3C4781F291F94007B4AD2 /* ViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C46D1F291F94007B4AD2 /* ViewController+Utility.swift */; };
+		01F3C4791F291F94007B4AD2 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C46E1F291F94007B4AD2 /* Storyboard+Utility.swift */; };
+		01F3C47A1F291F94007B4AD2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */; };
+		01F3C47B1F291F94007B4AD2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4701F291F94007B4AD2 /* MainViewController.swift */; };
+		01F3C47C1F291F94007B4AD2 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4711F291F94007B4AD2 /* ForgotPasswordViewController.swift */; };
+		01F3C47D1F291F94007B4AD2 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4721F291F94007B4AD2 /* CreateUserViewController.swift */; };
+		01F3C47E1F291F94007B4AD2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4731F291F94007B4AD2 /* User.swift */; };
+		01F3C4871F2920E7007B4AD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C4851F2920E7007B4AD2 /* GoogleService-Info.plist */; };
+		794210B3B928224A7FF7FC2A /* Pods_GiftBag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FA0DB42BB248E37A87AEBB /* Pods_GiftBag.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01F3C4541F291EA9007B4AD2 /* GiftBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F3C4571F291EA9007B4AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		01F3C4591F291EA9007B4AD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		01F3C45C1F291EA9007B4AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01F3C45E1F291EA9007B4AD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01F3C4611F291EA9007B4AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		01F3C4631F291EA9007B4AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01F3C4691F291F94007B4AD2 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = Services/AuthService.swift; sourceTree = "<group>"; };
+		01F3C46A1F291F94007B4AD2 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Services/UserService.swift; sourceTree = "<group>"; };
+		01F3C46B1F291F94007B4AD2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
+		01F3C46C1F291F94007B4AD2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
+		01F3C46D1F291F94007B4AD2 /* ViewController+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+Utility.swift"; path = "Extensions/ViewController+Utility.swift"; sourceTree = "<group>"; };
+		01F3C46E1F291F94007B4AD2 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Utility.swift"; path = "Extensions/Storyboard+Utility.swift"; sourceTree = "<group>"; };
+		01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
+		01F3C4701F291F94007B4AD2 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
+		01F3C4711F291F94007B4AD2 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = Controllers/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		01F3C4721F291F94007B4AD2 /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUserViewController.swift; path = Controllers/CreateUserViewController.swift; sourceTree = "<group>"; };
+		01F3C4731F291F94007B4AD2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		01F3C4851F2920E7007B4AD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		01F3C4861F2920E7007B4AD2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Supporting/Info.plist; sourceTree = "<group>"; };
+		02FA0DB42BB248E37A87AEBB /* Pods_GiftBag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiftBag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		072F9F3C92234147298A2876 /* Pods-GiftBag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiftBag.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiftBag/Pods-GiftBag.release.xcconfig"; sourceTree = "<group>"; };
+		9ED63FD54908C1E650CE2371 /* Pods-GiftBag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiftBag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiftBag/Pods-GiftBag.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				794210B3B928224A7FF7FC2A /* Pods_GiftBag.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +65,8 @@
 			children = (
 				01F3C4561F291EA9007B4AD2 /* GiftBag */,
 				01F3C4551F291EA9007B4AD2 /* Products */,
+				631F0762B31BB4925566E4DE /* Pods */,
+				F6A36E28986FC8F6B7E80B40 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +82,88 @@
 			isa = PBXGroup;
 			children = (
 				01F3C4571F291EA9007B4AD2 /* AppDelegate.swift */,
-				01F3C4591F291EA9007B4AD2 /* ViewController.swift */,
-				01F3C45B1F291EA9007B4AD2 /* Main.storyboard */,
+				01F3C4821F291FBB007B4AD2 /* Models */,
+				01F3C4811F291FB1007B4AD2 /* Controllers */,
+				01F3C47F1F291FA4007B4AD2 /* Services */,
+				01F3C4831F291FC2007B4AD2 /* Storyboards */,
+				01F3C4801F291FAB007B4AD2 /* Extensions */,
+				01F3C4841F291FC8007B4AD2 /* Supporting */,
 				01F3C45E1F291EA9007B4AD2 /* Assets.xcassets */,
 				01F3C4601F291EA9007B4AD2 /* LaunchScreen.storyboard */,
-				01F3C4631F291EA9007B4AD2 /* Info.plist */,
 			);
 			path = GiftBag;
+			sourceTree = "<group>";
+		};
+		01F3C47F1F291FA4007B4AD2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				01F3C4691F291F94007B4AD2 /* AuthService.swift */,
+				01F3C46A1F291F94007B4AD2 /* UserService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		01F3C4801F291FAB007B4AD2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				01F3C46D1F291F94007B4AD2 /* ViewController+Utility.swift */,
+				01F3C46E1F291F94007B4AD2 /* Storyboard+Utility.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		01F3C4811F291FB1007B4AD2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */,
+				01F3C4701F291F94007B4AD2 /* MainViewController.swift */,
+				01F3C4711F291F94007B4AD2 /* ForgotPasswordViewController.swift */,
+				01F3C4721F291F94007B4AD2 /* CreateUserViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		01F3C4821F291FBB007B4AD2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				01F3C4731F291F94007B4AD2 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		01F3C4831F291FC2007B4AD2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				01F3C46B1F291F94007B4AD2 /* Login.storyboard */,
+				01F3C46C1F291F94007B4AD2 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		01F3C4841F291FC8007B4AD2 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				01F3C4851F2920E7007B4AD2 /* GoogleService-Info.plist */,
+				01F3C4861F2920E7007B4AD2 /* Info.plist */,
+			);
+			name = Supporting;
+			sourceTree = "<group>";
+		};
+		631F0762B31BB4925566E4DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9ED63FD54908C1E650CE2371 /* Pods-GiftBag.debug.xcconfig */,
+				072F9F3C92234147298A2876 /* Pods-GiftBag.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F6A36E28986FC8F6B7E80B40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02FA0DB42BB248E37A87AEBB /* Pods_GiftBag.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01F3C4661F291EA9007B4AD2 /* Build configuration list for PBXNativeTarget "GiftBag" */;
 			buildPhases = (
+				B220107F47F42CABEBE6AE33 /* [CP] Check Pods Manifest.lock */,
 				01F3C4501F291EA9007B4AD2 /* Sources */,
 				01F3C4511F291EA9007B4AD2 /* Frameworks */,
 				01F3C4521F291EA9007B4AD2 /* Resources */,
+				3784D196C67D57811EDAB36A /* [CP] Embed Pods Frameworks */,
+				ECC9EDD6A289513BD42B7984 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,33 +231,83 @@
 			files = (
 				01F3C4621F291EA9007B4AD2 /* LaunchScreen.storyboard in Resources */,
 				01F3C45F1F291EA9007B4AD2 /* Assets.xcassets in Resources */,
-				01F3C45D1F291EA9007B4AD2 /* Main.storyboard in Resources */,
+				01F3C4871F2920E7007B4AD2 /* GoogleService-Info.plist in Resources */,
+				01F3C4761F291F94007B4AD2 /* Login.storyboard in Resources */,
+				01F3C4771F291F94007B4AD2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3784D196C67D57811EDAB36A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiftBag/Pods-GiftBag-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B220107F47F42CABEBE6AE33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ECC9EDD6A289513BD42B7984 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiftBag/Pods-GiftBag-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01F3C4501F291EA9007B4AD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01F3C45A1F291EA9007B4AD2 /* ViewController.swift in Sources */,
+				01F3C47C1F291F94007B4AD2 /* ForgotPasswordViewController.swift in Sources */,
+				01F3C47B1F291F94007B4AD2 /* MainViewController.swift in Sources */,
+				01F3C47A1F291F94007B4AD2 /* LoginViewController.swift in Sources */,
 				01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */,
+				01F3C4781F291F94007B4AD2 /* ViewController+Utility.swift in Sources */,
+				01F3C47D1F291F94007B4AD2 /* CreateUserViewController.swift in Sources */,
+				01F3C4741F291F94007B4AD2 /* AuthService.swift in Sources */,
+				01F3C4751F291F94007B4AD2 /* UserService.swift in Sources */,
+				01F3C47E1F291F94007B4AD2 /* User.swift in Sources */,
+				01F3C4791F291F94007B4AD2 /* Storyboard+Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		01F3C45B1F291EA9007B4AD2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				01F3C45C1F291EA9007B4AD2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		01F3C4601F291EA9007B4AD2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -261,10 +416,11 @@
 		};
 		01F3C4671F291EA9007B4AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ED63FD54908C1E650CE2371 /* Pods-GiftBag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VS6BGM3X64;
-				INFOPLIST_FILE = GiftBag/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GiftBag/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.montoridev.GiftBag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,10 +430,11 @@
 		};
 		01F3C4681F291EA9007B4AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 072F9F3C92234147298A2876 /* Pods-GiftBag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VS6BGM3X64;
-				INFOPLIST_FILE = GiftBag/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GiftBag/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.montoridev.GiftBag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -304,6 +461,7 @@
 				01F3C4681F291EA9007B4AD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
