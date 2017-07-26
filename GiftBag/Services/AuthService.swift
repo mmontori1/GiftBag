@@ -54,7 +54,12 @@ struct AuthService {
     ===========================================
     */
     
-    static func presentDelete(viewController : UIViewController, user : FIRUser){
+    static func presentDelete(viewController : UIViewController){
+        guard let user = Auth.auth().currentUser else {
+            print("NO USER EXISTS???")
+            return
+        }
+        
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let signOutAction = UIAlertAction(title: "Delete Account", style: .destructive) { _ in

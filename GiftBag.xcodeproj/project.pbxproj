@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		019A25B41F292EB200491721 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A25B31F292EB200491721 /* SettingsViewController.swift */; };
 		01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4571F291EA9007B4AD2 /* AppDelegate.swift */; };
 		01F3C45F1F291EA9007B4AD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C45E1F291EA9007B4AD2 /* Assets.xcassets */; };
 		01F3C4621F291EA9007B4AD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C4601F291EA9007B4AD2 /* LaunchScreen.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		019A25B31F292EB200491721 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		01F3C4541F291EA9007B4AD2 /* GiftBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F3C4571F291EA9007B4AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01F3C45E1F291EA9007B4AD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		01F3C4811F291FB1007B4AD2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				019A25B31F292EB200491721 /* SettingsViewController.swift */,
 				01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */,
 				01F3C4701F291F94007B4AD2 /* MainViewController.swift */,
 				01F3C4711F291F94007B4AD2 /* ForgotPasswordViewController.swift */,
@@ -294,6 +297,7 @@
 			files = (
 				01F3C47C1F291F94007B4AD2 /* ForgotPasswordViewController.swift in Sources */,
 				01F3C47B1F291F94007B4AD2 /* MainViewController.swift in Sources */,
+				019A25B41F292EB200491721 /* SettingsViewController.swift in Sources */,
 				01F3C47A1F291F94007B4AD2 /* LoginViewController.swift in Sources */,
 				01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */,
 				01F3C4781F291F94007B4AD2 /* ViewController+Utility.swift in Sources */,

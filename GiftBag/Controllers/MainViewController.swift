@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class MainViewController: UIViewController {
-
-    var authHandle: AuthStateDidChangeListenerHandle?
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -21,28 +18,26 @@ class MainViewController: UIViewController {
         
         nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         usernameLabel.text = User.current.username
-        
-        authHandle = AuthService.authListener(viewController: self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    deinit {
-        AuthService.removeAuthListener(authHandle: authHandle)
-    }
-
-    @IBAction func logOutClicked(_ sender: UIButton) {
-        AuthService.presentLogOut(viewController: self)
-    }
-    
-    @IBAction func deleteAccountClicked(_ sender: UIButton) {
-        guard let user = Auth.auth().currentUser else {
-            print("NO USER EXISTS???")
-            return
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toSettings" {
+                print("To Settings Screen!")
+            }
         }
-        AuthService.presentDelete(viewController: self, user : user)
     }
     
+    @IBAction func settingsClicked(_ sender: UIButton) {
+        performSegue(withIdentifier: "toSettings", sender: self)
+    }
+    
+    @IBAction func unwindToMain(_ segue: UIStoryboardSegue) {
+        self.tabBarController?.tabBar.isHidden = false
+        print("Returned to Main Screen!")
+    }
 }
