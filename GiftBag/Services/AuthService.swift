@@ -60,7 +60,7 @@ struct AuthService {
             return
         }
         
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete your account? You cannot undo this action.", preferredStyle: .actionSheet)
         
         let signOutAction = UIAlertAction(title: "Delete Account", style: .destructive) { _ in
             deleteAccount(user: user)
@@ -127,7 +127,7 @@ struct AuthService {
     =========================================================
     */
     static func presentLogOut(viewController : UIViewController){
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Are you sure you want to log out?", message: nil, preferredStyle: .actionSheet)
         
         let signOutAction = UIAlertAction(title: "Log Out", style: .destructive) { _ in
             logUserOut()

@@ -9,13 +9,12 @@
 import UIKit
 import FirebaseAuth
 
-class SettingsViewController: UIViewController {
-
+class SettingsViewController: UITableViewController {
+    
     var authHandle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
         authHandle = AuthService.authListener(viewController: self)
     }
 
@@ -27,11 +26,31 @@ class SettingsViewController: UIViewController {
         AuthService.removeAuthListener(authHandle: authHandle)
     }
     
-    @IBAction func logOutClicked(_ sender: UIButton) {
+    @IBAction func logOutClicked(_ sender: Any) {
         AuthService.presentLogOut(viewController: self)
     }
     
-    @IBAction func deleteAccountClicked(_ sender: UIButton) {
+    @IBAction func deleteAccountClicked(_ sender: Any) {
         AuthService.presentDelete(viewController: self)
+    }
+}
+
+extension SettingsViewController{
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section{
+            case 0:
+                switch indexPath.row{
+                    case 0:
+                        break
+                    case 1:
+                        AuthService.presentLogOut(viewController: self)
+                    case 2:
+                        AuthService.presentDelete(viewController: self)
+                    default:
+                        return
+                }
+            default:
+                return
+        }
     }
 }

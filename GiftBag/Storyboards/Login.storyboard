@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Si-Es-DC3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="7Si-Es-DC3">
                                 <rect key="frame" x="66" y="70" width="243" height="243"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7Si-Es-DC3" secondAttribute="height" multiplier="1:1" id="o6W-pR-bj0"/>
@@ -168,7 +168,7 @@
                                     <segue destination="3dQ-Bj-NQI" kind="unwind" unwindAction="unwindToLogin:" id="kkd-a3-FId"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ibx-Ua-Fjt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="Ibx-Ua-Fjt">
                                 <rect key="frame" x="68" y="58" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="dgp-0g-eZX"/>
@@ -259,7 +259,7 @@
                                     <segue destination="bxD-1c-Nao" kind="unwind" identifier="cancel" unwindAction="unwindToLogin:" id="5BW-MB-DxH"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rBl-UB-X50">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="rBl-UB-X50">
                                 <rect key="frame" x="67.5" y="70" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="6X7-Qu-6e6"/>
@@ -435,4 +435,7 @@
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="comet" width="256" height="256"/>
+    </resources>
 </document>

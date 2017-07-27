@@ -32,12 +32,11 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func settingsClicked(_ sender: UIButton) {
+    @IBAction func settingsClicked(_ sender: Any) {
         performSegue(withIdentifier: "toSettings", sender: self)
     }
     
     @IBAction func unwindToMain(_ segue: UIStoryboardSegue) {
-        self.tabBarController?.tabBar.isHidden = false
         print("Returned to Main Screen!")
     }
 }
