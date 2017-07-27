@@ -23,9 +23,8 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBAction func resetPasswordClicked(_ sender: UIButton) {
         guard let email = emailTextField.text,
-            !email.isEmpty else {
-            return
-        }
+            !email.isEmpty
+            else { return }
         AuthService.passwordReset(email: email)
     }
 }

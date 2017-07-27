@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0196053C1F2A209C00BFEFDB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0196053B1F2A209C00BFEFDB /* Profile.storyboard */; };
+		0196053E1F2A248900BFEFDB /* UIImageView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196053D1F2A248900BFEFDB /* UIImageView+Utility.swift */; };
+		019605401F2A2A9400BFEFDB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196053F1F2A2A9400BFEFDB /* EditProfileViewController.swift */; };
+		019605421F2A6AFB00BFEFDB /* ProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019605411F2A6AFB00BFEFDB /* ProfileNavigationController.swift */; };
 		019A25B41F292EB200491721 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A25B31F292EB200491721 /* SettingsViewController.swift */; };
 		01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4571F291EA9007B4AD2 /* AppDelegate.swift */; };
 		01F3C45F1F291EA9007B4AD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C45E1F291EA9007B4AD2 /* Assets.xcassets */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0196053B1F2A209C00BFEFDB /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = Storyboards/Profile.storyboard; sourceTree = "<group>"; };
+		0196053D1F2A248900BFEFDB /* UIImageView+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Utility.swift"; path = "Extensions/UIImageView+Utility.swift"; sourceTree = "<group>"; };
+		0196053F1F2A2A9400BFEFDB /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = Controllers/EditProfileViewController.swift; sourceTree = "<group>"; };
+		019605411F2A6AFB00BFEFDB /* ProfileNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileNavigationController.swift; path = Controllers/ProfileNavigationController.swift; sourceTree = "<group>"; };
 		019A25B31F292EB200491721 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		01F3C4541F291EA9007B4AD2 /* GiftBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F3C4571F291EA9007B4AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +116,7 @@
 		01F3C4801F291FAB007B4AD2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0196053D1F2A248900BFEFDB /* UIImageView+Utility.swift */,
 				01F3C46D1F291F94007B4AD2 /* ViewController+Utility.swift */,
 				01F3C46E1F291F94007B4AD2 /* Storyboard+Utility.swift */,
 			);
@@ -117,6 +126,8 @@
 		01F3C4811F291FB1007B4AD2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0196053F1F2A2A9400BFEFDB /* EditProfileViewController.swift */,
+				019605411F2A6AFB00BFEFDB /* ProfileNavigationController.swift */,
 				019A25B31F292EB200491721 /* SettingsViewController.swift */,
 				01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */,
 				01F3C4701F291F94007B4AD2 /* ProfileViewController.swift */,
@@ -139,6 +150,7 @@
 			children = (
 				01F3C46B1F291F94007B4AD2 /* Login.storyboard */,
 				01F3C46C1F291F94007B4AD2 /* Main.storyboard */,
+				0196053B1F2A209C00BFEFDB /* Profile.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -232,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0196053C1F2A209C00BFEFDB /* Profile.storyboard in Resources */,
 				01F3C4621F291EA9007B4AD2 /* LaunchScreen.storyboard in Resources */,
 				01F3C45F1F291EA9007B4AD2 /* Assets.xcassets in Resources */,
 				01F3C4871F2920E7007B4AD2 /* GoogleService-Info.plist in Resources */,
@@ -295,9 +308,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				019605401F2A2A9400BFEFDB /* EditProfileViewController.swift in Sources */,
+				019605421F2A6AFB00BFEFDB /* ProfileNavigationController.swift in Sources */,
 				01F3C47C1F291F94007B4AD2 /* ForgotPasswordViewController.swift in Sources */,
 				01F3C47B1F291F94007B4AD2 /* ProfileViewController.swift in Sources */,
 				019A25B41F292EB200491721 /* SettingsViewController.swift in Sources */,
+				0196053E1F2A248900BFEFDB /* UIImageView+Utility.swift in Sources */,
 				01F3C47A1F291F94007B4AD2 /* LoginViewController.swift in Sources */,
 				01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */,
 				01F3C4781F291F94007B4AD2 /* ViewController+Utility.swift in Sources */,

@@ -37,6 +37,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func unwindToMain(_ segue: UIStoryboardSegue) {
+        nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
+        usernameLabel.text = User.current.username
         print("Returned to Main Screen!")
     }
 }

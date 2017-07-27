@@ -22,16 +22,20 @@ class SettingsViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toEditProfile" {
+                print("To Edit Profile Screen!")
+            }
+        }
+    }
+    
     deinit {
         AuthService.removeAuthListener(authHandle: authHandle)
     }
     
-    @IBAction func logOutClicked(_ sender: Any) {
-        AuthService.presentLogOut(viewController: self)
-    }
-    
-    @IBAction func deleteAccountClicked(_ sender: Any) {
-        AuthService.presentDelete(viewController: self)
+    @IBAction func unwindToSettings(_ segue: UIStoryboardSegue) {
+        print("Returned to Settings Screen!")
     }
 }
 
@@ -53,7 +57,7 @@ extension SettingsViewController {
             case .accountSettings:
                 switch row {
                     case .editProfile:
-                        break
+                        performSegue(withIdentifier: "toEditProfile", sender: self)
                     case .logOut:
                         AuthService.presentLogOut(viewController: self)
                     case .deleteAccount:
