@@ -18,7 +18,7 @@
 		01F3C4781F291F94007B4AD2 /* ViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C46D1F291F94007B4AD2 /* ViewController+Utility.swift */; };
 		01F3C4791F291F94007B4AD2 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C46E1F291F94007B4AD2 /* Storyboard+Utility.swift */; };
 		01F3C47A1F291F94007B4AD2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */; };
-		01F3C47B1F291F94007B4AD2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4701F291F94007B4AD2 /* MainViewController.swift */; };
+		01F3C47B1F291F94007B4AD2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4701F291F94007B4AD2 /* ProfileViewController.swift */; };
 		01F3C47C1F291F94007B4AD2 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4711F291F94007B4AD2 /* ForgotPasswordViewController.swift */; };
 		01F3C47D1F291F94007B4AD2 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4721F291F94007B4AD2 /* CreateUserViewController.swift */; };
 		01F3C47E1F291F94007B4AD2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4731F291F94007B4AD2 /* User.swift */; };
@@ -39,7 +39,7 @@
 		01F3C46D1F291F94007B4AD2 /* ViewController+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+Utility.swift"; path = "Extensions/ViewController+Utility.swift"; sourceTree = "<group>"; };
 		01F3C46E1F291F94007B4AD2 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Utility.swift"; path = "Extensions/Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
-		01F3C4701F291F94007B4AD2 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
+		01F3C4701F291F94007B4AD2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		01F3C4711F291F94007B4AD2 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = Controllers/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		01F3C4721F291F94007B4AD2 /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUserViewController.swift; path = Controllers/CreateUserViewController.swift; sourceTree = "<group>"; };
 		01F3C4731F291F94007B4AD2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 			children = (
 				019A25B31F292EB200491721 /* SettingsViewController.swift */,
 				01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */,
-				01F3C4701F291F94007B4AD2 /* MainViewController.swift */,
+				01F3C4701F291F94007B4AD2 /* ProfileViewController.swift */,
 				01F3C4711F291F94007B4AD2 /* ForgotPasswordViewController.swift */,
 				01F3C4721F291F94007B4AD2 /* CreateUserViewController.swift */,
 			);
@@ -296,7 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F3C47C1F291F94007B4AD2 /* ForgotPasswordViewController.swift in Sources */,
-				01F3C47B1F291F94007B4AD2 /* MainViewController.swift in Sources */,
+				01F3C47B1F291F94007B4AD2 /* ProfileViewController.swift in Sources */,
 				019A25B41F292EB200491721 /* SettingsViewController.swift in Sources */,
 				01F3C47A1F291F94007B4AD2 /* LoginViewController.swift in Sources */,
 				01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */,

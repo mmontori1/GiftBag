@@ -13,7 +13,7 @@
         <!--Comet-->
         <scene sceneID="d52-lg-Jwa">
             <objects>
-                <viewController id="Ga0-TT-4BI" customClass="MainViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ga0-TT-4BI" customClass="ProfileViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7YS-5m-X6f"/>
                         <viewControllerLayoutGuide type="bottom" id="nOm-tU-Z1k"/>
@@ -70,7 +70,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Comet" id="NgE-yM-0cn">
-                        <barButtonItem key="leftBarButtonItem" image="settings" id="Aa8-DW-B2J">
+                        <barButtonItem key="leftBarButtonItem" image="add" id="JRx-K1-ywo">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="settings" id="Aa8-DW-B2J">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="settingsClicked:" destination="Ga0-TT-4BI" id="Zej-4i-2be"/>
@@ -85,12 +88,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLf-VD-Mva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="404"/>
+            <point key="canvasLocation" x="-407" y="1982"/>
         </scene>
         <!--Settings-->
         <scene sceneID="qal-RZ-xQG">
             <objects>
-                <tableViewController id="fjk-at-MAv" customClass="SettingsViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="fjk-at-MAv" customClass="SettingsViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="HGt-Sb-5gx">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +120,7 @@
                                                         <constraint firstAttribute="width" constant="23.5" id="GTy-SC-jUV"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="qPX-MW-lTk">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editProfile" translatesAutoresizingMaskIntoConstraints="NO" id="qPX-MW-lTk">
                                                     <rect key="frame" x="8" y="9" width="24" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="23.5" id="dqA-gs-UZq"/>
@@ -213,7 +216,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOj-Hy-AmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="nUN-i0-y73" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2815" y="55"/>
+            <point key="canvasLocation" x="-407" y="2745"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MKY-aj-3nd">
@@ -224,9 +227,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.6881940038071066" blue="0.24476986666048495" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="48g-5o-yRs" kind="relationship" relationship="viewControllers" id="O50-Gi-GTd"/>
+                        <segue destination="fiY-Nq-SNZ" kind="relationship" relationship="viewControllers" id="GKi-eK-PJd"/>
+                        <segue destination="Cjt-jN-y3l" kind="relationship" relationship="viewControllers" id="KiH-2d-9CX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVE-7g-mks" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,10 +241,50 @@
             <point key="canvasLocation" x="429.60000000000002" y="404.34782608695656"/>
         </scene>
         <!--Item-->
+        <scene sceneID="mBF-wE-MLT">
+            <objects>
+                <viewController id="fiY-Nq-SNZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QaZ-1J-ggN"/>
+                        <viewControllerLayoutGuide type="bottom" id="bO5-6F-uz9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oOX-Lp-cVS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="cyh-ON-E3j"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25j-ii-uaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="430" y="1173"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="jdp-qi-f8R">
+            <objects>
+                <viewController id="Cjt-jN-y3l" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QXD-AF-9tt"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xx7-u0-i4N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ngZ-l1-Qkq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="lFU-WL-V34"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Gm-Im-8Ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="1173"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="ul6-Ie-OLD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="48g-5o-yRs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Weg-fk-USU"/>
+                    <tabBarItem key="tabBarItem" title="" image="smallComet" id="Weg-fk-USU">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="94S-xg-ZgH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -250,15 +297,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zck-Ul-gZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1102" y="403"/>
+            <point key="canvasLocation" x="-406" y="1173"/>
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="25" height="25"/>
         <image name="delete" width="25" height="25"/>
+        <image name="editProfile" width="25" height="25"/>
         <image name="exit" width="25" height="25"/>
         <image name="logOut" width="25" height="25"/>
         <image name="next" width="25" height="25"/>
-        <image name="profile" width="24" height="24"/>
         <image name="settings" width="25" height="25"/>
+        <image name="smallComet" width="40" height="40"/>
     </resources>
 </document>
