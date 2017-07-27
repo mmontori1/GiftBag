@@ -240,7 +240,7 @@
             </objects>
             <point key="canvasLocation" x="429.60000000000002" y="404.34782608695656"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="mBF-wE-MLT">
             <objects>
                 <viewController id="fiY-Nq-SNZ" sceneMemberID="viewController">
@@ -253,13 +253,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="cyh-ON-E3j"/>
+                    <tabBarItem key="tabBarItem" title="" image="friends" id="cyh-ON-E3j">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25j-ii-uaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="430" y="1173"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="jdp-qi-f8R">
             <objects>
                 <viewController id="Cjt-jN-y3l" sceneMemberID="viewController">
@@ -272,7 +274,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="lFU-WL-V34"/>
+                    <tabBarItem key="tabBarItem" title="" image="searchFriend" id="lFU-WL-V34">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Gm-Im-8Ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -305,8 +309,10 @@
         <image name="delete" width="25" height="25"/>
         <image name="editProfile" width="25" height="25"/>
         <image name="exit" width="25" height="25"/>
+        <image name="friends" width="25" height="25"/>
         <image name="logOut" width="25" height="25"/>
         <image name="next" width="25" height="25"/>
+        <image name="searchFriend" width="25" height="25"/>
         <image name="settings" width="25" height="25"/>
         <image name="smallComet" width="40" height="40"/>
     </resources>

@@ -35,22 +35,30 @@ class SettingsViewController: UITableViewController {
     }
 }
 
-extension SettingsViewController{
+extension SettingsViewController {
+    enum Section : Int {
+        case accountSettings = 0
+    }
+    
+    enum AccountSettings : Int {
+        case editProfile = 0, logOut, deleteAccount
+    }
+        
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section{
-            case 0:
-                switch indexPath.row{
-                    case 0:
-                        break
-                    case 1:
-                        AuthService.presentLogOut(viewController: self)
-                    case 2:
-                        AuthService.presentDelete(viewController: self)
-                    default:
-                        return
-                }
-            default:
+        guard let section = Section(rawValue: indexPath.section),
+            let row = AccountSettings(rawValue: indexPath.row) else {
                 return
+        }
+        switch section {
+            case .accountSettings:
+                switch row {
+                    case .editProfile:
+                        break
+                    case .logOut:
+                        AuthService.presentLogOut(viewController: self)
+                    case .deleteAccount:
+                        AuthService.presentDelete(viewController: self)
+                }
         }
     }
 }
