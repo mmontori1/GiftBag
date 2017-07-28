@@ -73,6 +73,9 @@
                     <navigationItem key="navigationItem" title="Comet" id="NgE-yM-0cn">
                         <barButtonItem key="leftBarButtonItem" image="add" id="JRx-K1-ywo">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addItemClicked:" destination="Ga0-TT-4BI" id="NLX-hM-qyb"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="settings" id="Aa8-DW-B2J">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

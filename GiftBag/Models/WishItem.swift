@@ -13,16 +13,18 @@ class WishItem {
     var key: String?
     let poster: User
     let name : String
-    var price : Double? = nil
-    var linkURL : String? = nil
-    var imageURL : String? = nil
+    let timestamp : Date
+    var price : Double?
+    var linkURL : String?
+    var imageURL : String?
     var dictValue: [String : Any] {
         let userDict = ["uid" : poster.uid,
                         "username" : poster.username,
                         "firstName" : poster.firstName,
                         "lastName" : poster.lastName]
         var value : [String : Any] = ["poster" : userDict,
-                                      "name" : name]
+                                      "name" : name,
+                                      "timestamp" : timestamp.timeIntervalSince1970]
         
         if let price = price {
             value["price"] = price
@@ -37,9 +39,10 @@ class WishItem {
         return value
     }
     
-    init(name : String, price : Double, linkURL : String, imageURL : String) {
+    init(name : String, price : Double? = nil, linkURL : String? = nil, imageURL : String? = nil) {
         self.poster = User.current
         self.name = name
+        self.timestamp = Date()
         self.price = price
         self.linkURL = linkURL
         self.imageURL = imageURL
@@ -52,11 +55,13 @@ class WishItem {
             let username = poster["username"] as? String,
             let firstName = poster["firstName"] as? String,
             let lastName = poster["lastName"] as? String,
-            let name = dict["name"] as? String
+            let name = dict["name"] as? String,
+            let timestamp = dict["timestamp"] as? TimeInterval
             else { return nil }
         self.key = snapshot.key
         self.poster = User(uid: uid, username: username, firstName: firstName, lastName: lastName)
         self.name = name
+        self.timestamp = Date(timeIntervalSince1970: timestamp)
         
         if let price = dict["price"] as? Double {
             self.price = price

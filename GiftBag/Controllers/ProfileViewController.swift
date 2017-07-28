@@ -32,6 +32,29 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func addItemClicked(_ sender: UIBarButtonItem) {
+        let timeInterval = Date().timeIntervalSince1970
+        let userDict = ["uid" : User.current.uid,
+                        "username" : User.current.username,
+                        "firstName" : User.current.firstName,
+                        "lastName" : User.current.lastName]
+        let value : [String : Any] = ["poster" : userDict,
+                                      "name" : "New Item",
+                                      "timestamp" : timeInterval
+//                                          ,
+//                                          "price" : nil,
+//                                          "linkURL" : nil,
+//                                          "imageURL" : nil
+                                     ]
+        WishService.create(data: value) { (item) in
+            guard let item = item else {
+                print("no item!!!")
+                return
+            }
+            print(item.dictValue)
+        }
+    }
+    
     @IBAction func settingsClicked(_ sender: Any) {
         performSegue(withIdentifier: "toSettings", sender: self)
     }
