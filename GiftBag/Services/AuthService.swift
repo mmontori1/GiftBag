@@ -34,14 +34,15 @@ struct AuthService {
     }
     
     // Allows you to reset password for an email
-    static func passwordReset(email: String){
+    static func passwordReset(email: String, success : @escaping (Bool) -> Void){
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if let error = error {
                 print("email error for: \(email)")
                 print("error: \(error.localizedDescription)")
-                return
+                return success(false)
             }
         }
+        success(true)
     }
     
     /*

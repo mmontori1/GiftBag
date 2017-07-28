@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class EditProfileViewController: UIViewController {
 
@@ -33,13 +34,13 @@ class EditProfileViewController: UIViewController {
         if username == User.current.username &&
             firstName == User.current.firstName &&
             lastName == User.current.lastName {
-            makeSimpleAlert(title: "No changes made", message: "Make some changes first...")
+            SCLAlertView().showWarning("No changes made.", subTitle: "Make changes to your profile first.")
             return
         }
         
         UserService.edit(username: username, firstName: firstName, lastName: lastName) { (user) in
             defer {
-                self.makeSimpleAlert(title: "Success!", message: nil)
+                SCLAlertView().showSuccess("Success!", subTitle: "Your changes have been saved.")
             }
             
             guard let user = user
@@ -63,12 +64,5 @@ extension EditProfileViewController {
         
         usernameTextField.text = User.current.username
         usernameTextField.placeholder = "Username"
-    }
-    
-    func makeSimpleAlert(title : String?, message : String?){
-        let alert = UIAlertController(title: title, message:
-            message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 }

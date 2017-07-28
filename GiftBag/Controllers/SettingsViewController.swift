@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SCLAlertView
 
 class SettingsViewController: UITableViewController {
     
@@ -45,7 +46,7 @@ extension SettingsViewController {
     }
     
     enum AccountSettings : Int {
-        case editProfile = 0, logOut, deleteAccount
+        case editProfile = 0, resetPassword, logOut, deleteAccount
     }
         
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -58,6 +59,20 @@ extension SettingsViewController {
                 switch row {
                     case .editProfile:
                         performSegue(withIdentifier: "toEditProfile", sender: self)
+                    case .resetPassword:
+                        guard let auth = Auth.auth().currentUser,
+                            let email = auth.email else {
+                                SCLAlertView().showError("Oops!", subTitle: "Something went wrong.")
+                                return
+                        }
+                        AuthService.passwordReset(email: email, success: { (success) in
+                            if success {
+                                SCLAlertView().showSuccess("Success!", subTitle: "Email sent.")
+                            }
+                            else {
+                                SCLAlertView().showError("Oops!", subTitle: "Something went wrong.")
+                            }
+                        })
                     case .logOut:
                         AuthService.presentLogOut(viewController: self)
                     case .deleteAccount:

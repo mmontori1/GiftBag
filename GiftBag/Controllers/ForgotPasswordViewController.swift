@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class ForgotPasswordViewController: UIViewController {
 
@@ -25,7 +26,14 @@ class ForgotPasswordViewController: UIViewController {
         guard let email = emailTextField.text,
             !email.isEmpty
             else { return }
-        AuthService.passwordReset(email: email)
+        AuthService.passwordReset(email: email, success: { (success) in
+            if success {
+                SCLAlertView().showSuccess("Success!", subTitle: "Email sent.")
+            }
+            else {
+                SCLAlertView().showError("Oops!", subTitle: "Something went wrong.")
+            }
+        })
     }
 }
 

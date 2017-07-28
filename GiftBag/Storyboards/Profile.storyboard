@@ -139,8 +139,37 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iSw-7s-i5k">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="U0U-47-gXM">
                                         <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U0U-47-gXM" id="Zbg-ZD-Zde">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfS-hx-YSi">
+                                                    <rect key="frame" x="42" y="11" width="121.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="oQK-PY-Foz">
+                                                    <rect key="frame" x="8" y="9" width="24" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="23.5" id="QfD-Fe-pTw"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="oQK-PY-Foz" secondAttribute="leading" id="Cqt-Zz-hJz"/>
+                                                <constraint firstItem="jfS-hx-YSi" firstAttribute="leading" secondItem="oQK-PY-Foz" secondAttribute="trailing" constant="10" id="KZM-Wr-mGv"/>
+                                                <constraint firstItem="oQK-PY-Foz" firstAttribute="centerY" secondItem="Zbg-ZD-Zde" secondAttribute="centerY" id="dde-jD-S4G"/>
+                                                <constraint firstItem="oQK-PY-Foz" firstAttribute="top" secondItem="Zbg-ZD-Zde" secondAttribute="topMargin" constant="1" id="tbg-YL-5cP"/>
+                                                <constraint firstItem="jfS-hx-YSi" firstAttribute="centerY" secondItem="Zbg-ZD-Zde" secondAttribute="centerY" id="wOt-E3-2zK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iSw-7s-i5k">
+                                        <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iSw-7s-i5k" id="fbY-cg-b3f">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -169,7 +198,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dGo-EP-HcI">
-                                        <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dGo-EP-HcI" id="aV7-ho-RjR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -388,6 +417,7 @@
         <image name="exit" width="25" height="25"/>
         <image name="logOut" width="25" height="25"/>
         <image name="next" width="25" height="25"/>
+        <image name="password" width="25" height="25"/>
         <image name="profileIcon" width="25" height="25"/>
         <image name="settings" width="25" height="25"/>
     </resources>
