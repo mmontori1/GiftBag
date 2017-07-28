@@ -11,5 +11,5 @@ target 'GiftBag' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'SCLAlertView'
-  
+  pod 'ElasticTransition', '~> 3.1'
 end

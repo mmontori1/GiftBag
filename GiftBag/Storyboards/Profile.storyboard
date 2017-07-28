@@ -88,7 +88,7 @@
                         <outlet property="nameLabel" destination="qwu-dC-urs" id="Dbi-f1-m8u"/>
                         <outlet property="usernameLabel" destination="NOq-1z-2vY" id="QeI-Xn-fr7"/>
                         <segue destination="fjk-at-MAv" kind="show" identifier="toSettings" id="B3n-CS-310"/>
-                        <segue destination="7Zi-GC-D3q" kind="show" identifier="toCreateItem" id="9UN-kw-nk6"/>
+                        <segue destination="7Zi-GC-D3q" kind="custom" identifier="toCreateItem" customClass="SegueFromRight" customModule="GiftBag" customModuleProvider="target" id="9UN-kw-nk6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLf-VD-Mva" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,13 +98,13 @@
         <!--New Wish Item-->
         <scene sceneID="UlR-z5-Zp0">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="7Zi-GC-D3q" customClass="CreateWishListItemViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateWishListItemViewController" hidesBottomBarWhenPushed="YES" id="7Zi-GC-D3q" customClass="CreateWishListItemViewController" customModule="GiftBag" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BUv-nL-cZ4"/>
                         <viewControllerLayoutGuide type="bottom" id="T0J-EL-ZzI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JuD-L0-UZk">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -112,7 +112,7 @@
                         <barButtonItem key="leftBarButtonItem" image="cancel" id="iIx-pQ-CuR">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="QE8-57-k9B" kind="unwind" identifier="cancel" unwindAction="unwindToMain:" id="Ivl-Qh-7eA"/>
+                                <segue destination="QE8-57-k9B" kind="unwind" identifier="cancel" customClass="UnwindFromRight" customModule="GiftBag" customModuleProvider="target" unwindAction="unwindToMain:" id="Ivl-Qh-7eA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="save" id="QN8-zE-uJI">
@@ -123,7 +123,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="QE8-57-k9B" kind="unwind" identifier="saveItem" unwindAction="unwindToMain:" id="kq3-yP-ZgI"/>
+                        <segue destination="QE8-57-k9B" kind="unwind" identifier="saveItem" customClass="UnwindFromRight" customModule="GiftBag" customModuleProvider="target" unwindAction="unwindToMain:" id="kq3-yP-ZgI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcS-oP-Pr4" userLabel="First Responder" sceneMemberID="firstResponder"/>

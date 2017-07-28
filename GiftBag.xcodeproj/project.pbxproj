@@ -10,6 +10,7 @@
 		011DF4251F2AEF2F00240278 /* WishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4241F2AEF2F00240278 /* WishItem.swift */; };
 		011DF4271F2B758D00240278 /* WishService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4261F2B758D00240278 /* WishService.swift */; };
 		011DF4291F2B897A00240278 /* CreateWishListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */; };
+		011DF42B1F2BB4CF00240278 /* CustomSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF42A1F2BB4CF00240278 /* CustomSegues.swift */; };
 		0153AEA51F2ACA27005408E9 /* SCLAlertView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153AEA41F2ACA27005408E9 /* SCLAlertView+Utility.swift */; };
 		0153AEA71F2ACFED005408E9 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153AEA61F2ACFED005408E9 /* FirebaseService.swift */; };
 		0196053C1F2A209C00BFEFDB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0196053B1F2A209C00BFEFDB /* Profile.storyboard */; };
@@ -39,6 +40,7 @@
 		011DF4241F2AEF2F00240278 /* WishItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishItem.swift; path = Models/WishItem.swift; sourceTree = "<group>"; };
 		011DF4261F2B758D00240278 /* WishService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishService.swift; path = Services/WishService.swift; sourceTree = "<group>"; };
 		011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateWishListItemViewController.swift; path = Controllers/CreateWishListItemViewController.swift; sourceTree = "<group>"; };
+		011DF42A1F2BB4CF00240278 /* CustomSegues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegues.swift; sourceTree = "<group>"; };
 		0153AEA41F2ACA27005408E9 /* SCLAlertView+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SCLAlertView+Utility.swift"; path = "Extensions/SCLAlertView+Utility.swift"; sourceTree = "<group>"; };
 		0153AEA61F2ACFED005408E9 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = Services/FirebaseService.swift; sourceTree = "<group>"; };
 		0196053B1F2A209C00BFEFDB /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = Storyboards/Profile.storyboard; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		01F3C4561F291EA9007B4AD2 /* GiftBag */ = {
 			isa = PBXGroup;
 			children = (
+				011DF42A1F2BB4CF00240278 /* CustomSegues.swift */,
 				01F3C4571F291EA9007B4AD2 /* AppDelegate.swift */,
 				01F3C4821F291FBB007B4AD2 /* Models */,
 				01F3C4811F291FB1007B4AD2 /* Controllers */,
@@ -339,6 +342,7 @@
 				01F3C47D1F291F94007B4AD2 /* CreateUserViewController.swift in Sources */,
 				01F3C4741F291F94007B4AD2 /* AuthService.swift in Sources */,
 				0153AEA51F2ACA27005408E9 /* SCLAlertView+Utility.swift in Sources */,
+				011DF42B1F2BB4CF00240278 /* CustomSegues.swift in Sources */,
 				01F3C4751F291F94007B4AD2 /* UserService.swift in Sources */,
 				01F3C47E1F291F94007B4AD2 /* User.swift in Sources */,
 				01F3C4791F291F94007B4AD2 /* Storyboard+Utility.swift in Sources */,

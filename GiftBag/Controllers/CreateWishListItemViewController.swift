@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ElasticTransition
 
 class CreateWishListItemViewController: UIViewController {
 
@@ -30,24 +31,10 @@ class CreateWishListItemViewController: UIViewController {
         else {
             print("no new item!!!")
         }
-        print("performing segue!")
-        performSegue(withIdentifier: "saveItem", sender: self)
-        print("performed segue!")
+//        print("performing segue!")
+//        performSegue(withIdentifier: "saveItem", sender: self)
+//        print("performed segue!")
     }
-    
-    /*
-     guard let newItem = newItem else {
-        print("no new item!!!")
-        return
-     }
-    WishService.create(data: newItem) { (item) in
-        guard let item = item else {
-            print("no item!!!")
-            return
-        }
-        print(item.dictValue)
-     }
-     */
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {

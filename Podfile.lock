@@ -1,4 +1,6 @@
 PODS:
+  - ElasticTransition (3.1.1):
+    - MotionAnimation (~> 0.1.2)
   - Firebase/Auth (4.0.2):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -40,9 +42,11 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
+  - MotionAnimation (0.1.2)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
+  - ElasticTransition (~> 3.1)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -50,6 +54,7 @@ DEPENDENCIES:
   - SCLAlertView
 
 SPEC CHECKSUMS:
+  ElasticTransition: 6c4e4739e32480c864217db912100f3657f6447a
   Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
   FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -59,8 +64,9 @@ SPEC CHECKSUMS:
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  MotionAnimation: ff5c8fc2e429d7e10d46ae86819ba9759846c343
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 9747b69859eed9861d5ae8fad2d566e92aae5189
+PODFILE CHECKSUM: 79100ce8df2bdcd0999a175a20d44274929682e4
 
 COCOAPODS: 1.2.1

@@ -8,9 +8,11 @@
 
 import UIKit
 import SCLAlertView
+import ElasticTransition
 
 class ProfileViewController: UIViewController {
     
+    var transition = ElasticTransition()
     var items = [WishItem]() {
         didSet {
             items.sort(by: { $0.timestamp.compare($1.timestamp as Date) == .orderedDescending })
@@ -32,6 +34,9 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination
+        vc.transitioningDelegate = transition
+        vc.modalPresentationStyle = .custom
         if let identifier = segue.identifier {
             if identifier == "toSettings" {
                 print("To Settings Screen!")
@@ -42,7 +47,9 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func addItemClicked(_ sender: UIBarButtonItem) {
+    @IBAction func addItemClicked(_ sender: AnyObject) {
+        transition.edge = .left
+        transition.startingPoint = sender.center
         performSegue(withIdentifier: "toCreateItem", sender: self)
     }
     
