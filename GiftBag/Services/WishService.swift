@@ -11,7 +11,7 @@ import FirebaseDatabase.FIRDataSnapshot
 
 struct WishService {
     static func create(data item : WishItem, completion: @escaping (WishItem?) -> Void) {
-        let ref = Database.database().reference().child("wishItems").childByAutoId()
+        let ref = Database.database().reference().child("wishItems").child(User.current.uid).childByAutoId()
         ref.setValue(item.dictValue) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)

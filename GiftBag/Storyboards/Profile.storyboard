@@ -88,11 +88,48 @@
                         <outlet property="nameLabel" destination="qwu-dC-urs" id="Dbi-f1-m8u"/>
                         <outlet property="usernameLabel" destination="NOq-1z-2vY" id="QeI-Xn-fr7"/>
                         <segue destination="fjk-at-MAv" kind="show" identifier="toSettings" id="B3n-CS-310"/>
+                        <segue destination="7Zi-GC-D3q" kind="show" identifier="toCreateItem" id="9UN-kw-nk6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLf-VD-Mva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-407" y="1982"/>
+            <point key="canvasLocation" x="-378" y="1980"/>
+        </scene>
+        <!--New Wish Item-->
+        <scene sceneID="UlR-z5-Zp0">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="7Zi-GC-D3q" customClass="CreateWishListItemViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BUv-nL-cZ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="T0J-EL-ZzI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JuD-L0-UZk">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Wish Item" id="3ci-Ar-3Wo">
+                        <barButtonItem key="leftBarButtonItem" image="cancel" id="iIx-pQ-CuR">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="QE8-57-k9B" kind="unwind" identifier="cancel" unwindAction="unwindToMain:" id="Ivl-Qh-7eA"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="save" id="QN8-zE-uJI">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveClicked:" destination="7Zi-GC-D3q" id="9zt-ks-fyh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="QE8-57-k9B" kind="unwind" identifier="saveItem" unwindAction="unwindToMain:" id="kq3-yP-ZgI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YcS-oP-Pr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QE8-57-k9B" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="513" y="1582"/>
         </scene>
         <!--Settings-->
         <scene sceneID="qal-RZ-xQG">
@@ -252,7 +289,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOj-Hy-AmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="nUN-i0-y73" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="468" y="1981"/>
+            <point key="canvasLocation" x="513" y="2296"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="epd-cO-gXc">
@@ -414,6 +451,7 @@
     </scenes>
     <resources>
         <image name="add" width="25" height="25"/>
+        <image name="cancel" width="25" height="25"/>
         <image name="defaultProfile" width="256" height="256"/>
         <image name="delete" width="25" height="25"/>
         <image name="editProfile" width="25" height="25"/>
@@ -422,6 +460,7 @@
         <image name="next" width="25" height="25"/>
         <image name="password" width="25" height="25"/>
         <image name="profileIcon" width="25" height="25"/>
+        <image name="save" width="25" height="25"/>
         <image name="settings" width="25" height="25"/>
     </resources>
 </document>

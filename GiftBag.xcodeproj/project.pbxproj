@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		011DF4251F2AEF2F00240278 /* WishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4241F2AEF2F00240278 /* WishItem.swift */; };
 		011DF4271F2B758D00240278 /* WishService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4261F2B758D00240278 /* WishService.swift */; };
+		011DF4291F2B897A00240278 /* CreateWishListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */; };
 		0153AEA51F2ACA27005408E9 /* SCLAlertView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153AEA41F2ACA27005408E9 /* SCLAlertView+Utility.swift */; };
 		0153AEA71F2ACFED005408E9 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153AEA61F2ACFED005408E9 /* FirebaseService.swift */; };
 		0196053C1F2A209C00BFEFDB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0196053B1F2A209C00BFEFDB /* Profile.storyboard */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		011DF4241F2AEF2F00240278 /* WishItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishItem.swift; path = Models/WishItem.swift; sourceTree = "<group>"; };
 		011DF4261F2B758D00240278 /* WishService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishService.swift; path = Services/WishService.swift; sourceTree = "<group>"; };
+		011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateWishListItemViewController.swift; path = Controllers/CreateWishListItemViewController.swift; sourceTree = "<group>"; };
 		0153AEA41F2ACA27005408E9 /* SCLAlertView+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SCLAlertView+Utility.swift"; path = "Extensions/SCLAlertView+Utility.swift"; sourceTree = "<group>"; };
 		0153AEA61F2ACFED005408E9 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = Services/FirebaseService.swift; sourceTree = "<group>"; };
 		0196053B1F2A209C00BFEFDB /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = Storyboards/Profile.storyboard; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		01F3C4811F291FB1007B4AD2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */,
 				0196053F1F2A2A9400BFEFDB /* EditProfileViewController.swift */,
 				019605411F2A6AFB00BFEFDB /* ProfileNavigationController.swift */,
 				019A25B31F292EB200491721 /* SettingsViewController.swift */,
@@ -330,6 +333,7 @@
 				0196053E1F2A248900BFEFDB /* UIImageView+Utility.swift in Sources */,
 				01F3C47A1F291F94007B4AD2 /* LoginViewController.swift in Sources */,
 				01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */,
+				011DF4291F2B897A00240278 /* CreateWishListItemViewController.swift in Sources */,
 				011DF4251F2AEF2F00240278 /* WishItem.swift in Sources */,
 				01F3C4781F291F94007B4AD2 /* ViewController+Utility.swift in Sources */,
 				01F3C47D1F291F94007B4AD2 /* CreateUserViewController.swift in Sources */,
