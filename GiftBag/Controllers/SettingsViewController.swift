@@ -60,19 +60,7 @@ extension SettingsViewController {
                     case .editProfile:
                         performSegue(withIdentifier: "toEditProfile", sender: self)
                     case .resetPassword:
-                        guard let auth = Auth.auth().currentUser,
-                            let email = auth.email else {
-                                SCLAlertView().genericError()
-                                return
-                        }
-                        AuthService.passwordReset(email: email, success: { (success) in
-                            if success {
-                                SCLAlertView().showSuccess("Success!", subTitle: "Email sent.")
-                            }
-                            else {
-                                SCLAlertView().genericError()
-                            }
-                        })
+                        AuthService.presentPasswordReset(controller: self)
                     case .logOut:
                         AuthService.presentLogOut(viewController: self)
                     case .deleteAccount:

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import SCLAlertView
 
 struct AuthService {
     
@@ -31,6 +32,33 @@ struct AuthService {
             
             return completion(Auth.auth().currentUser)
         }
+    }
+    
+    static func presentPasswordReset(controller : UIViewController){
+        let alertController = UIAlertController(title: "Are you sure you want to reset your password?", message: nil, preferredStyle: .actionSheet)
+        
+        let signOutAction = UIAlertAction(title: "Send Email", style: .default) { _ in
+            guard let auth = Auth.auth().currentUser,
+                let email = auth.email else {
+                    SCLAlertView().genericError()
+                    return
+            }
+            AuthService.passwordReset(email: email, success: { (success) in
+                if success {
+                    SCLAlertView().showSuccess("Success!", subTitle: "Email sent.")
+                }
+                else {
+                    SCLAlertView().genericError()
+                }
+            })
+        }
+        
+        alertController.addAction(signOutAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        controller.present(alertController, animated: true)
     }
     
     // Allows you to reset password for an email
