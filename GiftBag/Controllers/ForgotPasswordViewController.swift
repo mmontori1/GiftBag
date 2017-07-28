@@ -31,7 +31,7 @@ class ForgotPasswordViewController: UIViewController {
                 SCLAlertView().showSuccess("Success!", subTitle: "Email sent.")
             }
             else {
-                SCLAlertView().showError("Oops!", subTitle: "Something went wrong.")
+                SCLAlertView().genericError()
             }
         })
     }

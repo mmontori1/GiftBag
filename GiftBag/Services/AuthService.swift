@@ -41,8 +41,8 @@ struct AuthService {
                 print("error: \(error.localizedDescription)")
                 return success(false)
             }
+            return success(true)
         }
-        success(true)
     }
     
     /*

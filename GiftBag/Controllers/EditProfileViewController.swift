@@ -39,14 +39,15 @@ class EditProfileViewController: UIViewController {
         }
         
         UserService.edit(username: username, firstName: firstName, lastName: lastName) { (user) in
-            defer {
-                SCLAlertView().showSuccess("Success!", subTitle: "Your changes have been saved.")
+
+            guard let user = user else {
+                SCLAlertView().genericError()
+                return
             }
             
-            guard let user = user
-                else { return }
-            
             User.setCurrent(user, writeToUserDefaults: true)
+            SCLAlertView().showSuccess("Success!", subTitle: "Your changes have been saved.")
+
         }
     }
 }

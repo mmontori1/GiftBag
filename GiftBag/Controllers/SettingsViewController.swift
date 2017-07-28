@@ -62,7 +62,7 @@ extension SettingsViewController {
                     case .resetPassword:
                         guard let auth = Auth.auth().currentUser,
                             let email = auth.email else {
-                                SCLAlertView().showError("Oops!", subTitle: "Something went wrong.")
+                                SCLAlertView().genericError()
                                 return
                         }
                         AuthService.passwordReset(email: email, success: { (success) in
@@ -70,7 +70,7 @@ extension SettingsViewController {
                                 SCLAlertView().showSuccess("Success!", subTitle: "Email sent.")
                             }
                             else {
-                                SCLAlertView().showError("Oops!", subTitle: "Something went wrong.")
+                                SCLAlertView().genericError()
                             }
                         })
                     case .logOut:
