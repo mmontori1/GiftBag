@@ -76,16 +76,13 @@ struct UserService {
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
                 return completion([])
             }
-            print(snapshot)
             
             let items: [WishItem] =
-                snapshot
-                    .reversed()
-                    .flatMap {
-                        guard let item = WishItem(snapshot: $0)
-                            else { return nil }
-                        return item
-            }
+                snapshot.flatMap {
+                    guard let item = WishItem(snapshot: $0)
+                        else { return nil }
+                    return item
+                }
             
             completion(items)
         })
