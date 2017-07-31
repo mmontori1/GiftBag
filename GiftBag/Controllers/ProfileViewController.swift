@@ -22,7 +22,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UserService.wishlist(for: User.current) { (savedItems) in
+            self.items = savedItems
+            let values = self.items.map {$0.dictValue}
+            print(values)
+        }
         nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         usernameLabel.text = User.current.username
     }
@@ -42,7 +46,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func addItemClicked(_ sender: UIBarButtonItem) {
+    @IBAction func addItemClicked(_ sender: Any) {
         performSegue(withIdentifier: "toCreateItem", sender: self)
     }
     

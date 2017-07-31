@@ -88,48 +88,67 @@
                         <outlet property="nameLabel" destination="qwu-dC-urs" id="Dbi-f1-m8u"/>
                         <outlet property="usernameLabel" destination="NOq-1z-2vY" id="QeI-Xn-fr7"/>
                         <segue destination="fjk-at-MAv" kind="show" identifier="toSettings" id="B3n-CS-310"/>
-                        <segue destination="7Zi-GC-D3q" kind="show" identifier="toCreateItem" id="9UN-kw-nk6"/>
+                        <segue destination="7Zi-GC-D3q" kind="showDetail" identifier="toCreateItem" id="9UN-kw-nk6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLf-VD-Mva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-378" y="1980"/>
         </scene>
-        <!--New Wish Item-->
+        <!--Create Wish List Item View Controller-->
         <scene sceneID="UlR-z5-Zp0">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="7Zi-GC-D3q" customClass="CreateWishListItemViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateWishListItemViewController" hidesBottomBarWhenPushed="YES" id="7Zi-GC-D3q" customClass="CreateWishListItemViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BUv-nL-cZ4"/>
                         <viewControllerLayoutGuide type="bottom" id="T0J-EL-ZzI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JuD-L0-UZk">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qnm-8r-woB">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBF-as-1C9">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
+                                        <color key="backgroundColor" red="1" green="0.59117088999810719" blue="0.53974517669449362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="cancel"/>
+                                        <connections>
+                                            <segue destination="QE8-57-k9B" kind="unwind" identifier="cancel" unwindAction="unwindToMain:" id="a18-un-ip1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGH-oQ-2vX">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="60"/>
+                                        <color key="backgroundColor" red="0.62806229138805836" green="1" blue="0.55431152206084588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="save"/>
+                                        <connections>
+                                            <action selector="saveClicked:" destination="7Zi-GC-D3q" eventType="touchUpInside" id="soZ-gV-7Hi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dBF-as-1C9" firstAttribute="width" secondItem="oGH-oQ-2vX" secondAttribute="width" id="EFR-e2-red"/>
+                                    <constraint firstAttribute="height" constant="60" id="Yv1-Xk-CDT"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T0J-EL-ZzI" firstAttribute="top" secondItem="Qnm-8r-woB" secondAttribute="bottom" id="6tk-tk-Uw1"/>
+                            <constraint firstAttribute="trailing" secondItem="Qnm-8r-woB" secondAttribute="trailing" id="ATa-WQ-Axr"/>
+                            <constraint firstItem="Qnm-8r-woB" firstAttribute="leading" secondItem="JuD-L0-UZk" secondAttribute="leading" id="cyn-l7-osj"/>
+                            <constraint firstItem="Qnm-8r-woB" firstAttribute="width" secondItem="JuD-L0-UZk" secondAttribute="width" id="fNH-c8-Se9"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Wish Item" id="3ci-Ar-3Wo">
-                        <barButtonItem key="leftBarButtonItem" image="cancel" id="iIx-pQ-CuR">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="QE8-57-k9B" kind="unwind" identifier="cancel" unwindAction="unwindToMain:" id="Ivl-Qh-7eA"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="save" id="QN8-zE-uJI">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="saveClicked:" destination="7Zi-GC-D3q" id="9zt-ks-fyh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
-                        <segue destination="QE8-57-k9B" kind="unwind" identifier="saveItem" unwindAction="unwindToMain:" id="kq3-yP-ZgI"/>
+                        <segue destination="QE8-57-k9B" kind="unwind" identifier="saveItem" unwindAction="unwindToMain:" id="tLY-fj-Xdv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcS-oP-Pr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QE8-57-k9B" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="513" y="1582"/>
+            <point key="canvasLocation" x="512.79999999999995" y="1581.8590704647677"/>
         </scene>
         <!--Settings-->
         <scene sceneID="qal-RZ-xQG">

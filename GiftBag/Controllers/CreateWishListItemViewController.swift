@@ -21,7 +21,7 @@ class CreateWishListItemViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func saveClicked(_ sender: UIBarButtonItem) {
+    @IBAction func saveClicked(_ sender: Any) {
         if let newItem = newItem  {
             WishService.create(data: newItem) { (item) in
                 self.newItem = item
@@ -34,20 +34,6 @@ class CreateWishListItemViewController: UIViewController {
         performSegue(withIdentifier: "saveItem", sender: self)
         print("performed segue!")
     }
-    
-    /*
-     guard let newItem = newItem else {
-        print("no new item!!!")
-        return
-     }
-    WishService.create(data: newItem) { (item) in
-        guard let item = item else {
-            print("no item!!!")
-            return
-        }
-        print(item.dictValue)
-     }
-     */
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {

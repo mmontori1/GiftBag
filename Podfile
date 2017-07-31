@@ -11,5 +11,6 @@ target 'GiftBag' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'SCLAlertView'
-  
+#  pod 'ElasticTransition', :git => 'https://github.com/lkzhao/ElasticTransition', :commit => 'd19598131eecd90865f42e669550429b44b0814c'
+
 end

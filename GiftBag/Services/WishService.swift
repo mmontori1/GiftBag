@@ -21,4 +21,18 @@ struct WishService {
             completion(item)
         }
     }
+    
+    /*
+    static func show(forKey postKey: String, posterUID: String, completion: @escaping (WishItem?) -> Void) {
+        let ref = Database.database().reference().child("wishItems").child(posterUID).child(postKey)
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let item = WishItem(snapshot: snapshot) else {
+                return completion(nil)
+            }
+            
+            completion(item)
+        })
+    }
+    */
 }

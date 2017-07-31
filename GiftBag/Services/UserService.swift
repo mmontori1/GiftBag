@@ -68,6 +68,27 @@ struct UserService {
             }
             return success(true)
         }
-        
     }
+    
+    static func wishlist(for user: User, completion: @escaping ([WishItem]) -> Void) {
+        let ref = Database.database().reference().child("wishItems").child(user.uid)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion([])
+            }
+            print(snapshot)
+            
+            let items: [WishItem] =
+                snapshot
+                    .reversed()
+                    .flatMap {
+                        guard let item = WishItem(snapshot: $0)
+                            else { return nil }
+                        return item
+            }
+            
+            completion(items)
+        })
+    }
+
 }
