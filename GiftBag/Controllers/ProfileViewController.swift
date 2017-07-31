@@ -17,7 +17,6 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
@@ -27,7 +26,6 @@ class ProfileViewController: UIViewController {
             let values = self.items.map {$0.dictValue}
             print(values)
         }
-        nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         usernameLabel.text = User.current.username
     }
 
@@ -55,7 +53,6 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func unwindToMain(_ segue: UIStoryboardSegue) {
-        nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         usernameLabel.text = User.current.username
         if let identifier = segue.identifier {
             if identifier == "saveItem" {
