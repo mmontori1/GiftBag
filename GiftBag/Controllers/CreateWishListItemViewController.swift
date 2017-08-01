@@ -34,9 +34,12 @@ class CreateWishListItemViewController: UIViewController {
         }
         
         var price : Double? = nil
-        if let priceText = priceTextField.text {
+        if let priceText = priceTextField.text,
+            priceText != "" {
             guard let value = Double(priceText) else {
                 SCLAlertView().showError("Invalid Price value", subTitle: "Fill with a correct double value")
+                view.endEditing(true)
+                priceTextField.text = nil
                 return
             }
             price = value

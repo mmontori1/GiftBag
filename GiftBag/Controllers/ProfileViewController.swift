@@ -14,19 +14,25 @@ class ProfileViewController: UIViewController {
     var items = [WishItem]() {
         didSet {
             items.sort(by: { $0.timestamp.compare($1.timestamp as Date) == .orderedDescending })
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
+    let refreshControl = UIRefreshControl()
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var usernameLabel: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        configureAppear()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserService.wishlist(for: User.current) { (savedItems) in
-            self.items = savedItems
-            let values = self.items.map {$0.dictValue}
-            print(values)
-        }
-        usernameLabel.text = User.current.username
+        configureView()
+        reloadWishlist()
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,5 +72,64 @@ class ProfileViewController: UIViewController {
             }
         }
         print("Returned to Main Screen!")
+    }
+}
+
+extension ProfileViewController {
+    func configureAppear(){
+        refreshControl.addTarget(self, action: #selector(reloadWishlist), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
+        collectionView.alwaysBounceVertical = true
+    }
+    
+    func configureView(){
+        usernameLabel.text = User.current.username
+    }
+    
+    func reloadWishlist() {
+        UserService.wishlist(for: User.current) { (savedItems) in
+            self.items = savedItems
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
+}
+
+extension ProfileViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("number of cells: \(items.count)")
+        return items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WishItemCell", for: indexPath) as! WishItemCell
+ 
+        let item = items[indexPath.row]
+        cell.nameTextField.text = item.name
+        cell.backgroundColor = UIColor.lightGray
+ 
+        return cell
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let columns: CGFloat = 2
+        let spacing: CGFloat = 1.5
+        let totalHorizontalSpacing = (columns - 1) * spacing
+        
+        let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
+        let itemSize = CGSize(width: itemWidth, height: itemWidth)
+        
+        return itemSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.5
     }
 }
