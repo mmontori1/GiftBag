@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     
     var items = [WishItem]() {
         didSet {
+            itemCountLabel.text = String(items.count)
             items.sort(by: { $0.timestamp.compare($1.timestamp as Date) == .orderedDescending })
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -22,7 +23,9 @@ class ProfileViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var itemCountLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -83,7 +86,9 @@ extension ProfileViewController {
     }
     
     func configureView(){
+        nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         usernameLabel.text = User.current.username
+        itemCountLabel.text = String(items.count)
     }
     
     func reloadWishlist() {

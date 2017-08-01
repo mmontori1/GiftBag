@@ -23,25 +23,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRA-cJ-065">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRo-3G-u3B">
-                                        <rect key="frame" x="20" y="20" width="335" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u8D-sy-9Yg">
+                                        <rect key="frame" x="172" y="88" width="31" height="38.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hn8-oA-dMo">
+                                                <rect key="frame" x="0.0" y="0.0" width="31" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dw3-mY-xcD">
+                                                <rect key="frame" x="0.0" y="24" width="31" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X6J-ow-xD3">
+                                        <rect key="frame" x="152" y="20" width="70.5" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGh-NM-PcK">
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRo-3G-u3B">
+                                                <rect key="frame" x="0.0" y="30" width="70.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="vRo-3G-u3B" firstAttribute="top" secondItem="lRA-cJ-065" secondAttribute="top" constant="20" id="CFv-Fx-OZ0"/>
-                                    <constraint firstAttribute="height" constant="70" id="YJa-0H-txY"/>
-                                    <constraint firstItem="vRo-3G-u3B" firstAttribute="leading" secondItem="lRA-cJ-065" secondAttribute="leading" constant="20" id="YmT-6t-VfH"/>
-                                    <constraint firstAttribute="trailing" secondItem="vRo-3G-u3B" secondAttribute="trailing" constant="20" id="fnO-eg-ucn"/>
+                                    <constraint firstItem="u8D-sy-9Yg" firstAttribute="top" secondItem="X6J-ow-xD3" secondAttribute="bottom" constant="20" id="R9Q-25-eYq"/>
+                                    <constraint firstItem="u8D-sy-9Yg" firstAttribute="centerX" secondItem="lRA-cJ-065" secondAttribute="centerX" id="S5b-BQ-a80"/>
+                                    <constraint firstAttribute="height" constant="150" id="YJa-0H-txY"/>
+                                    <constraint firstItem="X6J-ow-xD3" firstAttribute="top" secondItem="lRA-cJ-065" secondAttribute="top" constant="20" id="iag-jJ-XF6"/>
+                                    <constraint firstItem="X6J-ow-xD3" firstAttribute="centerX" secondItem="lRA-cJ-065" secondAttribute="centerX" id="y0c-u5-xZV"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QRN-Pt-7ow">
-                                <rect key="frame" x="0.0" y="78" width="375" height="476"/>
+                                <rect key="frame" x="0.0" y="150" width="375" height="404"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="x1o-du-juq">
                                     <size key="itemSize" width="129" height="129"/>
@@ -89,7 +118,7 @@
                             <constraint firstAttribute="trailing" secondItem="lRA-cJ-065" secondAttribute="trailing" id="PsZ-Ph-XQV"/>
                             <constraint firstItem="lRA-cJ-065" firstAttribute="top" secondItem="7YS-5m-X6f" secondAttribute="bottom" id="QwK-2c-ikx"/>
                             <constraint firstItem="lRA-cJ-065" firstAttribute="leading" secondItem="m03-uq-8Ar" secondAttribute="leading" id="UgV-6l-Wus"/>
-                            <constraint firstItem="QRN-Pt-7ow" firstAttribute="top" secondItem="lRA-cJ-065" secondAttribute="bottom" constant="8" id="xB8-7H-Nfa"/>
+                            <constraint firstItem="QRN-Pt-7ow" firstAttribute="top" secondItem="lRA-cJ-065" secondAttribute="bottom" id="xB8-7H-Nfa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Comet" id="NgE-yM-0cn">
@@ -108,6 +137,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="QRN-Pt-7ow" id="oqo-xY-znU"/>
+                        <outlet property="itemCountLabel" destination="hn8-oA-dMo" id="S1q-bp-Cam"/>
+                        <outlet property="nameLabel" destination="oGh-NM-PcK" id="mLk-ks-IDR"/>
                         <outlet property="usernameLabel" destination="vRo-3G-u3B" id="lKY-2F-dUg"/>
                         <segue destination="PJF-CG-zw1" kind="show" identifier="toSettings" id="B3n-CS-310"/>
                         <segue destination="7Zi-GC-D3q" kind="showDetail" identifier="toCreateItem" id="9UN-kw-nk6"/>
@@ -129,7 +160,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a New Wish Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irf-AY-5ed">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Wish Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irf-AY-5ed">
                                 <rect key="frame" x="36" y="40" width="303" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
