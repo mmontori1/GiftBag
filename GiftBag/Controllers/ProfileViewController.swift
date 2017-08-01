@@ -80,12 +80,13 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController {
     func configureAppear(){
-        refreshControl.addTarget(self, action: #selector(reloadWishlist), for: .valueChanged)
-        collectionView.addSubview(refreshControl)
-        collectionView.alwaysBounceVertical = true
+        self.refreshControl.endRefreshing()
     }
     
     func configureView(){
+        refreshControl.addTarget(self, action: #selector(reloadWishlist), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
+        collectionView.alwaysBounceVertical = true
         nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         usernameLabel.text = User.current.username
         itemCountLabel.text = String(items.count)
@@ -112,7 +113,6 @@ extension ProfileViewController: UICollectionViewDataSource {
  
         let item = items[indexPath.row]
         cell.nameTextField.text = item.name
-        cell.backgroundColor = UIColor.lightGray
  
         return cell
     }
@@ -125,7 +125,8 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         let totalHorizontalSpacing = (columns - 1) * spacing
         
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
-        let itemSize = CGSize(width: itemWidth, height: itemWidth)
+        let itemHeight : CGFloat = 144 * itemWidth / 130
+        let itemSize = CGSize(width: itemWidth, height: itemHeight)
         
         return itemSize
     }
