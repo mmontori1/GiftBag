@@ -9,9 +9,9 @@
 import UIKit
 import SCLAlertView
 import Kingfisher
+import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
-    
     var items = [WishItem]() {
         didSet {
             itemCountLabel.text = String(items.count)
@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController {
         }
     }
     let refreshControl = UIRefreshControl()
+    var profileHandle: DatabaseHandle = 0
+    var profileRef: DatabaseReference?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -36,6 +38,14 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileHandle = UserService.observeProfile(for: User.current) { [unowned self] (ref, user) in
+            self.profileRef = ref
+            if let user = user,
+               let url = user.profileURL {
+                let imageURL = URL(string: url)
+                self.profileImage.kf.setImage(with: imageURL)
+            }
+        }
         configureView()
         reloadWishlist()
     }
@@ -53,6 +63,10 @@ class ProfileViewController: UIViewController {
                 print("To Create Item")
             }
         }
+    }
+    
+    deinit {
+        profileRef?.removeObserver(withHandle: profileHandle)
     }
     
     @IBAction func addItemClicked(_ sender: Any) {
@@ -88,10 +102,6 @@ extension ProfileViewController {
             self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0),
                                               at: .top,
                                               animated: true)
-        }
-        if let url = User.current.profileURL {
-            let imageURL = URL(string: url)
-            profileImage.kf.setImage(with: imageURL)
         }
     }
     

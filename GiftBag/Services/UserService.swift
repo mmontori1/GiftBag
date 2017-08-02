@@ -58,6 +58,16 @@ struct UserService {
         })
     }
     
+    static func observeProfile(for user: User, completion: @escaping (DatabaseReference, User?) -> Void) -> DatabaseHandle {
+        let userRef = Database.database().reference().child("users").child(user.uid)
+        return userRef.observe(.value, with: { snapshot in
+            guard let user = User(snapshot: snapshot) else {
+                return completion(userRef, nil)
+            }
+            completion(userRef, user)
+        })
+    }
+    
     static func deleteUser(forUID uid: String, success: @escaping (Bool) -> Void) {
         let ref = Database.database().reference().child("users")
         let object = [uid : NSNull()]
