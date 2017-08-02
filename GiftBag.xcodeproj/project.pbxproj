@@ -12,6 +12,7 @@
 		011DF4291F2B897A00240278 /* CreateWishListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */; };
 		012E60321F32136A00B4ED0A /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012E60311F32136A00B4ED0A /* PhotoHelper.swift */; };
 		012E60351F321CF100B4ED0A /* UIButton+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012E60341F321CF000B4ED0A /* UIButton+Utility.swift */; };
+		012E60371F32427E00B4ED0A /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012E60361F32427E00B4ED0A /* StorageService.swift */; };
 		0141E8841F30BC1A006CFAE5 /* WishItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141E8831F30BC1A006CFAE5 /* WishItemCell.swift */; };
 		0153AEA51F2ACA27005408E9 /* SCLAlertView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153AEA41F2ACA27005408E9 /* SCLAlertView+Utility.swift */; };
 		0153AEA71F2ACFED005408E9 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153AEA61F2ACFED005408E9 /* FirebaseService.swift */; };
@@ -45,6 +46,7 @@
 		011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateWishListItemViewController.swift; path = Controllers/CreateWishListItemViewController.swift; sourceTree = "<group>"; };
 		012E60311F32136A00B4ED0A /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoHelper.swift; path = Helper/PhotoHelper.swift; sourceTree = "<group>"; };
 		012E60341F321CF000B4ED0A /* UIButton+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Utility.swift"; path = "Extensions/UIButton+Utility.swift"; sourceTree = "<group>"; };
+		012E60361F32427E00B4ED0A /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = Services/StorageService.swift; sourceTree = "<group>"; };
 		0141E8831F30BC1A006CFAE5 /* WishItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishItemCell.swift; path = Views/WishItemCell.swift; sourceTree = "<group>"; };
 		0153AEA41F2ACA27005408E9 /* SCLAlertView+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SCLAlertView+Utility.swift"; path = "Extensions/SCLAlertView+Utility.swift"; sourceTree = "<group>"; };
 		0153AEA61F2ACFED005408E9 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = Services/FirebaseService.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		01F3C47F1F291FA4007B4AD2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				012E60361F32427E00B4ED0A /* StorageService.swift */,
 				011DF4261F2B758D00240278 /* WishService.swift */,
 				0153AEA61F2ACFED005408E9 /* FirebaseService.swift */,
 				01F3C4691F291F94007B4AD2 /* AuthService.swift */,
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				012E60351F321CF100B4ED0A /* UIButton+Utility.swift in Sources */,
+				012E60371F32427E00B4ED0A /* StorageService.swift in Sources */,
 				019605401F2A2A9400BFEFDB /* EditProfileViewController.swift in Sources */,
 				019605421F2A6AFB00BFEFDB /* ProfileNavigationController.swift in Sources */,
 				011DF4271F2B758D00240278 /* WishService.swift in Sources */,

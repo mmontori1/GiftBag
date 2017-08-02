@@ -87,5 +87,21 @@ struct UserService {
             completion(items)
         })
     }
-
+    
+    static func editProfileImage(url: String, completion: @escaping (User?) -> Void) {
+        let userAttrs = ["profileURL": url]
+        
+        let ref = Database.database().reference().child("users").child(User.current.uid)
+        ref.updateChildValues(userAttrs) { (error, ref) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                return completion(nil)
+            }
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                let user = User(snapshot: snapshot)
+                completion(user)
+            })
+        }
+    }
 }

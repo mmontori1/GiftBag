@@ -8,6 +8,8 @@
 
 import UIKit
 import SCLAlertView
+import Kingfisher
+import FirebaseStorage
 
 class EditProfileViewController: UIViewController {
 
@@ -19,15 +21,34 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let url = User.current.profileURL {
+            let imageURL = URL(string: url)
+            profileImageView.kf.setImage(with: imageURL)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         editImageButton.circular()
         photoHelper.completionHandler = { image in
             self.profileImageView.image = image
-            /*
-            create an image in Firebase here! 
-            (upload image in storage -> create model in database)
-            */
+            let ref = Storage.storage().reference().child("images/profile/\(User.current.uid).jpg")
+            StorageService.uploadImage(image, at: ref, completion: { (downloadURL) in
+                guard let downloadURL = downloadURL else {
+                    return
+                }
+                
+                let urlString = downloadURL.absoluteString
+                let imageURL = URL(string: urlString)
+                self.profileImageView.kf.setImage(with: imageURL)
+                UserService.editProfileImage(url: urlString, completion: { (user) in
+                    if let user = user {
+                        User.setCurrent(user, writeToUserDefaults: true)
+                    }
+                })
+            })
         }
         configureView()
     }

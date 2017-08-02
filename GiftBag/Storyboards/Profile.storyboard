@@ -80,6 +80,12 @@
                                     <constraint firstItem="X6J-ow-xD3" firstAttribute="centerX" secondItem="lRA-cJ-065" secondAttribute="centerX" id="y0c-u5-xZV"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="MU6-er-ovn">
+                                <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MU6-er-ovn" secondAttribute="height" multiplier="1:1" id="1Yw-3O-Ebz"/>
+                                </constraints>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QRN-Pt-7ow">
                                 <rect key="frame" x="0.0" y="120" width="375" height="434"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,6 +146,9 @@
                             <constraint firstAttribute="trailing" secondItem="lRA-cJ-065" secondAttribute="trailing" id="PsZ-Ph-XQV"/>
                             <constraint firstItem="lRA-cJ-065" firstAttribute="top" secondItem="7YS-5m-X6f" secondAttribute="bottom" id="QwK-2c-ikx"/>
                             <constraint firstItem="lRA-cJ-065" firstAttribute="leading" secondItem="m03-uq-8Ar" secondAttribute="leading" id="UgV-6l-Wus"/>
+                            <constraint firstItem="MU6-er-ovn" firstAttribute="leading" secondItem="m03-uq-8Ar" secondAttribute="leading" constant="10" id="gop-Cs-FYO"/>
+                            <constraint firstItem="QRN-Pt-7ow" firstAttribute="top" secondItem="MU6-er-ovn" secondAttribute="bottom" constant="60" id="hxW-hb-18W"/>
+                            <constraint firstItem="MU6-er-ovn" firstAttribute="top" secondItem="7YS-5m-X6f" secondAttribute="bottom" constant="10" id="lmf-HM-CVM"/>
                             <constraint firstItem="QRN-Pt-7ow" firstAttribute="top" secondItem="lRA-cJ-065" secondAttribute="bottom" id="xB8-7H-Nfa"/>
                         </constraints>
                     </view>
@@ -161,6 +170,7 @@
                         <outlet property="collectionView" destination="QRN-Pt-7ow" id="oqo-xY-znU"/>
                         <outlet property="itemCountLabel" destination="hn8-oA-dMo" id="S1q-bp-Cam"/>
                         <outlet property="nameLabel" destination="oGh-NM-PcK" id="mLk-ks-IDR"/>
+                        <outlet property="profileImage" destination="MU6-er-ovn" id="6JE-Oe-Vux"/>
                         <outlet property="usernameLabel" destination="vRo-3G-u3B" id="lKY-2F-dUg"/>
                         <segue destination="PJF-CG-zw1" kind="show" identifier="toSettings" id="B3n-CS-310"/>
                         <segue destination="7Zi-GC-D3q" kind="showDetail" identifier="toCreateItem" id="9UN-kw-nk6"/>
@@ -340,6 +350,7 @@
         <image name="add" width="25" height="25"/>
         <image name="cancel" width="25" height="25"/>
         <image name="comet" width="256" height="256"/>
+        <image name="defaultProfile" width="256" height="256"/>
         <image name="profileIcon" width="25" height="25"/>
         <image name="save" width="25" height="25"/>
         <image name="settings" width="25" height="25"/>

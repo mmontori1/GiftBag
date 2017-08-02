@@ -8,6 +8,7 @@
 
 import UIKit
 import SCLAlertView
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     
@@ -23,6 +24,7 @@ class ProfileViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var itemCountLabel: UILabel!
@@ -83,11 +85,13 @@ extension ProfileViewController {
     func configureWillAppear(){
         refreshControl.endRefreshing()
         if items.count > 0 && collectionView.contentOffset.y < 0 {
-            print(collectionView.contentOffset.y)
             self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0),
                                               at: .top,
                                               animated: true)
-            print(collectionView.contentOffset.y)
+        }
+        if let url = User.current.profileURL {
+            let imageURL = URL(string: url)
+            profileImage.kf.setImage(with: imageURL)
         }
     }
     
@@ -95,6 +99,7 @@ extension ProfileViewController {
         refreshControl.addTarget(self, action: #selector(reloadWishlist), for: .valueChanged)
         collectionView.addSubview(refreshControl)
         collectionView.alwaysBounceVertical = true
+        profileImage.circular(width: 1.0, color: UIColor.darkGray.cgColor)
         nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         usernameLabel.text = User.current.username
         itemCountLabel.text = String(items.count)
