@@ -287,17 +287,32 @@
                                     <action selector="saveClicked:" destination="Sh6-9S-ZS9" eventType="touchUpInside" id="ynu-vb-NzU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxQ-fs-FZ5">
+                                <rect key="frame" x="124" y="70" width="128" height="128"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.2030179794520548" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="30"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="editImageClicked:" destination="Sh6-9S-ZS9" eventType="touchUpInside" id="W0E-Nk-wKu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gzr-JA-wjR" firstAttribute="leading" secondItem="QpD-bW-xns" secondAttribute="leadingMargin" id="BZJ-Hz-WFX"/>
                             <constraint firstAttribute="trailing" secondItem="3g9-DV-HtB" secondAttribute="trailing" id="GKH-8f-oua"/>
+                            <constraint firstItem="CxQ-fs-FZ5" firstAttribute="height" secondItem="Vdf-3t-AQk" secondAttribute="height" id="GLB-1t-mHu"/>
                             <constraint firstAttribute="bottom" secondItem="3g9-DV-HtB" secondAttribute="bottom" id="JMg-d6-jDR"/>
+                            <constraint firstItem="CxQ-fs-FZ5" firstAttribute="top" secondItem="Vdf-3t-AQk" secondAttribute="bottom" constant="-128" id="Jd7-Sp-wl9"/>
                             <constraint firstItem="Vdf-3t-AQk" firstAttribute="centerX" secondItem="QpD-bW-xns" secondAttribute="centerX" id="XVN-v5-B53"/>
                             <constraint firstItem="3g9-DV-HtB" firstAttribute="leading" secondItem="QpD-bW-xns" secondAttribute="leading" id="ZXP-ed-8Ke"/>
                             <constraint firstItem="3g9-DV-HtB" firstAttribute="width" secondItem="QpD-bW-xns" secondAttribute="width" id="aYQ-4a-1Lz"/>
                             <constraint firstItem="gzr-JA-wjR" firstAttribute="top" secondItem="Vdf-3t-AQk" secondAttribute="bottom" constant="70" id="gVB-QG-UBg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gzr-JA-wjR" secondAttribute="trailing" id="hKi-sv-JgG"/>
+                            <constraint firstItem="CxQ-fs-FZ5" firstAttribute="leading" secondItem="Vdf-3t-AQk" secondAttribute="leading" id="qW0-UF-Frx"/>
+                            <constraint firstItem="CxQ-fs-FZ5" firstAttribute="width" secondItem="Vdf-3t-AQk" secondAttribute="width" id="wgp-6w-qcu"/>
                             <constraint firstItem="Vdf-3t-AQk" firstAttribute="top" secondItem="zsI-kV-cmP" secondAttribute="bottom" constant="70" id="xJb-eJ-ge1"/>
                         </constraints>
                     </view>
@@ -310,6 +325,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editImageButton" destination="CxQ-fs-FZ5" id="2ZE-eM-1L4"/>
                         <outlet property="firstNameTextField" destination="BkS-uV-lFQ" id="0z0-0i-kpR"/>
                         <outlet property="lastNameTextField" destination="wHA-Qp-FAs" id="gem-hb-UIx"/>
                         <outlet property="profileImageView" destination="Vdf-3t-AQk" id="kNf-D6-er7"/>

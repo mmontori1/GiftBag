@@ -11,13 +11,24 @@ import SCLAlertView
 
 class EditProfileViewController: UIViewController {
 
+    let photoHelper = PhotoHelper()
+    
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var editImageButton: UIButton!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        editImageButton.circular()
+        photoHelper.completionHandler = { image in
+            self.profileImageView.image = image
+            /*
+            create an image in Firebase here! 
+            (upload image in storage -> create model in database)
+            */
+        }
         configureView()
     }
 
@@ -49,6 +60,9 @@ class EditProfileViewController: UIViewController {
             SCLAlertView().showSuccess("Success!", subTitle: "Your changes have been saved.")
 
         }
+    }
+    @IBAction func editImageClicked(_ sender: UIButton) {
+        photoHelper.presentActionSheet(from: self)
     }
 }
 
