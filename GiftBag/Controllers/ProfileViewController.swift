@@ -28,8 +28,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var itemCountLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        configureAppear()
+        super.viewDidAppear(animated)
+        configureWillAppear()
     }
     
     override func viewDidLoad() {
@@ -62,6 +62,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func unwindToMain(_ segue: UIStoryboardSegue) {
+        nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         usernameLabel.text = User.current.username
         if let identifier = segue.identifier {
             if identifier == "saveItem" {
@@ -79,8 +80,15 @@ class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController {
-    func configureAppear(){
-        self.refreshControl.endRefreshing()
+    func configureWillAppear(){
+        refreshControl.endRefreshing()
+        if items.count > 0 && collectionView.contentOffset.y < 0 {
+            print(collectionView.contentOffset.y)
+            self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0),
+                                              at: .top,
+                                              animated: true)
+            print(collectionView.contentOffset.y)
+        }
     }
     
     func configureView(){
