@@ -31,7 +31,6 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        editImageButton.circular()
         photoHelper.completionHandler = { image in
             self.profileImageView.image = image
             let ref = Storage.storage().reference().child("images/profile/\(User.current.uid).jpg")
@@ -92,6 +91,7 @@ extension EditProfileViewController {
         applyKeyboardDismisser()
         
         profileImageView.circular(width: 1.0, color: UIColor.darkGray.cgColor)
+        editImageButton.circular()
         firstNameTextField.text = User.current.firstName
         firstNameTextField.placeholder = "First Name"
         
