@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
         }
     }
     let refreshControl = UIRefreshControl()
+    var selected : Int?
     var profileHandle: DatabaseHandle = 0
     var profileRef: DatabaseReference?
     
@@ -43,7 +44,7 @@ class ProfileViewController: UIViewController {
             if let user = user,
                 let url = user.profileURL {
                 User.setCurrent(user, writeToUserDefaults: true)
-                self.resetLabels()
+                self.setLabels()
                 self.resetProfilePic(url: url)
             }
         }
@@ -61,7 +62,16 @@ class ProfileViewController: UIViewController {
                 print("To Settings Screen!")
             }
             else if identifier == "toCreateItem" {
-                print("To Create Item")
+                print("To Create Item Screen!")
+            }
+            else if identifier == "toSelectedItem" {
+                let wishItemViewController = segue.destination as! WishItemViewController
+                guard let index = selected else {
+                    SCLAlertView().genericError()
+                    return
+                }
+                wishItemViewController.wishItem = items[index]
+                print("To Wish Item Screen!")
             }
         }
     }
@@ -109,7 +119,7 @@ extension ProfileViewController {
         collectionView.addSubview(refreshControl)
         collectionView.alwaysBounceVertical = true
         profileImage.circular(width: 1.0, color: UIColor.darkGray.cgColor)
-        resetLabels()
+        setLabels()
     }
     
     func reloadWishlist() {
@@ -121,7 +131,7 @@ extension ProfileViewController {
         }
     }
     
-    func resetLabels(){
+    func setLabels(){
         nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         usernameLabel.text = User.current.username
         itemCountLabel.text = String(items.count)
@@ -145,6 +155,16 @@ extension ProfileViewController: UICollectionViewDataSource {
         cell.nameTextField.text = item.name
  
         return cell
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView,
+                                 shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        print(items[indexPath.row].dictValue)
+        selected = indexPath.row
+        performSegue(withIdentifier: "toSelectedItem", sender: self)
+        return false
     }
 }
 
