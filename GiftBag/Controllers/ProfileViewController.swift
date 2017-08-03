@@ -79,8 +79,6 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func unwindToMain(_ segue: UIStoryboardSegue) {
-        nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
-        usernameLabel.text = User.current.username
         if let identifier = segue.identifier {
             if identifier == "saveItem" {
                 let createWishListController = segue.source as! CreateWishListItemViewController
