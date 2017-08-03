@@ -188,14 +188,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="Vdf-3t-AQk">
-                                <rect key="frame" x="124" y="70" width="128" height="128"/>
+                                <rect key="frame" x="88" y="25" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="7p7-yT-D3h"/>
+                                    <constraint firstAttribute="width" constant="200" id="7p7-yT-D3h"/>
                                     <constraint firstAttribute="width" secondItem="Vdf-3t-AQk" secondAttribute="height" multiplier="1:1" id="dP1-5a-B99"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzr-JA-wjR">
-                                <rect key="frame" x="16" y="268" width="343" height="140"/>
+                                <rect key="frame" x="16" y="295" width="343" height="140"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="iHu-Gx-86M">
                                         <rect key="frame" x="10" y="10" width="323" height="120"/>
@@ -288,7 +288,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxQ-fs-FZ5">
-                                <rect key="frame" x="124" y="70" width="128" height="128"/>
+                                <rect key="frame" x="88" y="25" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.2030179794520548" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="30"/>
                                 <state key="normal" title="+">
@@ -305,7 +305,7 @@
                             <constraint firstAttribute="trailing" secondItem="3g9-DV-HtB" secondAttribute="trailing" id="GKH-8f-oua"/>
                             <constraint firstItem="CxQ-fs-FZ5" firstAttribute="height" secondItem="Vdf-3t-AQk" secondAttribute="height" id="GLB-1t-mHu"/>
                             <constraint firstAttribute="bottom" secondItem="3g9-DV-HtB" secondAttribute="bottom" id="JMg-d6-jDR"/>
-                            <constraint firstItem="CxQ-fs-FZ5" firstAttribute="top" secondItem="Vdf-3t-AQk" secondAttribute="bottom" constant="-128" id="Jd7-Sp-wl9"/>
+                            <constraint firstItem="CxQ-fs-FZ5" firstAttribute="top" secondItem="Vdf-3t-AQk" secondAttribute="top" id="Twt-36-ygB"/>
                             <constraint firstItem="Vdf-3t-AQk" firstAttribute="centerX" secondItem="QpD-bW-xns" secondAttribute="centerX" id="XVN-v5-B53"/>
                             <constraint firstItem="3g9-DV-HtB" firstAttribute="leading" secondItem="QpD-bW-xns" secondAttribute="leading" id="ZXP-ed-8Ke"/>
                             <constraint firstItem="3g9-DV-HtB" firstAttribute="width" secondItem="QpD-bW-xns" secondAttribute="width" id="aYQ-4a-1Lz"/>
@@ -313,7 +313,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="gzr-JA-wjR" secondAttribute="trailing" id="hKi-sv-JgG"/>
                             <constraint firstItem="CxQ-fs-FZ5" firstAttribute="leading" secondItem="Vdf-3t-AQk" secondAttribute="leading" id="qW0-UF-Frx"/>
                             <constraint firstItem="CxQ-fs-FZ5" firstAttribute="width" secondItem="Vdf-3t-AQk" secondAttribute="width" id="wgp-6w-qcu"/>
-                            <constraint firstItem="Vdf-3t-AQk" firstAttribute="top" secondItem="zsI-kV-cmP" secondAttribute="bottom" constant="70" id="xJb-eJ-ge1"/>
+                            <constraint firstItem="Vdf-3t-AQk" firstAttribute="top" secondItem="zsI-kV-cmP" secondAttribute="bottom" constant="25" id="xJb-eJ-ge1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="FbT-6Y-hQn">

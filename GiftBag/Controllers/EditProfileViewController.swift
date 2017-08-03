@@ -46,6 +46,7 @@ class EditProfileViewController: UIViewController {
                     if let user = user {
                         User.setCurrent(user, writeToUserDefaults: true)
                     }
+                    SCLAlertView().showSuccess("Success!", subTitle: "Your picture has been updated.")
                 })
             })
         }

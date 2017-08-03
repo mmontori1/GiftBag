@@ -41,9 +41,10 @@ class ProfileViewController: UIViewController {
         profileHandle = UserService.observeProfile(for: User.current) { [unowned self] (ref, user) in
             self.profileRef = ref
             if let user = user,
-               let url = user.profileURL {
-                let imageURL = URL(string: url)
-                self.profileImage.kf.setImage(with: imageURL)
+                let url = user.profileURL {
+                User.setCurrent(user, writeToUserDefaults: true)
+                self.resetLabels()
+                self.resetProfilePic(url: url)
             }
         }
         configureView()
@@ -110,9 +111,7 @@ extension ProfileViewController {
         collectionView.addSubview(refreshControl)
         collectionView.alwaysBounceVertical = true
         profileImage.circular(width: 1.0, color: UIColor.darkGray.cgColor)
-        nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
-        usernameLabel.text = User.current.username
-        itemCountLabel.text = String(items.count)
+        resetLabels()
     }
     
     func reloadWishlist() {
@@ -122,6 +121,17 @@ extension ProfileViewController {
                 self.refreshControl.endRefreshing()
             }
         }
+    }
+    
+    func resetLabels(){
+        nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
+        usernameLabel.text = User.current.username
+        itemCountLabel.text = String(items.count)
+    }
+    
+    func resetProfilePic(url : String){
+        let imageURL = URL(string: url)
+        self.profileImage.kf.setImage(with: imageURL)
     }
 }
 
