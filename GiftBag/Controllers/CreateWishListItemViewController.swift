@@ -33,7 +33,14 @@ class CreateWishListItemViewController: UIViewController {
                 return
         }
         
+        var linkURL : String? = nil
         var price : Double? = nil
+        
+        if let siteText = siteTextField.text,
+            siteText != "" {
+            linkURL = siteText
+        }
+        
         if let priceText = priceTextField.text,
             priceText != "" {
             guard let value = Double(priceText) else {
@@ -45,7 +52,7 @@ class CreateWishListItemViewController: UIViewController {
             price = value
         }
         
-        newItem = WishItem(name: name, price: price, linkURL: siteTextField.text, imageURL: nil)
+        newItem = WishItem(name: name, price: price, linkURL: linkURL, imageURL: nil)
         if let newItem = newItem  {
             WishService.create(data: newItem) { (item) in
                 self.newItem = item
