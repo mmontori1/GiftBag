@@ -15,7 +15,7 @@ class User : NSObject {
     let firstName : String
     let lastName : String
     let username : String
-    let profileURL : String?
+    var profileURL : String?
     var dictValue: [String : Any] {
         return ["firstName" : firstName,
                 "lastName" : lastName,
@@ -30,6 +30,11 @@ class User : NSObject {
         self.username = username
         self.profileURL = nil
         super.init()
+    }
+    
+    convenience init(uid: String, username: String, firstName: String, lastName: String, profileURL: String?){
+        self.init(uid: uid, username: username, firstName: firstName, lastName: lastName)
+        self.profileURL = profileURL
     }
     
     //User init using Firebase snapshots

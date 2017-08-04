@@ -14,6 +14,7 @@ import FirebaseStorage
 class EditProfileViewController: UIViewController {
 
     let photoHelper = PhotoHelper()
+    var isPhotoChanged = false
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var editImageButton: UIButton!
@@ -33,22 +34,7 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
         photoHelper.completionHandler = { image in
             self.profileImageView.image = image
-            let ref = Storage.storage().reference().child("images/profile/\(User.current.uid).jpg")
-            StorageService.uploadImage(image, at: ref, completion: { (downloadURL) in
-                guard let downloadURL = downloadURL else {
-                    return
-                }
-                
-                let urlString = downloadURL.absoluteString
-                let imageURL = URL(string: urlString)
-                self.profileImageView.kf.setImage(with: imageURL)
-                UserService.editProfileImage(url: urlString, completion: { (user) in
-                    if let user = user {
-                        User.setCurrent(user, writeToUserDefaults: true)
-                    }
-                    SCLAlertView().showSuccess("Success!", subTitle: "Your picture has been updated.")
-                })
-            })
+            self.isPhotoChanged = true
         }
         configureView()
     }
@@ -65,21 +51,57 @@ class EditProfileViewController: UIViewController {
         
         if username == User.current.username &&
             firstName == User.current.firstName &&
-            lastName == User.current.lastName {
+            lastName == User.current.lastName &&
+            !isPhotoChanged {
             SCLAlertView().showWarning("No changes made.", subTitle: "Make changes to your profile first.")
             return
         }
         
+        let dispatcher = DispatchGroup()
+        var changedUser : User? = nil
+        var newUsername : String = User.current.username
+        var newFirstName : String = User.current.firstName
+        var newLastName : String = User.current.lastName
+        var newProfileURL : String? = nil
+        if isPhotoChanged {
+            guard let image = profileImageView.image else {
+                return
+            }
+            let ref = Storage.storage().reference().child("images/profile/\(User.current.uid).jpg")
+            dispatcher.enter()
+            StorageService.uploadImage(image, at: ref, completion: { (downloadURL) in
+                guard let downloadURL = downloadURL else {
+                    return
+                }
+                
+                let urlString = downloadURL.absoluteString
+                let imageURL = URL(string: urlString)
+                self.profileImageView.kf.setImage(with: imageURL)
+                UserService.editProfileImage(url: urlString, completion: { (user) in
+                    newProfileURL = urlString
+                    dispatcher.leave()
+                })
+            })
+        }
+        
+        dispatcher.enter()
         UserService.edit(username: username, firstName: firstName, lastName: lastName) { (user) in
-
             guard let user = user else {
                 SCLAlertView().genericError()
                 return
             }
-            
-            User.setCurrent(user, writeToUserDefaults: true)
-            SCLAlertView().showSuccess("Success!", subTitle: "Your changes have been saved.")
-
+            newUsername = user.username
+            newFirstName = user.firstName
+            newLastName = user.lastName
+            dispatcher.leave()
+        }
+        
+        dispatcher.notify(queue: .main) {
+            changedUser = User(uid: User.current.uid, username: newUsername, firstName: newFirstName, lastName: newLastName, profileURL: newProfileURL)
+            if let user = changedUser {
+                User.setCurrent(user, writeToUserDefaults: true)
+                SCLAlertView().showSuccess("Success!", subTitle: "Your changes have been saved.")
+            }
         }
     }
     @IBAction func editImageClicked(_ sender: UIButton) {
