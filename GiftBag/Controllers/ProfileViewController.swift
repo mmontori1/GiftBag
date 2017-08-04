@@ -118,7 +118,7 @@ extension ProfileViewController {
         refreshControl.addTarget(self, action: #selector(reloadWishlist), for: .valueChanged)
         collectionView.addSubview(refreshControl)
         collectionView.alwaysBounceVertical = true
-        profileImage.circular(width: 1.0, color: UIColor.darkGray.cgColor)
+        profileImage.circular(width: 1.0, color: UIColor.lightGray.cgColor)
         setLabels()
     }
     
