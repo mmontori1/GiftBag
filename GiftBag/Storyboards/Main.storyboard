@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25j-ii-uaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="1173"/>
+            <point key="canvasLocation" x="430" y="1349"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jdp-qi-f8R">
@@ -63,7 +63,30 @@
                     <view key="view" contentMode="scaleToFill" id="ngZ-l1-Qkq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search a username" translatesAutoresizingMaskIntoConstraints="NO" id="brV-ZC-8On">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wIf-ik-8eA">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xx7-u0-i4N" firstAttribute="top" secondItem="wIf-ik-8eA" secondAttribute="bottom" id="LFV-kC-O6B"/>
+                            <constraint firstItem="wIf-ik-8eA" firstAttribute="leading" secondItem="ngZ-l1-Qkq" secondAttribute="leading" id="SYW-LC-eEo"/>
+                            <constraint firstItem="brV-ZC-8On" firstAttribute="top" secondItem="QXD-AF-9tt" secondAttribute="bottom" id="Xue-n4-fq6"/>
+                            <constraint firstAttribute="trailing" secondItem="brV-ZC-8On" secondAttribute="trailing" id="YgA-f9-wdU"/>
+                            <constraint firstAttribute="trailing" secondItem="wIf-ik-8eA" secondAttribute="trailing" id="fAY-nP-5Gv"/>
+                            <constraint firstItem="brV-ZC-8On" firstAttribute="leading" secondItem="ngZ-l1-Qkq" secondAttribute="leading" id="gWM-y9-6cj"/>
+                            <constraint firstItem="wIf-ik-8eA" firstAttribute="top" secondItem="brV-ZC-8On" secondAttribute="bottom" id="yWH-XL-1sk"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="searchFriend" id="lFU-WL-V34">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
@@ -71,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Gm-Im-8Ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1406" y="1173"/>
+            <point key="canvasLocation" x="1384.8" y="1348.8755622188908"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wJm-Gt-gph">

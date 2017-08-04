@@ -238,8 +238,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lme-E2-jFW">
+                                                <rect key="frame" x="58" y="0.0" width="11" height="30.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4o-7m-VPH">
-                                                <rect key="frame" x="58" y="0.0" width="245" height="30.5"/>
+                                                <rect key="frame" x="79" y="0.0" width="224" height="30.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
@@ -337,13 +343,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-QM-KsA">
-                                <rect key="frame" x="59.5" y="20" width="256" height="384"/>
+                                <rect key="frame" x="15.5" y="20" width="344" height="384"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2AH-Sx-Z5Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke9-q9-L5W">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="NFF-Yx-dcD"/>
                                                 </constraints>
@@ -352,7 +358,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4j-iS-uMf">
-                                                <rect key="frame" x="85" y="0.0" width="171" height="128"/>
+                                                <rect key="frame" x="85" y="0.0" width="259" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -362,10 +368,11 @@
                                             <constraint firstAttribute="bottom" secondItem="i4j-iS-uMf" secondAttribute="bottom" id="6mU-Gd-rdu"/>
                                             <constraint firstItem="i4j-iS-uMf" firstAttribute="top" secondItem="2AH-Sx-Z5Q" secondAttribute="top" id="MDu-wD-C17"/>
                                             <constraint firstAttribute="trailing" secondItem="i4j-iS-uMf" secondAttribute="trailing" id="TQ1-zx-Xry"/>
+                                            <constraint firstAttribute="height" constant="40" id="vvd-BH-xGd"/>
                                         </constraints>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="JPl-1d-gGa">
-                                        <rect key="frame" x="0.0" y="128" width="256" height="256"/>
+                                        <rect key="frame" x="0.0" y="40" width="344" height="344"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JPl-1d-gGa" secondAttribute="height" multiplier="1:1" id="xLv-KX-R6p"/>
                                         </constraints>
