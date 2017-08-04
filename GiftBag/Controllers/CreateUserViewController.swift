@@ -48,22 +48,30 @@ class CreateUserViewController: UIViewController {
                 print("Required fields are not all filled!")
                 return
             }
-        
+        signUpButton.isEnabled = false
         AuthService.createUser(controller: self, email: email, password: password) { (authUser) in
-            guard let firUser = authUser else {
-                return
-            }
-            
-            UserService.create(firUser, username: username, firstName: firstName, lastName: lastName) { (user) in
-                guard let user = user else {
+            UserService.checkForUniqueUsername(for: username) { (success) in
+                guard let firUser = authUser else {
+                    self.signUpButton.isEnabled = true
                     return
                 }
+                if success {
+                    UserService.create(firUser, username: username, firstName: firstName, lastName: lastName) { (user) in
+                        guard let user = user else {
+                            return
+                        }
                 
-                User.setCurrent(user, writeToUserDefaults: true)
+                        User.setCurrent(user, writeToUserDefaults: true)
                 
-                let initialViewController = UIStoryboard.initialViewController(for: .main)
-                self.view.window?.rootViewController = initialViewController
-                self.view.window?.makeKeyAndVisible()
+                        let initialViewController = UIStoryboard.initialViewController(for: .main)
+                        self.view.window?.rootViewController = initialViewController
+                        self.view.window?.makeKeyAndVisible()
+                    }
+                }
+                else {
+                    AuthService.deleteAccount(user: firUser)
+                }
+                self.signUpButton.isEnabled = true
             }
         }
     }

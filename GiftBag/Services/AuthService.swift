@@ -104,7 +104,7 @@ struct AuthService {
     }
     
     static func deleteAccount(user : FIRUser){
-        UserService.deleteUser(forUID: User.current.uid, success: { (success) in
+        UserService.deleteUser(for: User.current, success: { (success) in
             if success {
                 logUserOut()
                 user.delete { error in

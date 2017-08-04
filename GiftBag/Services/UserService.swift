@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SCLAlertView
 import FirebaseDatabase
 
 struct UserService {
@@ -15,6 +16,7 @@ struct UserService {
                          "lastName": lastName]
         
         let ref = Database.database().reference().child("users").child(firUser.uid)
+        let usernameRef = Database.database().reference().child("usernames")
         ref.setValue(userAttrs) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
@@ -26,6 +28,7 @@ struct UserService {
                 completion(user)
             })
         }
+        usernameRef.setValue([username : true])
     }
     
     static func edit(username: String, firstName: String, lastName: String, completion: @escaping (User?) -> Void) {
@@ -33,17 +36,28 @@ struct UserService {
                          "firstName": firstName,
                          "lastName": lastName]
         
-        let ref = Database.database().reference().child("users").child(User.current.uid)
-        ref.updateChildValues(userAttrs) { (error, ref) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-                return completion(nil)
-            }
+        
+        checkForUniqueUsername(for: username) { (success) in
+            if success {
+                let ref = Database.database().reference().child("users").child(User.current.uid)
+                let usernameRef = Database.database().reference().child("usernames")
+
+                usernameRef.setValue([User.current.username : NSNull()])
             
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                let user = User(snapshot: snapshot)
-                completion(user)
-            })
+                ref.updateChildValues(userAttrs) { (error, ref) in
+                    if let error = error {
+                        assertionFailure(error.localizedDescription)
+                        return completion(nil)
+                    }
+                
+                    ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                        let user = User(snapshot: snapshot)
+                    completion(user)
+                    })
+                }
+        
+                usernameRef.setValue([username : true])
+            }
         }
     }
     
@@ -68,15 +82,18 @@ struct UserService {
         })
     }
     
-    static func deleteUser(forUID uid: String, success: @escaping (Bool) -> Void) {
-        let ref = Database.database().reference().child("users")
-        let object = [uid : NSNull()]
-        ref.updateChildValues(object) { (error, ref) -> Void in
+    static func deleteUser(for user: User, success: @escaping (Bool) -> Void) {
+        let ref = Database.database().reference()
+        var updatedData : [String : Any] = [:]
+        updatedData["users/\(user.uid)"] = NSNull()
+        updatedData["usernames/\(user.username)"] = NSNull()
+        updatedData["wishItems/\(user.uid)"] = NSNull()
+        ref.updateChildValues(updatedData) { (error, ref) -> Void in
             if let error = error {
                 print("error : \(error.localizedDescription)")
                 return success(false)
             }
-            return success(true)
+            success(true)
         }
     }
     
@@ -113,5 +130,17 @@ struct UserService {
                 completion(user)
             })
         }
+    }
+    
+    static func checkForUniqueUsername(for name: String, success: @escaping (Bool) -> Void) {
+        let usernameRef = Database.database().reference().child("usernames")
+        usernameRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String : Any],
+            let newName = dict[name] as? Bool{
+                SCLAlertView().showError("Pick a unique username", subTitle: "Username \(name) already exists")
+                return success(false)
+            }
+            success(true)
+        })
     }
 }
