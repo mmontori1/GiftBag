@@ -69,14 +69,16 @@ struct UserService {
     }
     
     static func deleteUser(forUID uid: String, success: @escaping (Bool) -> Void) {
-        let ref = Database.database().reference().child("users")
-        let object = [uid : NSNull()]
-        ref.updateChildValues(object) { (error, ref) -> Void in
+        let ref = Database.database().reference()
+        var updatedData : [String : Any] = [:]
+        updatedData["users/\(uid)"] = NSNull()
+        updatedData["wishItems/\(uid)"] = NSNull()
+        ref.updateChildValues(updatedData) { (error, ref) -> Void in
             if let error = error {
                 print("error : \(error.localizedDescription)")
                 return success(false)
             }
-            return success(true)
+            success(true)
         }
     }
     
