@@ -75,7 +75,8 @@ struct UserService {
         })
     }
     
-    static func usersBySearch(text : String, completion: @escaping([User]) -> Void){
+    static func usersBySearch(text input : String, completion: @escaping([User]) -> Void){
+        let text = input.lowercased()
         let currentUser = User.current
         let ref = Database.database().reference().child("users")
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -86,7 +87,14 @@ struct UserService {
             let users: [User] =
                 snapshot
                     .flatMap(User.init)
-                    .filter { $0.uid != currentUser.uid && ($0.firstName.range(of:text) != nil || $0.lastName.range(of:text) != nil || $0.username.range(of:text) != nil)}
+                    .filter {
+                        let username = $0.username.lowercased()
+                        let firstName = $0.firstName.lowercased()
+                        let lastName = $0.lastName.lowercased()
+                        return $0.uid != currentUser.uid && (username.range(of:text) != nil ||
+                            firstName.range(of:text) != nil ||
+                            lastName.range(of:text) != nil)
+                    }
             
             completion(users)
         })

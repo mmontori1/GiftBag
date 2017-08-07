@@ -10,6 +10,7 @@
 		010BA4F31F38A654000C469C /* FriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010BA4F21F38A654000C469C /* FriendService.swift */; };
 		010BA4F51F38AB76000C469C /* FindFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010BA4F41F38AB76000C469C /* FindFriendsViewController.swift */; };
 		010BA4F71F38AD4D000C469C /* FindFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010BA4F61F38AD4D000C469C /* FindFriendCell.swift */; };
+		010BA4F91F38DBAD000C469C /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010BA4F81F38DBAD000C469C /* FriendRequestViewController.swift */; };
 		011DF4251F2AEF2F00240278 /* WishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4241F2AEF2F00240278 /* WishItem.swift */; };
 		011DF4271F2B758D00240278 /* WishService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4261F2B758D00240278 /* WishService.swift */; };
 		011DF4291F2B897A00240278 /* CreateWishListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */; };
@@ -48,6 +49,7 @@
 		010BA4F21F38A654000C469C /* FriendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendService.swift; path = Services/FriendService.swift; sourceTree = "<group>"; };
 		010BA4F41F38AB76000C469C /* FindFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindFriendsViewController.swift; path = Controllers/FindFriendsViewController.swift; sourceTree = "<group>"; };
 		010BA4F61F38AD4D000C469C /* FindFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindFriendCell.swift; path = Views/FindFriendCell.swift; sourceTree = "<group>"; };
+		010BA4F81F38DBAD000C469C /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendRequestViewController.swift; path = Controllers/FriendRequestViewController.swift; sourceTree = "<group>"; };
 		011DF4241F2AEF2F00240278 /* WishItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishItem.swift; path = Models/WishItem.swift; sourceTree = "<group>"; };
 		011DF4261F2B758D00240278 /* WishService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishService.swift; path = Services/WishService.swift; sourceTree = "<group>"; };
 		011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateWishListItemViewController.swift; path = Controllers/CreateWishListItemViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		01F3C4811F291FB1007B4AD2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				010BA4F81F38DBAD000C469C /* FriendRequestViewController.swift */,
 				010BA4F41F38AB76000C469C /* FindFriendsViewController.swift */,
 				01E82A4E1F339C430050E362 /* WishItemViewController.swift */,
 				011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */,
@@ -371,6 +374,7 @@
 				012E60371F32427E00B4ED0A /* StorageService.swift in Sources */,
 				019605401F2A2A9400BFEFDB /* EditProfileViewController.swift in Sources */,
 				019605421F2A6AFB00BFEFDB /* ProfileNavigationController.swift in Sources */,
+				010BA4F91F38DBAD000C469C /* FriendRequestViewController.swift in Sources */,
 				011DF4271F2B758D00240278 /* WishService.swift in Sources */,
 				010BA4F71F38AD4D000C469C /* FindFriendCell.swift in Sources */,
 				0153AEA71F2ACFED005408E9 /* FirebaseService.swift in Sources */,

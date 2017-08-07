@@ -25,7 +25,7 @@
                     <connections>
                         <segue destination="WiG-Vb-g28" kind="relationship" relationship="viewControllers" id="O50-Gi-GTd"/>
                         <segue destination="fiY-Nq-SNZ" kind="relationship" relationship="viewControllers" id="GKi-eK-PJd"/>
-                        <segue destination="Cjt-jN-y3l" kind="relationship" relationship="viewControllers" id="KiH-2d-9CX"/>
+                        <segue destination="l2v-hf-WcM" kind="relationship" relationship="viewControllers" id="KiH-2d-9CX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVE-7g-mks" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -66,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search a username" translatesAutoresizingMaskIntoConstraints="NO" id="brV-ZC-8On">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -76,8 +76,8 @@
                                     <outlet property="delegate" destination="Cjt-jN-y3l" id="g8S-tL-2KK"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wIf-ik-8eA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wIf-ik-8eA">
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FindFriendCell" id="LpI-5I-Nci" customClass="FindFriendCell" customModule="GiftBag" customModuleProvider="target">
@@ -159,17 +159,34 @@
                             <constraint firstItem="wIf-ik-8eA" firstAttribute="top" secondItem="brV-ZC-8On" secondAttribute="bottom" id="yWH-XL-1sk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="searchFriend" id="lFU-WL-V34">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="z3s-vz-u3e"/>
                     <connections>
                         <outlet property="searchBar" destination="brV-ZC-8On" id="gWJ-a8-Fk0"/>
                         <outlet property="tableView" destination="wIf-ik-8eA" id="ZSF-7A-7do"/>
+                        <segue destination="cIE-ZZ-j5S" kind="show" identifier="toFriendRequest" id="a08-tn-qFx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Gm-Im-8Ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384.8" y="1348.8755622188908"/>
+            <point key="canvasLocation" x="2324" y="1348.8755622188908"/>
+        </scene>
+        <!--Friend Request View Controller-->
+        <scene sceneID="ZPi-XB-cGZ">
+            <objects>
+                <viewController id="cIE-ZZ-j5S" customClass="FriendRequestViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gGv-zK-dH6"/>
+                        <viewControllerLayoutGuide type="bottom" id="6L7-vE-GWX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qVI-nt-7cX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H4g-o5-asU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3224.8000000000002" y="1348.8755622188908"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wJm-Gt-gph">
@@ -180,6 +197,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9OQ-1K-g52" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-406" y="1173"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kjy-Qq-cyP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l2v-hf-WcM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="searchFriend" id="lFU-WL-V34">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="10L-ns-NnC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Cjt-jN-y3l" kind="relationship" relationship="rootViewController" id="4F3-dw-zow"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xF7-Zk-2Xy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1384.8" y="1348.8755622188908"/>
         </scene>
     </scenes>
     <resources>

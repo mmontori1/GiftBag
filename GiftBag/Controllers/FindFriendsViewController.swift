@@ -8,9 +8,9 @@
 
 import UIKit
 import Kingfisher
+import SCLAlertView
 
 class FindFriendsViewController: UIViewController {
-    
     var users = [User](){
         didSet {
             tableView.reloadData()
@@ -23,13 +23,28 @@ class FindFriendsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-//        UserService.usersExcludingCurrentUser { (users) in
-//            self.users = users
-//        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toFriendRequest" {
+                let friendRequestViewController = segue.destination as! FriendRequestViewController
+                guard let indexPath = tableView.indexPathForSelectedRow else {
+                    SCLAlertView().genericError()
+                    return
+                }
+                friendRequestViewController.friend = users[indexPath.row]
+                print("To Friend Request Screen!")
+            }
+        }
     }
 }
 
@@ -53,8 +68,15 @@ extension FindFriendsViewController: UITableViewDataSource, UITableViewDelegate 
             let imageURL = URL(string: url)
             cell.profileImageView.kf.setImage(with: imageURL)
         }
+        else {
+            cell.profileImageView.image = UIImage(named: "defaultProfile")
+        }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toFriendRequest", sender: self)
     }
 }
 
@@ -62,18 +84,21 @@ extension FindFriendsViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         checkForUsers() { (users) in
             self.users = users
+            print("finished check for users: \(users.count) users")
         }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         checkForUsers() { (users) in
             self.users = users
+            print("finished check for users: \(users.count) users")
         }
     }
     
     func checkForUsers(completion: @escaping ([User]) -> Void){
         guard let text = searchBar.text,
-            !text.isEmpty else {
+            !text.isEmpty,
+            !(text.trimmingCharacters(in: .whitespaces) == "") else {
                 return completion([])
         }
         
