@@ -173,7 +173,7 @@
         <!--Friend Request View Controller-->
         <scene sceneID="ZPi-XB-cGZ">
             <objects>
-                <viewController id="cIE-ZZ-j5S" customClass="FriendRequestViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="cIE-ZZ-j5S" customClass="FriendRequestViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gGv-zK-dH6"/>
                         <viewControllerLayoutGuide type="bottom" id="6L7-vE-GWX"/>
@@ -181,10 +181,65 @@
                     <view key="view" contentMode="scaleToFill" id="qVI-nt-7cX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HGZ-HL-Zb3">
+                                <rect key="frame" x="59.5" y="74" width="256" height="339.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="3bD-hf-PAj">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="256" id="1kT-6p-DJd"/>
+                                            <constraint firstAttribute="width" secondItem="3bD-hf-PAj" secondAttribute="height" multiplier="1:1" id="c2r-lk-ykX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inc-0x-Kun">
+                                        <rect key="frame" x="0.0" y="276" width="256" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmI-ue-avB">
+                                        <rect key="frame" x="0.0" y="322.5" width="256" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJo-ok-WcO">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.62806229140000003" green="1" blue="0.55431152210000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Iua-t0-uWZ"/>
+                                </constraints>
+                                <state key="normal" image="addFriends"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HGZ-HL-Zb3" firstAttribute="centerX" secondItem="qVI-nt-7cX" secondAttribute="centerX" id="2vV-QU-glS"/>
+                            <constraint firstAttribute="trailing" secondItem="xJo-ok-WcO" secondAttribute="trailing" id="4qn-xT-aJs"/>
+                            <constraint firstAttribute="bottom" secondItem="xJo-ok-WcO" secondAttribute="bottom" id="I1G-0X-xaR"/>
+                            <constraint firstItem="HGZ-HL-Zb3" firstAttribute="top" secondItem="gGv-zK-dH6" secondAttribute="bottom" constant="10" id="Mv4-5u-qNg"/>
+                            <constraint firstItem="xJo-ok-WcO" firstAttribute="leading" secondItem="qVI-nt-7cX" secondAttribute="leading" id="inv-aM-QLY"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oYk-GJ-hKU">
+                        <barButtonItem key="leftBarButtonItem" image="exit" id="h1f-uI-Z7y">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="HmX-PY-i18" kind="unwind" unwindAction="unwindToFindFriends:" id="Vbm-LM-1BO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameLabel" destination="WmI-ue-avB" id="jLb-lp-6eR"/>
+                        <outlet property="profileImageView" destination="3bD-hf-PAj" id="s5h-bG-6SQ"/>
+                        <outlet property="usernameLabel" destination="Inc-0x-Kun" id="bpK-Ld-kBm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4g-o5-asU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HmX-PY-i18" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3224.8000000000002" y="1348.8755622188908"/>
         </scene>
@@ -221,7 +276,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addFriends" width="25" height="25"/>
         <image name="defaultProfile" width="256" height="256"/>
+        <image name="exit" width="25" height="25"/>
         <image name="friends" width="25" height="25"/>
         <image name="searchFriend" width="25" height="25"/>
     </resources>

@@ -33,6 +33,11 @@ class FindFriendsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func unwindToFindFriends(_ segue: UIStoryboardSegue) {
+        print("Returned to Find Friends Controller!")
+    }
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "toFriendRequest" {
