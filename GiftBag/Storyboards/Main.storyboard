@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="430" y="1349"/>
         </scene>
-        <!--View Controller-->
+        <!--Find Friends View Controller-->
         <scene sceneID="jdp-qi-f8R">
             <objects>
-                <viewController id="Cjt-jN-y3l" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Cjt-jN-y3l" customClass="FindFriendsViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QXD-AF-9tt"/>
                         <viewControllerLayoutGuide type="bottom" id="Xx7-u0-i4N"/>
@@ -71,10 +72,80 @@
                                     <string>Title</string>
                                     <string>Title</string>
                                 </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="Cjt-jN-y3l" id="g8S-tL-2KK"/>
+                                </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wIf-ik-8eA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wIf-ik-8eA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FindFriendCell" id="LpI-5I-Nci" customClass="FindFriendCell" customModule="GiftBag" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LpI-5I-Nci" id="O4V-80-NBB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DjO-kT-3ax">
+                                                    <rect key="frame" x="10" y="5" width="355" height="59.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="yvI-eG-SpL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="yvI-eG-SpL" secondAttribute="height" multiplier="1:1" id="9BD-l6-XIZ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FFH-DB-cpH">
+                                                            <rect key="frame" x="74.5" y="0.0" width="280.5" height="59.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auS-cI-PIf">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="280.5" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcD-uh-I3l">
+                                                                    <rect key="frame" x="0.0" y="24" width="280.5" height="35.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="WcD-uh-I3l" firstAttribute="width" secondItem="FFH-DB-cpH" secondAttribute="width" id="UhW-L0-9R7"/>
+                                                                <constraint firstItem="auS-cI-PIf" firstAttribute="width" secondItem="FFH-DB-cpH" secondAttribute="width" id="cua-jG-rOd"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="yvI-eG-SpL" firstAttribute="centerY" secondItem="DjO-kT-3ax" secondAttribute="centerY" id="9LZ-MS-nzP"/>
+                                                        <constraint firstItem="FFH-DB-cpH" firstAttribute="top" secondItem="DjO-kT-3ax" secondAttribute="top" id="eNn-OG-7TV"/>
+                                                        <constraint firstItem="FFH-DB-cpH" firstAttribute="centerY" secondItem="DjO-kT-3ax" secondAttribute="centerY" id="hFd-3Y-Bc9"/>
+                                                        <constraint firstItem="FFH-DB-cpH" firstAttribute="leading" secondItem="yvI-eG-SpL" secondAttribute="trailing" constant="15" id="has-OU-M74"/>
+                                                        <constraint firstAttribute="bottom" secondItem="FFH-DB-cpH" secondAttribute="bottom" id="oBA-pY-og8"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DjO-kT-3ax" firstAttribute="leading" secondItem="O4V-80-NBB" secondAttribute="leading" constant="10" id="1Qm-0r-EPL"/>
+                                                <constraint firstAttribute="bottom" secondItem="DjO-kT-3ax" secondAttribute="bottom" constant="5" id="M5X-t7-xZG"/>
+                                                <constraint firstAttribute="trailing" secondItem="DjO-kT-3ax" secondAttribute="trailing" constant="10" id="WFx-Lo-Guz"/>
+                                                <constraint firstItem="DjO-kT-3ax" firstAttribute="top" secondItem="O4V-80-NBB" secondAttribute="top" constant="5" id="j6q-eK-5po"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="WcD-uh-I3l" id="PUf-Od-yV4"/>
+                                            <outlet property="profileImageView" destination="yvI-eG-SpL" id="DF4-77-W1b"/>
+                                            <outlet property="usernameLabel" destination="auS-cI-PIf" id="ffj-l2-LRK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Cjt-jN-y3l" id="tGA-nY-UmA"/>
+                                    <outlet property="delegate" destination="Cjt-jN-y3l" id="2re-Dn-W7j"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,6 +162,10 @@
                     <tabBarItem key="tabBarItem" title="" image="searchFriend" id="lFU-WL-V34">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="searchBar" destination="brV-ZC-8On" id="gWJ-a8-Fk0"/>
+                        <outlet property="tableView" destination="wIf-ik-8eA" id="ZSF-7A-7do"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Gm-Im-8Ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,6 +183,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="defaultProfile" width="256" height="256"/>
         <image name="friends" width="25" height="25"/>
         <image name="searchFriend" width="25" height="25"/>
     </resources>

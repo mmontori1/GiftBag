@@ -58,7 +58,8 @@ struct UserService {
         })
     }
     
-    static func showAllUsers(completion: @escaping([User]) -> Void){
+    static func usersExcludingCurrentUser(completion: @escaping([User]) -> Void){
+        let currentUser = User.current
         let ref = Database.database().reference().child("users")
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
@@ -66,11 +67,26 @@ struct UserService {
             }
             
             let users: [User] =
-                snapshot.flatMap {
-                    guard let item = User(snapshot: $0)
-                        else { return nil }
-                    return item
+                snapshot
+                    .flatMap(User.init)
+                    .filter { $0.uid != currentUser.uid }
+            
+            completion(users)
+        })
+    }
+    
+    static func usersBySearch(text : String, completion: @escaping([User]) -> Void){
+        let currentUser = User.current
+        let ref = Database.database().reference().child("users")
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion([])
             }
+            
+            let users: [User] =
+                snapshot
+                    .flatMap(User.init)
+                    .filter { $0.uid != currentUser.uid && ($0.firstName.range(of:text) != nil || $0.lastName.range(of:text) != nil || $0.username.range(of:text) != nil)}
             
             completion(users)
         })

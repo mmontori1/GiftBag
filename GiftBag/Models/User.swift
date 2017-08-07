@@ -20,8 +20,8 @@ class User : NSObject {
         var data : [String : Any] = ["firstName" : firstName,
                                      "lastName" : lastName,
                                      "username" : username]
-        if let url = profileURL as? String {
-            data["profileURL"] = profileURL
+        if let url = profileURL {
+            data["profileURL"] = url
         }
         return data
     }
