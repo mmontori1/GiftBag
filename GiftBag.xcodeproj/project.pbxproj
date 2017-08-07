@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010BA4F31F38A654000C469C /* FriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010BA4F21F38A654000C469C /* FriendService.swift */; };
 		011DF4251F2AEF2F00240278 /* WishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4241F2AEF2F00240278 /* WishItem.swift */; };
 		011DF4271F2B758D00240278 /* WishService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4261F2B758D00240278 /* WishService.swift */; };
 		011DF4291F2B897A00240278 /* CreateWishListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010BA4F21F38A654000C469C /* FriendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendService.swift; path = Services/FriendService.swift; sourceTree = "<group>"; };
 		011DF4241F2AEF2F00240278 /* WishItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishItem.swift; path = Models/WishItem.swift; sourceTree = "<group>"; };
 		011DF4261F2B758D00240278 /* WishService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishService.swift; path = Services/WishService.swift; sourceTree = "<group>"; };
 		011DF4281F2B897A00240278 /* CreateWishListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateWishListItemViewController.swift; path = Controllers/CreateWishListItemViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				0153AEA61F2ACFED005408E9 /* FirebaseService.swift */,
 				01F3C4691F291F94007B4AD2 /* AuthService.swift */,
 				01F3C46A1F291F94007B4AD2 /* UserService.swift */,
+				010BA4F21F38A654000C469C /* FriendService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				011DF4291F2B897A00240278 /* CreateWishListItemViewController.swift in Sources */,
 				0141E8841F30BC1A006CFAE5 /* WishItemCell.swift in Sources */,
 				011DF4251F2AEF2F00240278 /* WishItem.swift in Sources */,
+				010BA4F31F38A654000C469C /* FriendService.swift in Sources */,
 				01E82A4F1F339C430050E362 /* WishItemViewController.swift in Sources */,
 				01F3C4781F291F94007B4AD2 /* ViewController+Utility.swift in Sources */,
 				01F3C47D1F291F94007B4AD2 /* CreateUserViewController.swift in Sources */,

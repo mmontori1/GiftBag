@@ -17,9 +17,13 @@ class User : NSObject {
     let username : String
     let profileURL : String?
     var dictValue: [String : Any] {
-        return ["firstName" : firstName,
-                "lastName" : lastName,
-                "username" : username]
+        var data : [String : Any] = ["firstName" : firstName,
+                                     "lastName" : lastName,
+                                     "username" : username]
+        if let url = profileURL as? String {
+            data["profileURL"] = profileURL
+        }
+        return data
     }
     
     //Standard User init()

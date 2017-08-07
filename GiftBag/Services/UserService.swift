@@ -58,6 +58,24 @@ struct UserService {
         })
     }
     
+    static func showAllUsers(completion: @escaping([User]) -> Void){
+        let ref = Database.database().reference().child("users")
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion([])
+            }
+            
+            let users: [User] =
+                snapshot.flatMap {
+                    guard let item = User(snapshot: $0)
+                        else { return nil }
+                    return item
+            }
+            
+            completion(users)
+        })
+    }
+    
     static func observeProfile(for user: User, completion: @escaping (DatabaseReference, User?) -> Void) -> DatabaseHandle {
         let userRef = Database.database().reference().child("users").child(user.uid)
         return userRef.observe(.value, with: { snapshot in
