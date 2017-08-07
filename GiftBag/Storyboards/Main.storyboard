@@ -170,7 +170,7 @@
             </objects>
             <point key="canvasLocation" x="2324" y="1348.8755622188908"/>
         </scene>
-        <!--Friend Request View Controller-->
+        <!--Friend Request-->
         <scene sceneID="ZPi-XB-cGZ">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="cIE-ZZ-j5S" customClass="FriendRequestViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
@@ -183,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HGZ-HL-Zb3">
-                                <rect key="frame" x="59.5" y="74" width="256" height="339.5"/>
+                                <rect key="frame" x="59.5" y="74" width="256" height="356"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="3bD-hf-PAj">
                                         <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
@@ -193,14 +193,14 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inc-0x-Kun">
-                                        <rect key="frame" x="0.0" y="276" width="256" height="26.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <rect key="frame" x="0.0" y="276" width="256" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmI-ue-avB">
-                                        <rect key="frame" x="0.0" y="322.5" width="256" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <rect key="frame" x="0.0" y="332" width="256" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -213,6 +213,9 @@
                                     <constraint firstAttribute="height" constant="60" id="Iua-t0-uWZ"/>
                                 </constraints>
                                 <state key="normal" image="addFriends"/>
+                                <connections>
+                                    <action selector="sendFriendRequestClicked:" destination="cIE-ZZ-j5S" eventType="touchUpInside" id="ig9-cs-46t"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -224,7 +227,7 @@
                             <constraint firstItem="xJo-ok-WcO" firstAttribute="leading" secondItem="qVI-nt-7cX" secondAttribute="leading" id="inv-aM-QLY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oYk-GJ-hKU">
+                    <navigationItem key="navigationItem" title="Friend Request" id="oYk-GJ-hKU">
                         <barButtonItem key="leftBarButtonItem" image="exit" id="h1f-uI-Z7y">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

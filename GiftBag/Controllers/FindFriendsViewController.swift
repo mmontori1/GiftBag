@@ -82,15 +82,13 @@ extension FindFriendsViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toFriendRequest", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension FindFriendsViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        checkForUsers() { (users) in
-            self.users = users
-            print("finished check for users: \(users.count) users")
-        }
+        dismissKeyboard()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

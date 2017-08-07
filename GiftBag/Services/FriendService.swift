@@ -12,7 +12,7 @@ import FirebaseDatabase
 struct FriendService {
     static func sendFriendRequest(to friendUser: User, success: @escaping (Bool) -> Void){
         let userData = User.current.dictValue
-        let ref = Database.database().reference().child("friendRequests").child(friendUser.uid)
+        let ref = Database.database().reference().child("friendRequests").child(friendUser.uid).child(User.current.uid)
         ref.setValue(userData) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)

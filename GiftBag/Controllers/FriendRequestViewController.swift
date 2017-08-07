@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class FriendRequestViewController: UIViewController {
 
@@ -28,6 +29,17 @@ class FriendRequestViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func sendFriendRequestClicked(_ sender: UIButton) {
+        guard let user = friend else {
+            return
+        }
+        FriendService.sendFriendRequest(to: user) { (success) in
+            if success {
+                SCLAlertView().showSuccess("Success!", subTitle: "Friend Request has been sent to \(user.username)")
+            }
+        }
     }
 }
 
