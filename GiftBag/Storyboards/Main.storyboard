@@ -126,6 +126,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addButton" destination="Qwk-9s-GXz" id="d0X-O6-RUR"/>
+                                            <outlet property="deleteButton" destination="91S-Hx-O7r" id="Jtz-OO-2jR"/>
                                             <outlet property="nameLabel" destination="rWH-L0-NvH" id="ZRN-6n-94E"/>
                                             <outlet property="profileImageView" destination="Pc2-3H-aTh" id="s7H-GD-4F0"/>
                                             <outlet property="usernameLabel" destination="Wco-bY-2kR" id="kZb-Qu-BWg"/>

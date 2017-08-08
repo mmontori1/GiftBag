@@ -57,22 +57,42 @@ struct FriendService {
     
     static func acceptFriendRequest(for user: User, success: @escaping (Bool) -> Void){
         let currentUser = User.current
-        let ref = Database.database().reference().child("friends")
-        let updateData = [currentUser.uid : [user.uid : true],
-                          user.uid : [currentUser.uid : true]]
+        let rootRef = Database.database().reference().child("friends")
+        let userRef = rootRef.child(currentUser.uid)
+        let friendRef = rootRef.child(user.uid)
+        let userData = [user.uid : true]
+        let friendData = [currentUser.uid : true]
+        let dispatcher = DispatchGroup()
+        var check = true
         
-        ref.updateChildValues(updateData){ (error, ref) in
+        dispatcher.enter()
+        userRef.updateChildValues(userData){ (error, userRef) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
-                return success(false)
+                check = false
             }
-            
-            deleteFriendRequest(for: user, success: { (successful) in
-                if !successful {
-                    return success(false)
-                }
-                success(true)
-            })
+            dispatcher.leave()
+        }
+        
+        dispatcher.enter()
+        friendRef.updateChildValues(friendData){ (error, friendRef) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                check = false
+            }
+            dispatcher.leave()
+        }
+        
+        dispatcher.enter()
+        deleteFriendRequest(for: user, success: { (successful) in
+            if !successful {
+                check = false
+            }
+            dispatcher.leave()
+        })
+        
+        dispatcher.notify(queue: .main) {
+            success(check)
         }
     }
 

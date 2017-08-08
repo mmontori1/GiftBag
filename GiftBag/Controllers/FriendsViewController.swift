@@ -10,12 +10,8 @@ import UIKit
 
 class FriendsViewController: UIViewController {
 
-    var requests = [User](){
-        didSet{
-            tableView.reloadData()
-        }
-    }
-    var friends : [Int] = [1]
+    var requests = [User]()
+    var friends = [User]()
     let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
@@ -23,6 +19,7 @@ class FriendsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        reloadTable()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,11 +35,22 @@ extension FriendsViewController {
     }
     
     func reloadTable(){
+        let dispatcher = DispatchGroup()
+        dispatcher.enter()
         FriendService.showFriendRequests(for: User.current) { (users) in
             self.requests = users
+            dispatcher.leave()
+        }
+        dispatcher.enter()
+        UserService.showFriends(for: User.current) { (users) in
+            self.friends = users
+            dispatcher.leave()
+        }
+        dispatcher.notify(queue: .main) {
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
+            self.tableView.reloadData()
         }
     }
 }

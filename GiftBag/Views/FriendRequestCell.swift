@@ -21,6 +21,8 @@ class FriendRequestCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,9 +32,41 @@ class FriendRequestCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+
+    @IBAction func addFriendClicked(_ sender: UIButton) {
+        disableButtons()
+        guard let user = user else {
+            return
+        }
+        FriendService.acceptFriendRequest(for: user) { (success) in
+            if success {
+                SCLAlertView().showSuccess("Success!", subTitle: "You are now friends with \(user.username)")
+            }
+            
+        }
+    }
     
+    @IBAction func deleteFriendClicked(_ sender: UIButton) {
+        disableButtons()
+        guard let user = user else {
+            return
+        }
+        FriendService.deleteFriendRequest(for: user) { (success) in
+            if success {
+                SCLAlertView().showSuccess("Success!", subTitle: "You have now deleted \(user.username)'s request")
+            }
+        }
+    }
+}
+
+extension FriendRequestCell {
     func configureCell(){
         profileImageView.circular(width: 1.0, color: UIColor.darkGray.cgColor)
+    }
+    
+    func disableButtons(){
+        addButton.isEnabled = false
+        deleteButton.isEnabled = false
     }
     
     func setUp(){
@@ -48,21 +82,5 @@ class FriendRequestCell: UITableViewCell {
         else {
             profileImageView.image = UIImage(named: "defaultProfile")
         }
-    }
-
-    @IBAction func addFriendClicked(_ sender: UIButton) {
-        guard let user = user else {
-            return
-        }
-        FriendService.acceptFriendRequest(for: user) { (success) in
-            if success {
-                SCLAlertView().showSuccess("Success!", subTitle: "You are now friends with \(user.username)")
-            }
-        }
-        print("Add a friend request!")
-    }
-    
-    @IBAction func deleteFriendClicked(_ sender: UIButton) {
-        print("Delete a friend request!")
     }
 }
