@@ -12,9 +12,10 @@ import UIKit
 extension UIImageView {
     func circular(width : CGFloat, color : CGColor){
         self.contentMode = UIViewContentMode.scaleAspectFill
-        self.layer.cornerRadius = frame.size.width / 2;
+        self.layer.cornerRadius = frame.size.height / 2;
         self.layer.borderWidth = width
         self.layer.borderColor = color
+        self.layer.masksToBounds = false
         self.clipsToBounds = true
     }
 }

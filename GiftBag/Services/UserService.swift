@@ -158,4 +158,33 @@ struct UserService {
             })
         }
     }
+    
+    static func showFriends(for user: User, completion: @escaping([User]) -> Void){
+        let ref = Database.database().reference().child("friends")
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion([])
+            }
+            var users = [User]()
+            var userUIDs = [String]()
+            for value in snapshot {
+                userUIDs.append(value.key)
+            }
+            let dispatcher = DispatchGroup()
+            for uid in userUIDs {
+                dispatcher.enter()
+                UserService.show(forUID: uid, completion: { (user) in
+                    guard let user = user else {
+                        dispatcher.leave()
+                        return
+                    }
+                    users.append(user)
+                    dispatcher.leave()
+                })
+            }
+            dispatcher.notify(queue: .main) {
+                completion(users)
+            }
+        })
+    }
 }

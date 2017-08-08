@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 import Kingfisher
 
 class FriendRequestCell: UITableViewCell {
@@ -23,10 +24,15 @@ class FriendRequestCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureCell()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func configureCell(){
+        profileImageView.circular(width: 1.0, color: UIColor.darkGray.cgColor)
     }
     
     func setUp(){
@@ -45,6 +51,14 @@ class FriendRequestCell: UITableViewCell {
     }
 
     @IBAction func addFriendClicked(_ sender: UIButton) {
+        guard let user = user else {
+            return
+        }
+        FriendService.acceptFriendRequest(for: user) { (success) in
+            if success {
+                SCLAlertView().showSuccess("Success!", subTitle: "You are now friends with \(user.username)")
+            }
+        }
         print("Add a friend request!")
     }
     

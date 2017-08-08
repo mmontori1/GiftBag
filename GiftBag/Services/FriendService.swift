@@ -11,9 +11,10 @@ import FirebaseDatabase
 
 struct FriendService {
     static func sendFriendRequest(to friendUser: User, success: @escaping (Bool) -> Void){
-        let ref = Database.database().reference().child("friendRequests").child(friendUser.uid).child(User.current.uid)
-        let userData = User.current.dictValue
-        ref.setValue(userData) { (error, ref) in
+        let ref = Database.database().reference().child("friendRequests").child(friendUser.uid)
+
+        let userData = [User.current.uid : true]
+        ref.updateChildValues(userData) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
                 return success(false)
@@ -31,23 +32,34 @@ struct FriendService {
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
                 return completion([])
             }
-            
-            let users: [User] =
-                snapshot.flatMap {
-                    guard let item = User(snapshot: $0)
-                        else { return nil }
-                    return item
-                }
-            
-            completion(users)
+            var users = [User]()
+            var userUIDs = [String]()
+            for value in snapshot {
+                userUIDs.append(value.key)
+            }
+            let dispatcher = DispatchGroup()
+            for uid in userUIDs {
+                dispatcher.enter()
+                UserService.show(forUID: uid, completion: { (user) in
+                    guard let user = user else {
+                        dispatcher.leave()
+                        return
+                    }
+                    users.append(user)
+                    dispatcher.leave()
+                })
+            }
+            dispatcher.notify(queue: .main) {
+                completion(users)
+            }
         })
     }
     
     static func acceptFriendRequest(for user: User, success: @escaping (Bool) -> Void){
         let currentUser = User.current
         let ref = Database.database().reference().child("friends")
-        let updateData = [currentUser.uid : user.dictValue,
-                          user.uid : currentUser.dictValue]
+        let updateData = [currentUser.uid : [user.uid : true],
+                          user.uid : [currentUser.uid : true]]
         
         ref.updateChildValues(updateData){ (error, ref) in
             if let error = error {
@@ -69,7 +81,7 @@ struct FriendService {
         let ref = Database.database().reference().child("friendRequests").child(currentUser.uid)
         
         let removalData = [user.uid : NSNull()]
-        ref.setValue(removalData) { (error, ref) in
+        ref.updateChildValues(removalData) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
                 return success(false)
