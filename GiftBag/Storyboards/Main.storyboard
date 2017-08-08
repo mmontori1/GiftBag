@@ -24,7 +24,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="WiG-Vb-g28" kind="relationship" relationship="viewControllers" id="O50-Gi-GTd"/>
-                        <segue destination="fiY-Nq-SNZ" kind="relationship" relationship="viewControllers" id="GKi-eK-PJd"/>
+                        <segue destination="xl8-dT-5Rg" kind="relationship" relationship="viewControllers" id="GKi-eK-PJd"/>
                         <segue destination="l2v-hf-WcM" kind="relationship" relationship="viewControllers" id="KiH-2d-9CX"/>
                     </connections>
                 </tabBarController>
@@ -49,16 +49,89 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendRequestCell" id="clF-e9-2j4" customClass="FriendRequestCell" customModule="GiftBag" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendRequestCell" rowHeight="70" id="clF-e9-2j4" customClass="FriendRequestCell" customModule="GiftBag" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="clF-e9-2j4" id="IN7-rG-tfG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gKE-bs-YLN">
+                                                    <rect key="frame" x="10" y="5" width="355" height="59.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="Pc2-3H-aTh">
+                                                            <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Pc2-3H-aTh" secondAttribute="height" multiplier="1:1" id="Jxa-bg-wHc"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fC6-fE-quu">
+                                                            <rect key="frame" x="74.5" y="0.0" width="146" height="59.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wco-bY-2kR">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="146" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWH-L0-NvH">
+                                                                    <rect key="frame" x="0.0" y="24" width="146" height="35.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Wco-bY-2kR" firstAttribute="width" secondItem="fC6-fE-quu" secondAttribute="width" id="HuH-gb-fqL"/>
+                                                                <constraint firstItem="rWH-L0-NvH" firstAttribute="width" secondItem="fC6-fE-quu" secondAttribute="width" id="mKl-Ch-5Ij"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ztw-MH-xd3">
+                                                            <rect key="frame" x="235.5" y="0.0" width="119.5" height="59.5"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwk-9s-GXz" userLabel="add">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="59.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Qwk-9s-GXz" secondAttribute="height" multiplier="1:1" id="atF-Do-nz0"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="add"/>
+                                                                    <connections>
+                                                                        <action selector="addFriendClicked:" destination="clF-e9-2j4" eventType="touchUpInside" id="0kj-8D-YIf"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91S-Hx-O7r" userLabel="delete">
+                                                                    <rect key="frame" x="60" y="0.0" width="59.5" height="59.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="91S-Hx-O7r" secondAttribute="height" multiplier="1:1" id="g7N-6h-Epg"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="delete"/>
+                                                                    <connections>
+                                                                        <action selector="deleteFriendClicked:" destination="clF-e9-2j4" eventType="touchUpInside" id="krt-Fz-3fA"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="fC6-fE-quu" firstAttribute="leading" secondItem="Pc2-3H-aTh" secondAttribute="trailing" constant="15" id="aV1-Zs-QHR"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gKE-bs-YLN" firstAttribute="leading" secondItem="IN7-rG-tfG" secondAttribute="leading" constant="10" id="FaN-mN-R8J"/>
+                                                <constraint firstItem="gKE-bs-YLN" firstAttribute="top" secondItem="IN7-rG-tfG" secondAttribute="top" constant="5" id="PhH-g4-wIA"/>
+                                                <constraint firstAttribute="trailing" secondItem="gKE-bs-YLN" secondAttribute="trailing" constant="10" id="VlB-W3-6m5"/>
+                                                <constraint firstAttribute="bottom" secondItem="gKE-bs-YLN" secondAttribute="bottom" constant="5" id="mzn-S6-W2g"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="rWH-L0-NvH" id="ZRN-6n-94E"/>
+                                            <outlet property="profileImageView" destination="Pc2-3H-aTh" id="s7H-GD-4F0"/>
+                                            <outlet property="usernameLabel" destination="Wco-bY-2kR" id="kZb-Qu-BWg"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="9a0-8L-DoH" customClass="FriendCell" customModule="GiftBag" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="125.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9a0-8L-DoH" id="aPH-3j-dQw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -74,16 +147,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="friends" id="cyh-ON-E3j">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="XEm-rO-CBZ"/>
                     <connections>
                         <outlet property="tableView" destination="B11-2A-9zE" id="uXe-i8-UFC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25j-ii-uaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="429.60000000000002" y="1348.8755622188908"/>
+            <point key="canvasLocation" x="430" y="2119"/>
         </scene>
         <!--Find Friends View Controller-->
         <scene sceneID="jdp-qi-f8R">
@@ -200,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Gm-Im-8Ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2324" y="1348.8755622188908"/>
+            <point key="canvasLocation" x="2246" y="1349"/>
         </scene>
         <!--Friend Request-->
         <scene sceneID="ZPi-XB-cGZ">
@@ -276,7 +347,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4g-o5-asU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="HmX-PY-i18" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3224.8000000000002" y="1348.8755622188908"/>
+            <point key="canvasLocation" x="3092" y="1349"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wJm-Gt-gph">
@@ -307,12 +378,35 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xF7-Zk-2Xy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384.8" y="1348.8755622188908"/>
+            <point key="canvasLocation" x="1372" y="1349"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Am6-8L-YEr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xl8-dT-5Rg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="friends" id="cyh-ON-E3j">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DBg-9O-QjP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fiY-Nq-SNZ" kind="relationship" relationship="rootViewController" id="gx7-vE-knF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2WJ-ZD-cWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="429.60000000000002" y="1348.8755622188908"/>
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="25" height="25"/>
         <image name="addFriends" width="25" height="25"/>
         <image name="defaultProfile" width="256" height="256"/>
+        <image name="delete" width="25" height="25"/>
         <image name="exit" width="25" height="25"/>
         <image name="friends" width="25" height="25"/>
         <image name="searchFriend" width="25" height="25"/>
