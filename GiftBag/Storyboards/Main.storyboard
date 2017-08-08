@@ -133,13 +133,65 @@
                                             <outlet property="usernameLabel" destination="Wco-bY-2kR" id="kZb-Qu-BWg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="9a0-8L-DoH" customClass="FriendCell" customModule="GiftBag" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendCell" id="sZN-Nk-0r1" customClass="FriendCell" customModule="GiftBag" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9a0-8L-DoH" id="aPH-3j-dQw">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sZN-Nk-0r1" id="3NY-Dw-9gH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kLb-3f-FNZ">
+                                                    <rect key="frame" x="10" y="5" width="355" height="33.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="VDD-0B-dvT">
+                                                            <rect key="frame" x="0.0" y="0.0" width="33.5" height="33.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="VDD-0B-dvT" secondAttribute="height" multiplier="1:1" id="1WK-ax-fZR"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R8K-yP-8ZE">
+                                                            <rect key="frame" x="48.5" y="0.0" width="306.5" height="33.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="De6-bC-DJY">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="306.5" height="16.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjN-af-DfQ">
+                                                                    <rect key="frame" x="0.0" y="16.5" width="306.5" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="VjN-af-DfQ" firstAttribute="width" secondItem="R8K-yP-8ZE" secondAttribute="width" id="uTV-p2-3EK"/>
+                                                                <constraint firstItem="De6-bC-DJY" firstAttribute="width" secondItem="R8K-yP-8ZE" secondAttribute="width" id="xqr-VL-an1"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="R8K-yP-8ZE" secondAttribute="bottom" id="B2c-is-3Up"/>
+                                                        <constraint firstItem="R8K-yP-8ZE" firstAttribute="leading" secondItem="VDD-0B-dvT" secondAttribute="trailing" constant="15" id="Jfk-p7-9Hs"/>
+                                                        <constraint firstItem="R8K-yP-8ZE" firstAttribute="centerY" secondItem="kLb-3f-FNZ" secondAttribute="centerY" id="Rwc-aN-z9T"/>
+                                                        <constraint firstItem="R8K-yP-8ZE" firstAttribute="top" secondItem="kLb-3f-FNZ" secondAttribute="top" id="f2M-Ve-hIF"/>
+                                                        <constraint firstItem="VDD-0B-dvT" firstAttribute="centerY" secondItem="kLb-3f-FNZ" secondAttribute="centerY" id="r1j-hB-o3c"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="kLb-3f-FNZ" secondAttribute="bottom" constant="5" id="GAE-Ci-lzO"/>
+                                                <constraint firstAttribute="trailing" secondItem="kLb-3f-FNZ" secondAttribute="trailing" constant="10" id="MQI-da-2v0"/>
+                                                <constraint firstItem="kLb-3f-FNZ" firstAttribute="leading" secondItem="3NY-Dw-9gH" secondAttribute="leading" constant="10" id="VtA-Ek-6UZ"/>
+                                                <constraint firstItem="kLb-3f-FNZ" firstAttribute="top" secondItem="3NY-Dw-9gH" secondAttribute="top" constant="5" id="zUb-Yd-cJO"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="VjN-af-DfQ" id="5mN-xS-Tkw"/>
+                                            <outlet property="profileImageView" destination="VDD-0B-dvT" id="kYe-6P-V4l"/>
+                                            <outlet property="usernameLabel" destination="De6-bC-DJY" id="y0C-7t-SqC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -192,7 +244,7 @@
                                 <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FindFriendCell" id="LpI-5I-Nci" customClass="FindFriendCell" customModule="GiftBag" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendCell" id="LpI-5I-Nci" customClass="FriendCell" customModule="GiftBag" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LpI-5I-Nci" id="O4V-80-NBB">

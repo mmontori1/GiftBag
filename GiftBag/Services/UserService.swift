@@ -83,20 +83,23 @@ struct UserService {
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
                 return completion([])
             }
-            
-            let users: [User] =
-                snapshot
-                    .flatMap(User.init)
-                    .filter {
-                        let username = $0.username.lowercased()
-                        let firstName = $0.firstName.lowercased()
-                        let lastName = $0.lastName.lowercased()
-                        return $0.uid != currentUser.uid && (username.range(of:text) != nil ||
-                            firstName.range(of:text) != nil ||
-                            lastName.range(of:text) != nil)
-                    }
-            
-            completion(users)
+            FriendService.showFriendsByUID(for: currentUser, completion: { (uids) in
+                let users: [User] =
+                    snapshot
+                        .flatMap(User.init)
+                        .filter {
+                            let username = $0.username.lowercased()
+                            let firstName = $0.firstName.lowercased()
+                            let lastName = $0.lastName.lowercased()
+                            let isFriend = uids[$0.uid] ?? false
+                            return $0.uid != currentUser.uid && !(isFriend) &&
+                                (username.range(of:text) != nil ||
+                                firstName.range(of:text) != nil ||
+                                lastName.range(of:text) != nil)
+                }
+                
+                completion(users)
+            })
         })
     }
     

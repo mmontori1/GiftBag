@@ -110,4 +110,18 @@ struct FriendService {
             success(true)
         }
     }
+    
+    static func showFriendsByUID(for user: User, completion: @escaping ([String : Bool]) -> Void){
+        let ref = Database.database().reference().child("friends").child(user.uid)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion([:])
+            }
+            var userUIDs = [String : Bool]()
+            for value in snapshot {
+                userUIDs[value.key] = true
+            }
+            completion(userUIDs)
+        })
+    }
 }

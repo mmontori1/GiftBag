@@ -65,17 +65,8 @@ extension FindFriendsViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FindFriendCell", for: indexPath) as! FindFriendCell
-        let friend = users[indexPath.row]
-        cell.usernameLabel.text = friend.username
-        cell.nameLabel.text = "\(friend.firstName) \(friend.lastName)"
-        if let url = friend.profileURL {
-            let imageURL = URL(string: url)
-            cell.profileImageView.kf.setImage(with: imageURL)
-        }
-        else {
-            cell.profileImageView.image = UIImage(named: "defaultProfile")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendCell
+        cell.user = users[indexPath.row]
         
         return cell
     }

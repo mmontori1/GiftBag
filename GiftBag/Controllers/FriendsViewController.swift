@@ -16,6 +16,11 @@ class FriendsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureWillAppear()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -32,6 +37,15 @@ extension FriendsViewController {
         refreshControl.addTarget(self, action: #selector(reloadTable), for: .valueChanged)
         tableView.addSubview(refreshControl)
         tableView.alwaysBounceVertical = true
+    }
+    
+    func configureWillAppear(){
+        refreshControl.endRefreshing()
+        if tableView.contentOffset.y < 0 {
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0),
+                                              at: .top,
+                                              animated: true)
+        }
     }
     
     func reloadTable(){
@@ -87,12 +101,12 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
         }
         switch section {
             case .requests:
-                let friendRequestCell = tableView.dequeueReusableCell(withIdentifier: "FriendRequestCell", for: indexPath as IndexPath) as! FriendRequestCell;
+                let friendRequestCell = tableView.dequeueReusableCell(withIdentifier: "FriendRequestCell", for: indexPath as IndexPath) as! FriendRequestCell
                 friendRequestCell.user = requests[indexPath.row]
                 return friendRequestCell
             case .friends:
-                let friendCell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath as IndexPath) as! FriendCell;
-                friendCell.backgroundColor = UIColor.blue
+                let friendCell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath as IndexPath) as! FriendCell
+                friendCell.user = friends[indexPath.row]
                 return friendCell
         }
     }
@@ -112,6 +126,23 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath){
+        let sections = checkForRequests(section: indexPath.section)
+        guard let section = Section(rawValue: sections) else {
+            return
+        }
+        switch section {
+            case .requests:
+                print("\(requests[indexPath.row].dictValue)")
+                return
+            case .friends:
+                print("\(friends[indexPath.row].dictValue)")
+                return
+        }
+
     }
     
     func checkForRequests(section : Int) -> Int {
