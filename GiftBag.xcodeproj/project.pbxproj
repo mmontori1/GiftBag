@@ -27,6 +27,9 @@
 		019605421F2A6AFB00BFEFDB /* ProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019605411F2A6AFB00BFEFDB /* ProfileNavigationController.swift */; };
 		019A25B41F292EB200491721 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A25B31F292EB200491721 /* SettingsViewController.swift */; };
 		01E82A4F1F339C430050E362 /* WishItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E82A4E1F339C430050E362 /* WishItemViewController.swift */; };
+		01EE55701F39F71E00FB4465 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EE556F1F39F71E00FB4465 /* FriendsViewController.swift */; };
+		01EE55741F3A026C00FB4465 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EE55731F3A026C00FB4465 /* FriendCell.swift */; };
+		01EE55761F3A028100FB4465 /* FriendRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EE55751F3A028100FB4465 /* FriendRequestCell.swift */; };
 		01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3C4571F291EA9007B4AD2 /* AppDelegate.swift */; };
 		01F3C45F1F291EA9007B4AD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C45E1F291EA9007B4AD2 /* Assets.xcassets */; };
 		01F3C4621F291EA9007B4AD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F3C4601F291EA9007B4AD2 /* LaunchScreen.storyboard */; };
@@ -66,6 +69,9 @@
 		019605411F2A6AFB00BFEFDB /* ProfileNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileNavigationController.swift; path = Controllers/ProfileNavigationController.swift; sourceTree = "<group>"; };
 		019A25B31F292EB200491721 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		01E82A4E1F339C430050E362 /* WishItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishItemViewController.swift; path = Controllers/WishItemViewController.swift; sourceTree = "<group>"; };
+		01EE556F1F39F71E00FB4465 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsViewController.swift; path = Controllers/FriendsViewController.swift; sourceTree = "<group>"; };
+		01EE55731F3A026C00FB4465 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendCell.swift; path = Views/FriendCell.swift; sourceTree = "<group>"; };
+		01EE55751F3A028100FB4465 /* FriendRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendRequestCell.swift; path = Views/FriendRequestCell.swift; sourceTree = "<group>"; };
 		01F3C4541F291EA9007B4AD2 /* GiftBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F3C4571F291EA9007B4AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01F3C45E1F291EA9007B4AD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,7 +117,9 @@
 		0141E8851F30BC1E006CFAE5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				01EE55731F3A026C00FB4465 /* FriendCell.swift */,
 				010BA4F61F38AD4D000C469C /* FindFriendCell.swift */,
+				01EE55751F3A028100FB4465 /* FriendRequestCell.swift */,
 				0141E8831F30BC1A006CFAE5 /* WishItemCell.swift */,
 			);
 			name = Views;
@@ -181,6 +189,7 @@
 		01F3C4811F291FB1007B4AD2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				01EE556F1F39F71E00FB4465 /* FriendsViewController.swift */,
 				010BA4F81F38DBAD000C469C /* FriendRequestViewController.swift */,
 				010BA4F41F38AB76000C469C /* FindFriendsViewController.swift */,
 				01E82A4E1F339C430050E362 /* WishItemViewController.swift */,
@@ -374,6 +383,7 @@
 				012E60371F32427E00B4ED0A /* StorageService.swift in Sources */,
 				019605401F2A2A9400BFEFDB /* EditProfileViewController.swift in Sources */,
 				019605421F2A6AFB00BFEFDB /* ProfileNavigationController.swift in Sources */,
+				01EE55741F3A026C00FB4465 /* FriendCell.swift in Sources */,
 				010BA4F91F38DBAD000C469C /* FriendRequestViewController.swift in Sources */,
 				011DF4271F2B758D00240278 /* WishService.swift in Sources */,
 				010BA4F71F38AD4D000C469C /* FindFriendCell.swift in Sources */,
@@ -385,8 +395,10 @@
 				01F3C47A1F291F94007B4AD2 /* LoginViewController.swift in Sources */,
 				01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */,
 				012E60321F32136A00B4ED0A /* PhotoHelper.swift in Sources */,
+				01EE55761F3A028100FB4465 /* FriendRequestCell.swift in Sources */,
 				011DF4291F2B897A00240278 /* CreateWishListItemViewController.swift in Sources */,
 				0141E8841F30BC1A006CFAE5 /* WishItemCell.swift in Sources */,
+				01EE55701F39F71E00FB4465 /* FriendsViewController.swift in Sources */,
 				011DF4251F2AEF2F00240278 /* WishItem.swift in Sources */,
 				010BA4F31F38A654000C469C /* FriendService.swift in Sources */,
 				01E82A4F1F339C430050E362 /* WishItemViewController.swift in Sources */,
