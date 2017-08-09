@@ -41,10 +41,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         profileHandle = UserService.observeProfile(for: User.current) { [unowned self] (ref, user) in
             self.profileRef = ref
-            if let user = user,
-                let url = user.profileURL {
-                User.setCurrent(user, writeToUserDefaults: true)
-                self.setLabels()
+            guard let user = user else {
+                return
+            }
+            User.setCurrent(user, writeToUserDefaults: true)
+            self.setLabels()
+            if let url = user.profileURL {
                 self.resetProfilePic(url: url)
             }
         }
@@ -150,9 +152,8 @@ extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WishItemCell", for: indexPath) as! WishItemCell
- 
-        let item = items[indexPath.row]
-        cell.nameTextField.text = item.name
+        
+        cell.item = items[indexPath.row]
  
         return cell
     }

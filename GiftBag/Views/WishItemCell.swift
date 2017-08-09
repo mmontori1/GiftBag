@@ -13,6 +13,11 @@ class WishItemCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     var cellHeight : CGFloat = 0.0
+    var item : WishItem? = nil{
+        didSet{
+            setUp()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,5 +26,12 @@ class WishItemCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 5
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    func setUp(){
+        guard let item = item else {
+            return
+        }
+        nameTextField.text = item.name
     }
 }

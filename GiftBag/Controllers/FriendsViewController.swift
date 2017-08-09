@@ -19,16 +19,33 @@ class FriendsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         configureWillAppear(animated)
+        reloadTable()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        reloadTable()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func unwindToFriends(_ segue: UIStoryboardSegue) {
+        print("Returned to Friends Screen!")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toDisplayFriend" {
+                let destination = segue.destination as! DisplayFriendViewController
+                guard let indexPath = tableView.indexPathForSelectedRow else {
+                    return
+                }
+                destination.friend = friends[indexPath.row]
+                print("To Friend Request Screen!")
+            }
+        }
     }
 }
 
@@ -152,9 +169,12 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
         switch section {
             case .requests:
                 print("\(requests[indexPath.row].dictValue)")
+                tableView.deselectRow(at: indexPath, animated: true)
                 return
             case .friends:
                 print("\(friends[indexPath.row].dictValue)")
+                performSegue(withIdentifier: "toDisplayFriend", sender: self)
+                tableView.deselectRow(at: indexPath, animated: true)
                 return
         }
 

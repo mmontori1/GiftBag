@@ -308,7 +308,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcS-oP-Pr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QE8-57-k9B" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="918" y="1472"/>
+            <point key="canvasLocation" x="-788" y="2778"/>
         </scene>
         <!--Title-->
         <scene sceneID="Ptc-cv-XYV">
@@ -387,7 +387,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Maf-zf-Y2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ini-tq-ZGR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="916" y="2166.5667166416792"/>
+            <point key="canvasLocation" x="66" y="2777"/>
         </scene>
         <!--Profile Navigation Controller-->
         <scene sceneID="ul6-Ie-OLD">
@@ -419,7 +419,7 @@
                 <viewControllerPlaceholder storyboardName="Settings" id="PJF-CG-zw1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dp-HZ-fZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="1472"/>
+            <point key="canvasLocation" x="300" y="1980"/>
         </scene>
     </scenes>
     <resources>
