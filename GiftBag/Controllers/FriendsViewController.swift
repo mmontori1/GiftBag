@@ -18,7 +18,7 @@ class FriendsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        configureWillAppear()
+        configureWillAppear(animated)
     }
     
     override func viewDidLoad() {
@@ -39,12 +39,12 @@ extension FriendsViewController {
         tableView.alwaysBounceVertical = true
     }
     
-    func configureWillAppear(){
+    func configureWillAppear(_ animated : Bool){
         refreshControl.endRefreshing()
         if tableView.contentOffset.y < 0 {
             self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0),
-                                              at: .top,
-                                              animated: true)
+                                       at: .top,
+                                       animated: animated)
         }
     }
     
@@ -120,7 +120,22 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
             case .requests:
                 return "Friend Requests"
             case .friends:
-                return "Friends"
+                let friendHeader = requests.count > 0 ? "Friend" : nil
+                return friendHeader
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let sections = checkForRequests(section: section)
+        guard let section = Section(rawValue: sections) else {
+            return 30
+        }
+        switch section {
+        case .requests:
+            return 30
+        case .friends:
+            let friendHeaderHeight = requests.count > 0 ? 30 : CGFloat.leastNormalMagnitude
+            return friendHeaderHeight
         }
     }
     

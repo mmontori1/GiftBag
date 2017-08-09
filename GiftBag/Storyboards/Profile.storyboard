@@ -210,7 +210,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="jtd-f1-mDC">
-                                <rect key="frame" x="36" y="119" width="303" height="140.5"/>
+                                <rect key="frame" x="36" y="119" width="303" height="85.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qcV-NX-tvd">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="30"/>
@@ -252,30 +252,11 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fix-PW-jTw">
-                                        <rect key="frame" x="0.0" y="110.5" width="303" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website Link: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTk-QQ-WQh">
-                                                <rect key="frame" x="0.0" y="0.0" width="107" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rr7-ys-CTT">
-                                                <rect key="frame" x="117" y="0.0" width="186" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="qcV-NX-tvd" firstAttribute="width" secondItem="jtd-f1-mDC" secondAttribute="width" id="O2e-ma-ZWX"/>
                                     <constraint firstItem="oZA-J8-zWW" firstAttribute="width" secondItem="jtd-f1-mDC" secondAttribute="width" id="WNT-D9-qoV"/>
-                                    <constraint firstItem="oZA-J8-zWW" firstAttribute="height" secondItem="fix-PW-jTw" secondAttribute="height" id="bI2-Fl-NNm"/>
                                     <constraint firstItem="qcV-NX-tvd" firstAttribute="height" secondItem="oZA-J8-zWW" secondAttribute="height" id="hUk-gb-EMI"/>
-                                    <constraint firstItem="fix-PW-jTw" firstAttribute="width" secondItem="jtd-f1-mDC" secondAttribute="width" id="lEq-T4-gJa"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qnm-8r-woB">
@@ -321,7 +302,6 @@
                     <connections>
                         <outlet property="nameTextField" destination="Eno-EN-oAM" id="VgR-Ba-nUB"/>
                         <outlet property="priceTextField" destination="e4o-7m-VPH" id="wdF-hr-XRC"/>
-                        <outlet property="siteTextField" destination="rr7-ys-CTT" id="7p5-0z-hBJ"/>
                         <segue destination="QE8-57-k9B" kind="unwind" identifier="saveItem" unwindAction="unwindToMain:" id="tLY-fj-Xdv"/>
                     </connections>
                 </viewController>

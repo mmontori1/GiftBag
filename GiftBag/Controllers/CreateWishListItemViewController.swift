@@ -15,7 +15,6 @@ class CreateWishListItemViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
-    @IBOutlet weak var siteTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +32,8 @@ class CreateWishListItemViewController: UIViewController {
                 return
         }
         
-        var linkURL : String? = nil
+        let linkURL : String? = nil
         var price : Double? = nil
-        
-        if let siteText = siteTextField.text,
-            siteText != "" {
-            linkURL = siteText
-        }
         
         if let priceText = priceTextField.text,
             priceText != "" {

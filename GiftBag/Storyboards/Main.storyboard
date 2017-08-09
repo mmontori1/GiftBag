@@ -32,7 +32,7 @@
             </objects>
             <point key="canvasLocation" x="429.60000000000002" y="404.34782608695656"/>
         </scene>
-        <!--Friends View Controller-->
+        <!--Friends-->
         <scene sceneID="mBF-wE-MLT">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="fiY-Nq-SNZ" customClass="FriendsViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,7 +44,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="B11-2A-9zE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="B11-2A-9zE">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -208,7 +208,7 @@
                             <constraint firstItem="bO5-6F-uz9" firstAttribute="top" secondItem="B11-2A-9zE" secondAttribute="bottom" id="kp1-5L-KhW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="XEm-rO-CBZ"/>
+                    <navigationItem key="navigationItem" title="Friends" id="XEm-rO-CBZ"/>
                     <connections>
                         <outlet property="tableView" destination="B11-2A-9zE" id="uXe-i8-UFC"/>
                     </connections>

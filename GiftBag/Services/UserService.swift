@@ -91,7 +91,7 @@ struct UserService {
                             let username = $0.username.lowercased()
                             let firstName = $0.firstName.lowercased()
                             let lastName = $0.lastName.lowercased()
-                            let isFriend = uids[$0.uid] ?? false
+                            let isFriend : Bool = uids[$0.uid] ?? false
                             return $0.uid != currentUser.uid && !(isFriend) &&
                                 (username.range(of:text) != nil ||
                                 firstName.range(of:text) != nil ||
