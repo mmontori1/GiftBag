@@ -200,8 +200,8 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
                 if success {
                     SCLAlertView().showSuccess("Success!", subTitle: "You are now friends with \(user.username)")
                 }
+                self.reloadTable()
             }
-            self.reloadTable()
         }
         accept.backgroundColor = UIColor(red: 0.40, green: 1.00, blue: 0.40, alpha: 1.0)
         
@@ -211,8 +211,8 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
                 if success {
                     SCLAlertView().showSuccess("Success!", subTitle: "You have now deleted \(user.username)'s request")
                 }
+                self.reloadTable()
             }
-            self.reloadTable()
         }
         delete.backgroundColor = UIColor(red: 1.00, green: 0.59, blue: 0.54, alpha: 1.0)
         
@@ -226,8 +226,8 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
                 if success {
                     SCLAlertView().showSuccess("Success!", subTitle: "You have now unfriended \(user.username)")
                 }
+                self.reloadTable()
             })
-            self.reloadTable()
         }
         delete.backgroundColor = UIColor(red: 1.00, green: 0.59, blue: 0.54, alpha: 1.0)
         

@@ -36,7 +36,7 @@ class FindFriendsViewController: UIViewController {
     @IBAction func unwindToFindFriends(_ segue: UIStoryboardSegue) {
         print("Returned to Find Friends Controller!")
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
@@ -74,6 +74,31 @@ extension FindFriendsViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toFriendRequest", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        return requestActions(indexPath)
+    }
+    
+    func requestActions(_ indexPath : IndexPath) -> [UITableViewRowAction]{
+        let send = UITableViewRowAction(style: .normal, title: "Send") { (style, indexPath) in
+            let user = self.users[indexPath.row]
+            FriendService.sendFriendRequest(to: user) { (success) in
+                if success {
+                    SCLAlertView().showSuccess("Success!", subTitle: "Friend Request has been sent to \(user.username)")
+                }
+                self.tableView.reloadData()
+            }
+
+        }
+        send.backgroundColor = UIColor(red: 0.40, green: 1.00, blue: 0.40, alpha: 1.0)
+        
+        return [send]
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
 }
 
