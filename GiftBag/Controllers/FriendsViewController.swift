@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class FriendsViewController: UIViewController {
 
@@ -116,13 +117,12 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
         guard let section = Section(rawValue: sections) else {
             return UITableViewCell()
         }
+        let friendCell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath as IndexPath) as! FriendCell
         switch section {
             case .requests:
-                let friendRequestCell = tableView.dequeueReusableCell(withIdentifier: "FriendRequestCell", for: indexPath as IndexPath) as! FriendRequestCell
-                friendRequestCell.user = requests[indexPath.row]
-                return friendRequestCell
+                friendCell.user = requests[indexPath.row]
+                return friendCell
             case .friends:
-                let friendCell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath as IndexPath) as! FriendCell
                 friendCell.user = friends[indexPath.row]
                 return friendCell
         }
@@ -137,7 +137,7 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
             case .requests:
                 return "Friend Requests"
             case .friends:
-                let friendHeader = requests.count > 0 ? "Friend" : nil
+                let friendHeader = (friends.count > 0 && requests.count > 0) ? "Friends" : nil
                 return friendHeader
         }
     }
@@ -151,7 +151,7 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
         case .requests:
             return 30
         case .friends:
-            let friendHeaderHeight = requests.count > 0 ? 30 : CGFloat.leastNormalMagnitude
+            let friendHeaderHeight = (friends.count > 0 && requests.count > 0) ? 30 : CGFloat.leastNormalMagnitude
             return friendHeaderHeight
         }
     }
@@ -177,7 +177,74 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
                 tableView.deselectRow(at: indexPath, animated: true)
                 return
         }
-
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let sections = checkForRequests(section: indexPath.section)
+        guard let section = Section(rawValue: sections) else {
+            return nil
+        }
+        switch section {
+            case .requests:
+                return requestActions(indexPath)
+            default:
+                return friendActions(indexPath)
+        }
+    }
+    
+    func requestActions(_ indexPath : IndexPath) -> [UITableViewRowAction]{
+        let accept = UITableViewRowAction(style: .normal, title: "Accept") { (style, indexPath) in
+            let user = self.requests[indexPath.row]
+            FriendService.acceptFriendRequest(for: user) { (success) in
+                if success {
+                    SCLAlertView().showSuccess("Success!", subTitle: "You are now friends with \(user.username)")
+                }
+            }
+            self.reloadTable()
+        }
+        accept.backgroundColor = UIColor(red: 0.40, green: 1.00, blue: 0.40, alpha: 1.0)
+        
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (style, indexPath) in
+            let user = self.requests[indexPath.row]
+            FriendService.deleteFriendRequest(for: user) { (success) in
+                if success {
+                    SCLAlertView().showSuccess("Success!", subTitle: "You have now deleted \(user.username)'s request")
+                }
+            }
+            self.reloadTable()
+        }
+        delete.backgroundColor = UIColor(red: 1.00, green: 0.59, blue: 0.54, alpha: 1.0)
+        
+        return [delete, accept]
+    }
+    
+    func friendActions(_ indexPath : IndexPath) -> [UITableViewRowAction]{
+        let delete = UITableViewRowAction(style: .destructive, title: "Unfriend") { (style, indexPath) in
+            let user = self.friends[indexPath.row]
+            FriendService.unfriend(for: user, success: { (success) in
+                if success {
+                    SCLAlertView().showSuccess("Success!", subTitle: "You have now unfriended \(user.username)")
+                }
+            })
+            self.reloadTable()
+        }
+        delete.backgroundColor = UIColor(red: 1.00, green: 0.59, blue: 0.54, alpha: 1.0)
+        
+        return [delete]
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        let sections = checkForRequests(section: indexPath.section)
+        guard let section = Section(rawValue: sections) else {
+            return false
+        }
+        switch section {
+            case .requests:
+                return true
+            case .friends:
+                return true
+        }
     }
     
     func checkForRequests(section : Int) -> Int {

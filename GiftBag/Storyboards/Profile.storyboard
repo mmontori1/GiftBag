@@ -264,7 +264,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBF-as-1C9">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
-                                        <color key="backgroundColor" red="1" green="0.59117088999810719" blue="0.53974517669449362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.59215686274509804" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="cancel"/>
                                         <connections>
                                             <segue destination="QE8-57-k9B" kind="unwind" identifier="cancel" unwindAction="unwindToMain:" id="a18-un-ip1"/>
@@ -272,7 +272,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGH-oQ-2vX">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="60"/>
-                                        <color key="backgroundColor" red="0.62806229138805836" green="1" blue="0.55431152206084588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="save"/>
                                         <connections>
                                             <action selector="saveClicked:" destination="7Zi-GC-D3q" eventType="touchUpInside" id="soZ-gV-7Hi"/>

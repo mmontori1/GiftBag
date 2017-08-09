@@ -62,8 +62,8 @@ struct FriendService {
         let friendRef = rootRef.child(user.uid)
         let userData = [user.uid : true]
         let friendData = [currentUser.uid : true]
-        let dispatcher = DispatchGroup()
         var check = true
+        let dispatcher = DispatchGroup()
         
         dispatcher.enter()
         userRef.updateChildValues(userData){ (error, userRef) in
@@ -98,16 +98,71 @@ struct FriendService {
 
     static func deleteFriendRequest(for user: User, success: @escaping (Bool) -> Void){
         let currentUser = User.current
-        let ref = Database.database().reference().child("friendRequests").child(currentUser.uid)
+        let rootRef = Database.database().reference().child("friendRequests")
+        let userRef = rootRef.child(currentUser.uid)
+        let friendRef = rootRef.child(user.uid)
+        let userData = [user.uid : NSNull()]
+        let friendData = [currentUser.uid : NSNull()]
+        var check = true
+        let dispatcher = DispatchGroup()
         
-        let removalData = [user.uid : NSNull()]
-        ref.updateChildValues(removalData) { (error, ref) in
+        dispatcher.enter()
+        userRef.updateChildValues(userData){ (error, userRef) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
-                return success(false)
+                check = false
             }
-            
-            success(true)
+            dispatcher.leave()
+        }
+        
+        dispatcher.enter()
+        friendRef.updateChildValues(friendData){ (error, friendRef) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                check = false
+            }
+            dispatcher.leave()
+        }
+        
+        dispatcher.notify(queue: .main) {
+            success(check)
+        }
+    }
+    
+    static func unfriend(for user: User, success: @escaping(Bool) -> Void){
+        let currentUser = User.current
+        let rootRef = Database.database().reference().child("friends")
+        
+        let friendRef = rootRef.child(user.uid)
+        let userRef = rootRef.child(currentUser.uid)
+        
+        let friendRemove = [user.uid : NSNull()]
+        let userRemove = [currentUser.uid : NSNull()]
+        
+        var check = true
+        
+        let dispatcher = DispatchGroup()
+        
+        dispatcher.enter()
+        friendRef.updateChildValues(userRemove) { (error, ref) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                check = false
+            }
+            dispatcher.leave()
+        }
+        
+        dispatcher.enter()
+        userRef.updateChildValues(friendRemove) { (error, ref) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                check = false
+            }
+            dispatcher.leave()
+        }
+        
+        dispatcher.notify(queue: .main) {
+            success(check)
         }
     }
     
