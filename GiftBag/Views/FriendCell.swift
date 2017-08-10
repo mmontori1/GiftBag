@@ -31,7 +31,6 @@ class FriendCell: UITableViewCell {
     }
 }
 
-
 extension FriendCell {
     func configureCell(){
         loadingView.hidesWhenStopped = true

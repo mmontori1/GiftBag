@@ -13,6 +13,7 @@ class FriendsViewController: UIViewController {
 
     var requests = [User]()
     var friends = [User]()
+    var isRunningAction = false
     let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
@@ -204,40 +205,54 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
     func requestActions(_ indexPath : IndexPath) -> [UITableViewRowAction]{
         let currentCell = tableView.cellForRow(at: indexPath) as! FriendCell
         let accept = UITableViewRowAction(style: .normal, title: "Accept") { [unowned self] (style, indexPath) in
-            let when = DispatchTime.now() + 0.1
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                currentCell.loadingView.startAnimating()
-                currentCell.selectionStyle = .none
-                let user = self.requests[indexPath.row]
-                FriendService.acceptFriendRequest(for: user) { (success) in
-                    if success {
-                        SCLAlertView().showSuccess("Success!", subTitle: "You are now friends with \(user.username)")
+            if !self.isRunningAction {
+                self.isRunningAction = true
+                let when = DispatchTime.now() + 0.1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    currentCell.loadingView.startAnimating()
+                    currentCell.selectionStyle = .none
+                    let user = self.requests[indexPath.row]
+                    FriendService.acceptFriendRequest(for: user) { (success) in
+                        if success {
+                            SCLAlertView().showSuccess("Success!", subTitle: "You are now friends with \(user.username)")
+                        }
+                        currentCell.loadingView.stopAnimating()
+                        currentCell.selectionStyle = .default
+                        self.reloadTable()
+                        self.isRunningAction = false
                     }
-                    currentCell.loadingView.stopAnimating()
-                    currentCell.selectionStyle = .default
-                    self.reloadTable()
                 }
+                self.tableView.reloadData()
             }
-            self.reloadTable()
+            else {
+                SCLAlertView().showWait("Wait for action to finish.", subTitle: "An action is trying to process right now")
+            }
         }
         accept.backgroundColor = UIColor(red: 0.40, green: 1.00, blue: 0.40, alpha: 1.0)
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { [unowned self] (style, indexPath) in
-            let when = DispatchTime.now() + 0.1
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                currentCell.loadingView.startAnimating()
-                currentCell.selectionStyle = .none
-                let user = self.requests[indexPath.row]
-                FriendService.deleteFriendRequest(for: user) { (success) in
-                    if success {
-                        SCLAlertView().showSuccess("Success!", subTitle: "You have now deleted \(user.username)'s request")
+            if !self.isRunningAction {
+                self.isRunningAction = true
+                let when = DispatchTime.now() + 0.1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    currentCell.loadingView.startAnimating()
+                    currentCell.selectionStyle = .none
+                    let user = self.requests[indexPath.row]
+                    FriendService.deleteFriendRequest(for: user) { (success) in
+                        if success {
+                            SCLAlertView().showSuccess("Success!", subTitle: "You have now deleted \(user.username)'s request")
+                        }
+                        currentCell.loadingView.stopAnimating()
+                        currentCell.selectionStyle = .default
+                        self.reloadTable()
+                        self.isRunningAction = false
                     }
-                    currentCell.loadingView.stopAnimating()
-                    currentCell.selectionStyle = .default
-                    self.reloadTable()
                 }
+                self.tableView.reloadData()
             }
-            self.reloadTable()
+            else {
+                SCLAlertView().showWait("Wait for action to finish.", subTitle: "An action is trying to process right now")
+            }
         }
         delete.backgroundColor = UIColor(red: 1.00, green: 0.59, blue: 0.54, alpha: 1.0)
         
@@ -247,21 +262,28 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
     func friendActions(_ indexPath : IndexPath) -> [UITableViewRowAction]{
         let currentCell = tableView.cellForRow(at: indexPath) as! FriendCell
         let delete = UITableViewRowAction(style: .destructive, title: "Unfriend") { [unowned self] (style, indexPath) in
-            let when = DispatchTime.now() + 0.1
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                currentCell.loadingView.startAnimating()
-                currentCell.selectionStyle = .none
-                let user = self.friends[indexPath.row]
-                FriendService.unfriend(for: user, success: { (success) in
-                    if success {
-                        SCLAlertView().showSuccess("Success!", subTitle: "You have now unfriended \(user.username)")
-                    }
-                    currentCell.loadingView.stopAnimating()
-                    currentCell.selectionStyle = .default
-                    self.reloadTable()
-                })
+            if !self.isRunningAction {
+                self.isRunningAction = true
+                let when = DispatchTime.now() + 0.1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    currentCell.loadingView.startAnimating()
+                    currentCell.selectionStyle = .none
+                    let user = self.friends[indexPath.row]
+                    FriendService.unfriend(for: user, success: { (success) in
+                        if success {
+                            SCLAlertView().showSuccess("Success!", subTitle: "You have now unfriended \(user.username)")
+                        }
+                        currentCell.loadingView.stopAnimating()
+                        currentCell.selectionStyle = .default
+                        self.reloadTable()
+                        self.isRunningAction = false
+                    })
+                }
+                self.tableView.reloadData()
             }
-            self.reloadTable()
+            else {
+                SCLAlertView().showWait("Wait for action to finish.", subTitle: "An action is trying to process right now")
+            }
         }
         delete.backgroundColor = UIColor(red: 1.00, green: 0.59, blue: 0.54, alpha: 1.0)
         

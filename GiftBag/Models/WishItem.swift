@@ -10,7 +10,7 @@ import Foundation
 import FirebaseDatabase.FIRDataSnapshot
 
 class WishItem {
-    
+     
     var key: String?
     let poster: User
     let name : String

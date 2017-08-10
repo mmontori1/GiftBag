@@ -142,7 +142,7 @@
             </objects>
             <point key="canvasLocation" x="429.60000000000002" y="1348.8755622188908"/>
         </scene>
-        <!--Display Friend View Controller-->
+        <!--Profile-->
         <scene sceneID="kcM-ut-eh7">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="5gX-p8-V4S" customClass="DisplayFriendViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
@@ -293,7 +293,7 @@
                             <constraint firstItem="yXC-BC-Y81" firstAttribute="top" secondItem="IyE-lr-j82" secondAttribute="bottom" id="nGt-aP-Sm2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="a8k-BU-Acb">
+                    <navigationItem key="navigationItem" title="Profile" id="a8k-BU-Acb">
                         <barButtonItem key="leftBarButtonItem" image="exit" id="aAa-h7-pFo">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -307,12 +307,92 @@
                         <outlet property="nameLabel" destination="gj6-HE-Gny" id="WfF-hs-RMB"/>
                         <outlet property="profileImage" destination="M7R-vn-80K" id="th1-Vx-wMK"/>
                         <outlet property="usernameLabel" destination="11a-0w-SdL" id="87m-vR-vvL"/>
+                        <segue destination="3Zh-TT-G7U" kind="show" identifier="toSelectedItem" id="S0K-ho-W2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXf-ax-ww1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cW9-iN-ph3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2125.5999999999999" y="1347.9760119940031"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="hhX-wx-Ipj">
+            <objects>
+                <viewController id="3Zh-TT-G7U" customClass="WishItemViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xud-ek-MGQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nlo-cO-d80"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BMd-ib-Jc1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DPM-Vh-Ulu">
+                                <rect key="frame" x="15.5" y="84" width="344" height="384"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="UKP-1o-Wea">
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUr-ul-Gad">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="33w-pP-LQ5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggk-vn-0wQ">
+                                                <rect key="frame" x="85" y="0.0" width="259" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Ggk-vn-0wQ" firstAttribute="top" secondItem="UKP-1o-Wea" secondAttribute="top" id="0OT-gD-EpG"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ggk-vn-0wQ" secondAttribute="bottom" id="EKF-Kl-9JG"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ggk-vn-0wQ" secondAttribute="trailing" id="VbZ-bf-n9y"/>
+                                            <constraint firstAttribute="height" constant="40" id="t97-64-niO"/>
+                                        </constraints>
+                                    </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-Ls-DKv">
+                                        <rect key="frame" x="0.0" y="40" width="344" height="344"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="dcX-Ls-DKv" secondAttribute="height" multiplier="1:1" id="dBj-Nx-ao6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="UKP-1o-Wea" firstAttribute="width" secondItem="DPM-Vh-Ulu" secondAttribute="width" id="ikE-tM-dav"/>
+                                    <constraint firstItem="dcX-Ls-DKv" firstAttribute="width" secondItem="DPM-Vh-Ulu" secondAttribute="width" id="r9T-RC-o5O"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nlo-cO-d80" firstAttribute="top" secondItem="DPM-Vh-Ulu" secondAttribute="bottom" constant="150" id="Jqv-Ao-G1B"/>
+                            <constraint firstItem="DPM-Vh-Ulu" firstAttribute="top" secondItem="Xud-ek-MGQ" secondAttribute="bottom" constant="20" id="hXM-VQ-Y9e"/>
+                            <constraint firstItem="DPM-Vh-Ulu" firstAttribute="centerX" secondItem="BMd-ib-Jc1" secondAttribute="centerX" id="seO-6F-vXS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="wXA-1E-pMz">
+                        <barButtonItem key="leftBarButtonItem" image="exit" id="gwn-70-gnG">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="mOn-w9-xoU" kind="unwind" unwindAction="unwindToDisplayFriend:" id="gDf-nZ-9AZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="dcX-Ls-DKv" id="yOD-2b-Bki"/>
+                        <outlet property="priceLabel" destination="Ggk-vn-0wQ" id="AZf-69-Sdo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hsX-6O-BoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mOn-w9-xoU" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2982" y="1349"/>
         </scene>
     </scenes>
     <resources>

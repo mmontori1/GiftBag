@@ -16,6 +16,7 @@ class FindFriendsViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    var isRunningAction = false
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -92,23 +93,28 @@ extension FindFriendsViewController: UITableViewDataSource, UITableViewDelegate 
     func requestActions(_ indexPath : IndexPath) -> [UITableViewRowAction]{
         let currentCell = tableView.cellForRow(at: indexPath) as! FriendCell
         let send = UITableViewRowAction(style: .normal, title: "Send") { [unowned self] (style, indexPath) in
-            let when = DispatchTime.now() + 0.1
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                print("0.1")
-                currentCell.loadingView.startAnimating()
-                currentCell.selectionStyle = .none
-                let user = self.users[indexPath.row]
-                FriendService.sendFriendRequest(to: user) { (success) in
-                    if success {
-                        SCLAlertView().showSuccess("Success!", subTitle: "Friend Request has been sent to \(user.username)")
+            if !self.isRunningAction {
+                self.isRunningAction = true
+                let when = DispatchTime.now() + 0.1
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    currentCell.loadingView.startAnimating()
+                    currentCell.selectionStyle = .none
+                    let user = self.users[indexPath.row]
+                    FriendService.sendFriendRequest(to: user) { (success) in
+                        if success {
+                            SCLAlertView().showSuccess("Success!", subTitle: "Friend Request has been sent to \(user.username)")
+                        }
+                        currentCell.loadingView.stopAnimating()
+                        currentCell.selectionStyle = .default
+                        self.tableView.reloadData()
+                        self.isRunningAction = false
                     }
-                    currentCell.loadingView.stopAnimating()
-                    currentCell.selectionStyle = .default
-                    self.tableView.reloadData()
                 }
+                self.tableView.reloadData()
             }
-            print("0.0")
-            self.tableView.reloadData()
+            else {
+                SCLAlertView().showWait("Wait for action to finish.", subTitle: "An action is trying to process right now")
+            }
         }
         send.backgroundColor = UIColor(red: 0.40, green: 1.00, blue: 0.40, alpha: 1.0)
         return [send]

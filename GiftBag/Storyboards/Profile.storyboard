@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Comet-->
+        <!--Profile-->
         <scene sceneID="d52-lg-Jwa">
             <objects>
                 <viewController id="Ga0-TT-4BI" customClass="ProfileViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
@@ -162,7 +162,7 @@
                             <constraint firstItem="QRN-Pt-7ow" firstAttribute="top" secondItem="lRA-cJ-065" secondAttribute="bottom" id="xB8-7H-Nfa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Comet" id="NgE-yM-0cn">
+                    <navigationItem key="navigationItem" title="Profile" id="NgE-yM-0cn">
                         <barButtonItem key="leftBarButtonItem" image="add" id="JRx-K1-ywo">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>

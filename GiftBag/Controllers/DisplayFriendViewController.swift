@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 import FirebaseDatabase
 
 class DisplayFriendViewController: UIViewController {
@@ -21,6 +22,7 @@ class DisplayFriendViewController: UIViewController {
             }
         }
     }
+    var selected : Int?
     let refreshControl = UIRefreshControl()
     var profileHandle: DatabaseHandle = 0
     var profileRef: DatabaseReference?
@@ -60,6 +62,23 @@ class DisplayFriendViewController: UIViewController {
         profileRef?.removeObserver(withHandle: profileHandle)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toSelectedItem" {
+                let wishItemViewController = segue.destination as! WishItemViewController
+                guard let index = selected else {
+                    SCLAlertView().genericError()
+                    return
+                }
+                wishItemViewController.wishItem = items[index]
+                print("To Wish Item Screen!")
+            }
+        }
+    }
+    
+    @IBAction func unwindToDisplayFriend(_ segue: UIStoryboardSegue) {
+        print("Returned to Display Friend Screen!")
+    }
 }
 
 extension DisplayFriendViewController {
@@ -123,6 +142,15 @@ extension DisplayFriendViewController: UICollectionViewDataSource {
         cell.item = items[indexPath.row]
         
         return cell
+    }
+}
+
+extension DisplayFriendViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView,
+                        shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        selected = indexPath.row
+        performSegue(withIdentifier: "toSelectedItem", sender: self)
+        return false
     }
 }
 
