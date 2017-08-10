@@ -76,28 +76,51 @@ extension FindFriendsViewController: UITableViewDataSource, UITableViewDelegate 
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?{
+        let cell = self.tableView.cellForRow(at: indexPath) as! FriendCell
+        if(cell.selectionStyle == .none){
+            return nil;
+        }
+        return indexPath;
+    }
+    
     func tableView(_ tableView: UITableView,
                    editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         return requestActions(indexPath)
     }
     
     func requestActions(_ indexPath : IndexPath) -> [UITableViewRowAction]{
-        let send = UITableViewRowAction(style: .normal, title: "Send") { (style, indexPath) in
-            let user = self.users[indexPath.row]
-            FriendService.sendFriendRequest(to: user) { (success) in
-                if success {
-                    SCLAlertView().showSuccess("Success!", subTitle: "Friend Request has been sent to \(user.username)")
+        let currentCell = tableView.cellForRow(at: indexPath) as! FriendCell
+        let send = UITableViewRowAction(style: .normal, title: "Send") { [unowned self] (style, indexPath) in
+            let when = DispatchTime.now() + 0.1
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                print("0.1")
+                currentCell.loadingView.startAnimating()
+                currentCell.selectionStyle = .none
+                let user = self.users[indexPath.row]
+                FriendService.sendFriendRequest(to: user) { (success) in
+                    if success {
+                        SCLAlertView().showSuccess("Success!", subTitle: "Friend Request has been sent to \(user.username)")
+                    }
+                    currentCell.loadingView.stopAnimating()
+                    currentCell.selectionStyle = .default
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
             }
-
+            print("0.0")
+            self.tableView.reloadData()
         }
         send.backgroundColor = UIColor(red: 0.40, green: 1.00, blue: 0.40, alpha: 1.0)
-        
         return [send]
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard let currentCell = tableView.cellForRow(at: indexPath) as! FriendCell? else {
+            return true
+        }
+        if currentCell.loadingView.isAnimating {
+            return false
+        }
         return true
     }
 }

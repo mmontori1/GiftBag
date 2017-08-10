@@ -54,16 +54,16 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FFH-DB-cpH">
-                                                            <rect key="frame" x="74.5" y="0.0" width="280.5" height="59.5"/>
+                                                            <rect key="frame" x="74.5" y="0.0" width="245.5" height="59.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auS-cI-PIf">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="280.5" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="245.5" height="24"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcD-uh-I3l">
-                                                                    <rect key="frame" x="0.0" y="24" width="280.5" height="35.5"/>
+                                                                    <rect key="frame" x="0.0" y="24" width="245.5" height="35.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
@@ -74,13 +74,19 @@
                                                                 <constraint firstItem="auS-cI-PIf" firstAttribute="width" secondItem="FFH-DB-cpH" secondAttribute="width" id="cua-jG-rOd"/>
                                                             </constraints>
                                                         </stackView>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YN2-rI-2pq">
+                                                            <rect key="frame" x="335" y="0.0" width="20" height="59.5"/>
+                                                        </activityIndicatorView>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="YN2-rI-2pq" firstAttribute="top" secondItem="DjO-kT-3ax" secondAttribute="top" id="50A-lh-Dmg"/>
                                                         <constraint firstItem="yvI-eG-SpL" firstAttribute="centerY" secondItem="DjO-kT-3ax" secondAttribute="centerY" id="9LZ-MS-nzP"/>
+                                                        <constraint firstAttribute="bottom" secondItem="YN2-rI-2pq" secondAttribute="bottom" id="KVB-LS-9zi"/>
                                                         <constraint firstItem="FFH-DB-cpH" firstAttribute="top" secondItem="DjO-kT-3ax" secondAttribute="top" id="eNn-OG-7TV"/>
                                                         <constraint firstItem="FFH-DB-cpH" firstAttribute="centerY" secondItem="DjO-kT-3ax" secondAttribute="centerY" id="hFd-3Y-Bc9"/>
                                                         <constraint firstItem="FFH-DB-cpH" firstAttribute="leading" secondItem="yvI-eG-SpL" secondAttribute="trailing" constant="15" id="has-OU-M74"/>
                                                         <constraint firstAttribute="bottom" secondItem="FFH-DB-cpH" secondAttribute="bottom" id="oBA-pY-og8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="YN2-rI-2pq" secondAttribute="trailing" id="oxn-jq-XN7"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -92,6 +98,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="loadingView" destination="YN2-rI-2pq" id="XQv-m7-74W"/>
                                             <outlet property="nameLabel" destination="WcD-uh-I3l" id="PUf-Od-yV4"/>
                                             <outlet property="profileImageView" destination="yvI-eG-SpL" id="DF4-77-W1b"/>
                                             <outlet property="usernameLabel" destination="auS-cI-PIf" id="ffj-l2-LRK"/>
@@ -130,8 +137,6 @@
         <!--Friend Request-->
         <scene sceneID="ZPi-XB-cGZ">
             <objects>
-                <exit id="HmX-PY-i18" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H4g-o5-asU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController hidesBottomBarWhenPushed="YES" id="cIE-ZZ-j5S" customClass="FriendRequestViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gGv-zK-dH6"/>
@@ -200,6 +205,8 @@
                         <outlet property="usernameLabel" destination="Inc-0x-Kun" id="bpK-Ld-kBm"/>
                     </connections>
                 </viewController>
+                <exit id="HmX-PY-i18" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H4g-o5-asU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3092" y="1349"/>
         </scene>

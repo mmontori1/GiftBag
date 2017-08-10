@@ -179,6 +179,14 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?{
+        let cell = self.tableView.cellForRow(at: indexPath) as! FriendCell
+        if(cell.selectionStyle == .none){
+            return nil;
+        }
+        return indexPath;
+    }
+    
     func tableView(_ tableView: UITableView,
                    editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let sections = checkForRequests(section: indexPath.section)
@@ -194,25 +202,42 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func requestActions(_ indexPath : IndexPath) -> [UITableViewRowAction]{
-        let accept = UITableViewRowAction(style: .normal, title: "Accept") { (style, indexPath) in
-            let user = self.requests[indexPath.row]
-            FriendService.acceptFriendRequest(for: user) { (success) in
-                if success {
-                    SCLAlertView().showSuccess("Success!", subTitle: "You are now friends with \(user.username)")
+        let currentCell = tableView.cellForRow(at: indexPath) as! FriendCell
+        let accept = UITableViewRowAction(style: .normal, title: "Accept") { [unowned self] (style, indexPath) in
+            let when = DispatchTime.now() + 0.1
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                currentCell.loadingView.startAnimating()
+                currentCell.selectionStyle = .none
+                let user = self.requests[indexPath.row]
+                FriendService.acceptFriendRequest(for: user) { (success) in
+                    if success {
+                        SCLAlertView().showSuccess("Success!", subTitle: "You are now friends with \(user.username)")
+                    }
+                    currentCell.loadingView.stopAnimating()
+                    currentCell.selectionStyle = .default
+                    self.reloadTable()
                 }
-                self.reloadTable()
             }
+            self.reloadTable()
         }
         accept.backgroundColor = UIColor(red: 0.40, green: 1.00, blue: 0.40, alpha: 1.0)
         
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (style, indexPath) in
-            let user = self.requests[indexPath.row]
-            FriendService.deleteFriendRequest(for: user) { (success) in
-                if success {
-                    SCLAlertView().showSuccess("Success!", subTitle: "You have now deleted \(user.username)'s request")
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { [unowned self] (style, indexPath) in
+            let when = DispatchTime.now() + 0.1
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                currentCell.loadingView.startAnimating()
+                currentCell.selectionStyle = .none
+                let user = self.requests[indexPath.row]
+                FriendService.deleteFriendRequest(for: user) { (success) in
+                    if success {
+                        SCLAlertView().showSuccess("Success!", subTitle: "You have now deleted \(user.username)'s request")
+                    }
+                    currentCell.loadingView.stopAnimating()
+                    currentCell.selectionStyle = .default
+                    self.reloadTable()
                 }
-                self.reloadTable()
             }
+            self.reloadTable()
         }
         delete.backgroundColor = UIColor(red: 1.00, green: 0.59, blue: 0.54, alpha: 1.0)
         
@@ -220,14 +245,23 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func friendActions(_ indexPath : IndexPath) -> [UITableViewRowAction]{
-        let delete = UITableViewRowAction(style: .destructive, title: "Unfriend") { (style, indexPath) in
-            let user = self.friends[indexPath.row]
-            FriendService.unfriend(for: user, success: { (success) in
-                if success {
-                    SCLAlertView().showSuccess("Success!", subTitle: "You have now unfriended \(user.username)")
-                }
-                self.reloadTable()
-            })
+        let currentCell = tableView.cellForRow(at: indexPath) as! FriendCell
+        let delete = UITableViewRowAction(style: .destructive, title: "Unfriend") { [unowned self] (style, indexPath) in
+            let when = DispatchTime.now() + 0.1
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                currentCell.loadingView.startAnimating()
+                currentCell.selectionStyle = .none
+                let user = self.friends[indexPath.row]
+                FriendService.unfriend(for: user, success: { (success) in
+                    if success {
+                        SCLAlertView().showSuccess("Success!", subTitle: "You have now unfriended \(user.username)")
+                    }
+                    currentCell.loadingView.stopAnimating()
+                    currentCell.selectionStyle = .default
+                    self.reloadTable()
+                })
+            }
+            self.reloadTable()
         }
         delete.backgroundColor = UIColor(red: 1.00, green: 0.59, blue: 0.54, alpha: 1.0)
         
@@ -235,16 +269,13 @@ extension FriendsViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        let sections = checkForRequests(section: indexPath.section)
-        guard let section = Section(rawValue: sections) else {
+        guard let currentCell = tableView.cellForRow(at: indexPath) as! FriendCell? else {
+            return true
+        }
+        if currentCell.loadingView.isAnimating {
             return false
         }
-        switch section {
-            case .requests:
-                return true
-            case .friends:
-                return true
-        }
+        return true
     }
     
     func checkForRequests(section : Int) -> Int {

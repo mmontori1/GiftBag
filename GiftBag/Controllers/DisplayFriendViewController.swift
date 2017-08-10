@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class DisplayFriendViewController: UIViewController {
     
@@ -14,8 +15,15 @@ class DisplayFriendViewController: UIViewController {
     var items = [WishItem](){
         didSet {
             itemCountLabel.text = String(items.count)
+            items.sort(by: { $0.timestamp.compare($1.timestamp as Date) == .orderedDescending })
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
+    let refreshControl = UIRefreshControl()
+    var profileHandle: DatabaseHandle = 0
+    var profileRef: DatabaseReference?
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -26,21 +34,53 @@ class DisplayFriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        items.append(WishItem(name: "WAT"))
+        guard let user = friend else {
+            return
+        }
+        profileHandle = UserService.observeProfile(for: user) { [unowned self] (ref, user) in
+            self.profileRef = ref
+            guard let user = user else {
+                return
+            }
+            self.setUser(user)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    deinit {
+        print("IM ALSO OUTTA HERE")
+        profileRef?.removeObserver(withHandle: profileHandle)
+    }
+    
 }
 
 extension DisplayFriendViewController {
     func configureView(){
+        refreshControl.addTarget(self, action: #selector(reloadWishlist), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
+        collectionView.alwaysBounceVertical = true
+        profileImage.circular(width: 1.0, color: UIColor.lightGray.cgColor)
+    }
+    
+    func configureWillAppear(_ animated: Bool){
+        refreshControl.endRefreshing()
+        if items.count > 0 && collectionView.contentOffset.y < 0 {
+            self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0),
+                                              at: .top,
+                                              animated: true)
+        }
+        
         guard let user = friend else {
             return
         }
-        profileImage.circular(width: 1.0, color: UIColor.lightGray.cgColor)
         setUser(user)
     }
     
@@ -51,11 +91,24 @@ extension DisplayFriendViewController {
         if let url = user.profileURL {
             self.resetProfilePic(url: url)
         }
+        reloadWishlist()
     }
     
     func resetProfilePic(url : String){
         let imageURL = URL(string: url)
         self.profileImage.kf.setImage(with: imageURL)
+    }
+    
+    func reloadWishlist() {
+        guard let user = friend else {
+            return
+        }
+        UserService.wishlist(for: user) { (savedItems) in
+            self.items = savedItems
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+        }
     }
 }
 

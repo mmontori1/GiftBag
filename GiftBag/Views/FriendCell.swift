@@ -19,6 +19,7 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +34,7 @@ class FriendCell: UITableViewCell {
 
 extension FriendCell {
     func configureCell(){
+        loadingView.hidesWhenStopped = true
         profileImageView.circular(width: 1.0, color: UIColor.darkGray.cgColor)
     }
     
