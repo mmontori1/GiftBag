@@ -161,7 +161,7 @@ extension DisplayFriendViewController: UICollectionViewDelegateFlowLayout {
         let totalHorizontalSpacing = (columns - 1) * spacing
         
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
-        let itemHeight : CGFloat = 144 * itemWidth / 130
+        let itemHeight : CGFloat = 235 * itemWidth / 169
         let itemSize = CGSize(width: itemWidth, height: itemHeight)
         
         return itemSize

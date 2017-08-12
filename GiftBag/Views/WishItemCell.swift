@@ -11,6 +11,10 @@ import UIKit
 class WishItemCell: UICollectionViewCell {
     @IBOutlet weak var nameTextField: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var willPlanButton: UIButton?
+    @IBOutlet weak var willPlanLabel: UILabel?
+    @IBOutlet weak var haveBoughtButton: UIButton?
+    @IBOutlet weak var haveBoughtLabel: UILabel?
     
     var cellHeight : CGFloat = 0.0
     var item : WishItem? = nil{
@@ -33,5 +37,21 @@ class WishItemCell: UICollectionViewCell {
             return
         }
         nameTextField.text = item.name
+    }
+    @IBAction func willPlanClicked(_ sender: UIButton) {
+        guard let willPlanButton = willPlanButton,
+            let willPlanLabel = willPlanLabel,
+            let text = willPlanLabel.text else {
+                return
+        }
+        willPlanLabel.text = String(Int(text)! + 1)
+        
+    }
+    
+    @IBAction func haveBoughtClicked(_ sender: Any) {
+        guard let willPlanButton = willPlanButton,
+            let haveBoughtButton = haveBoughtButton else {
+                return
+        }
     }
 }
