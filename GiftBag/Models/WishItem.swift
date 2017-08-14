@@ -17,9 +17,9 @@ class WishItem {
     var price : Double?
     var linkURL : String?
     var imageURL : String?
-    var willPlan : Int
-    var haveBought : Int
-    var haveReceived : Bool
+    var willPlan : [String : Bool]
+    var haveBought : String?
+    var haveReceived : String?
     var dictValue: [String : Any] {
         let userDict = ["uid" : poster.uid,
                         "username" : poster.username,
@@ -28,9 +28,7 @@ class WishItem {
         var value : [String : Any] = ["poster" : userDict,
                                       "name" : name,
                                       "timestamp" : timestamp.timeIntervalSince1970,
-                                      "willPlan" : willPlan,
-                                      "haveBought" : haveBought,
-                                      "haveReceived" : haveReceived]
+                                      "willPlan" : willPlan]
         
         if let price = price {
             value["price"] = price
@@ -40,6 +38,12 @@ class WishItem {
         }
         if let imageURL = imageURL {
             value["imageURL"] = imageURL
+        }
+        if let haveBought = haveBought {
+            value["haveBought"] = haveBought
+        }
+        if let haveReceived = haveReceived {
+            value["haveReceived"] = haveReceived
         }
 
         return value
@@ -52,9 +56,7 @@ class WishItem {
         self.price = price
         self.linkURL = linkURL
         self.imageURL = imageURL
-        self.willPlan = 0
-        self.haveBought = 0
-        self.haveReceived = false
+        self.willPlan = [:]
     }
     
     init?(snapshot: DataSnapshot) {
@@ -65,18 +67,13 @@ class WishItem {
             let firstName = poster["firstName"] as? String,
             let lastName = poster["lastName"] as? String,
             let name = dict["name"] as? String,
-            let timestamp = dict["timestamp"] as? TimeInterval,
-            let willPlan = dict["willPlan"] as? Int,
-            let haveBought = dict["haveBought"] as? Int,
-            let haveReceived = dict["haveReceived"] as? Bool
+            let timestamp = dict["timestamp"] as? TimeInterval
             else { return nil }
         self.key = snapshot.key
         self.poster = User(uid: uid, username: username, firstName: firstName, lastName: lastName)
         self.name = name
+        self.willPlan = [:]
         self.timestamp = Date(timeIntervalSince1970: timestamp)
-        self.willPlan = willPlan
-        self.haveBought = haveBought
-        self.haveReceived = haveReceived
         
         if let price = dict["price"] as? Double {
             self.price = price
@@ -86,6 +83,15 @@ class WishItem {
         }
         if let imageURL = dict["imageURL"] as? String {
             self.imageURL = imageURL
+        }
+        if let haveBought = dict["haveBought"] as? String{
+            self.haveBought = haveBought
+        }
+        if let haveReceived = dict["haveReceived"] as? String{
+            self.haveReceived = haveReceived
+        }
+        if let willPlan = dict["willPlan"] as? [String : Bool]{
+            self.willPlan = willPlan
         }
     }
     
