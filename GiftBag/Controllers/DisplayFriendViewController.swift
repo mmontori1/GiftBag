@@ -65,12 +65,13 @@ class DisplayFriendViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "toSelectedItem" {
-                let wishItemViewController = segue.destination as! WishItemViewController
+                let destination = segue.destination as! FriendWishItemViewController
                 guard let index = selected else {
                     SCLAlertView().genericError()
                     return
                 }
-                wishItemViewController.wishItem = items[index]
+                destination.friend = friend
+                destination.wishItem = items[index]
                 print("To Wish Item Screen!")
             }
         }

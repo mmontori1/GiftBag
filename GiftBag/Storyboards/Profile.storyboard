@@ -310,7 +310,7 @@
             </objects>
             <point key="canvasLocation" x="-788" y="2778"/>
         </scene>
-        <!--Title-->
+        <!--Wish Item View Controller-->
         <scene sceneID="Ptc-cv-XYV">
             <objects>
                 <viewController id="LtB-a9-8li" customClass="WishItemViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
@@ -322,11 +322,34 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-QM-KsA">
-                                <rect key="frame" x="15.5" y="20" width="344" height="384"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-QM-KsA">
+                                <rect key="frame" x="45.5" y="20" width="284" height="384"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gAB-WK-23T">
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH3-oQ-oJv">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="L18-QV-KQy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dG0-jx-YRJ">
+                                                <rect key="frame" x="85" y="0.0" width="199" height="40"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="d2O-zJ-ylC"/>
+                                        </constraints>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2AH-Sx-Z5Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
+                                        <rect key="frame" x="0.0" y="50" width="284" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke9-q9-L5W">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
@@ -337,22 +360,25 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4j-iS-uMf">
-                                                <rect key="frame" x="85" y="0.0" width="259" height="40"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nA8-Zc-8w2">
+                                                <rect key="frame" x="85" y="0.0" width="11" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KDY-s6-eP9">
+                                                <rect key="frame" x="111" y="0.0" width="173" height="40"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="i4j-iS-uMf" secondAttribute="bottom" id="6mU-Gd-rdu"/>
-                                            <constraint firstItem="i4j-iS-uMf" firstAttribute="top" secondItem="2AH-Sx-Z5Q" secondAttribute="top" id="MDu-wD-C17"/>
-                                            <constraint firstAttribute="trailing" secondItem="i4j-iS-uMf" secondAttribute="trailing" id="TQ1-zx-Xry"/>
                                             <constraint firstAttribute="height" constant="40" id="vvd-BH-xGd"/>
                                         </constraints>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="JPl-1d-gGa">
-                                        <rect key="frame" x="0.0" y="40" width="344" height="344"/>
+                                        <rect key="frame" x="0.0" y="100" width="284" height="284"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JPl-1d-gGa" secondAttribute="height" multiplier="1:1" id="xLv-KX-R6p"/>
                                         </constraints>
@@ -360,6 +386,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="JPl-1d-gGa" firstAttribute="width" secondItem="Ibr-QM-KsA" secondAttribute="width" id="0K3-Pp-XlF"/>
+                                    <constraint firstItem="gAB-WK-23T" firstAttribute="width" secondItem="Ibr-QM-KsA" secondAttribute="width" id="kg8-Xv-Xgg"/>
                                     <constraint firstItem="2AH-Sx-Z5Q" firstAttribute="width" secondItem="Ibr-QM-KsA" secondAttribute="width" id="mPa-Og-3cJ"/>
                                 </constraints>
                             </stackView>
@@ -371,7 +398,7 @@
                             <constraint firstItem="Ikw-4U-PR6" firstAttribute="top" secondItem="Ibr-QM-KsA" secondAttribute="bottom" constant="150" id="yU2-dT-RHP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="3Pg-X3-mnf">
+                    <navigationItem key="navigationItem" id="3Pg-X3-mnf">
                         <barButtonItem key="leftBarButtonItem" image="exit" id="H2m-VA-fex">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -381,7 +408,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="JPl-1d-gGa" id="JFm-qr-R2R"/>
-                        <outlet property="priceLabel" destination="i4j-iS-uMf" id="xhP-oN-3rC"/>
+                        <outlet property="nameTextField" destination="dG0-jx-YRJ" id="IF8-lG-O9N"/>
+                        <outlet property="priceTextField" destination="KDY-s6-eP9" id="r97-ft-Kf6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Maf-zf-Y2f" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,10 +11,9 @@ import UIKit
 class WishItemCell: UICollectionViewCell {
     @IBOutlet weak var nameTextField: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var willPlanButton: UIButton?
+    @IBOutlet weak var willPlanImage: UIImageView?
     @IBOutlet weak var willPlanLabel: UILabel?
-    @IBOutlet weak var haveBoughtButton: UIButton?
-    @IBOutlet weak var haveBoughtLabel: UILabel?
+    @IBOutlet weak var haveBoughtImage: UIImageView?
     
     var cellHeight : CGFloat = 0.0
     var item : WishItem? = nil{
@@ -37,21 +36,44 @@ class WishItemCell: UICollectionViewCell {
             return
         }
         nameTextField.text = item.name
-    }
-    @IBAction func willPlanClicked(_ sender: UIButton) {
-        guard let willPlanButton = willPlanButton,
-            let willPlanLabel = willPlanLabel,
-            let text = willPlanLabel.text else {
-                return
-        }
-        willPlanLabel.text = String(Int(text)! + 1)
-        
+        setWillPlan()
+        setHaveBought()
     }
     
-    @IBAction func haveBoughtClicked(_ sender: Any) {
-        guard let willPlanButton = willPlanButton,
-            let haveBoughtButton = haveBoughtButton else {
+    func setWillPlan(){
+        guard let item = item,
+            let willPlanImage = willPlanImage,
+            let willPlanLabel = willPlanLabel else {
+            return
+        }
+        
+        willPlanImage.image = UIImage(named: "thinkEmpty")
+        willPlanLabel.text = String(item.willPlan.count)
+        print(item.willPlan)
+        print(User.current.uid)
+        print("does \(item.name) exist? \(item.willPlan[User.current.uid] ?? false)")
+        if item.willPlan.count > 0 {
+            willPlanImage.image = UIImage(named: "thinkExists")
+        }
+        if let exist = item.willPlan[User.current.uid],
+            exist {
+            willPlanImage.image = UIImage(named: "thinkFilled")
+        }
+    }
+    
+    func setHaveBought(){
+        guard let item = item,
+            let haveBoughtImage = haveBoughtImage else {
                 return
+        }
+        haveBoughtImage.image = UIImage(named: "giveEmpty")
+        if let boughtUserUID = item.haveBought{
+            if User.current.uid == boughtUserUID {
+                haveBoughtImage.image = UIImage(named: "giveFilled")
+            }
+            else {
+                haveBoughtImage.image = UIImage(named: "giveExists")
+            }
         }
     }
 }

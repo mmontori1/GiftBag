@@ -9,11 +9,12 @@
 import UIKit
 
 class WishItemViewController: UIViewController {
-
+    
     var wishItem : WishItem?
     
-    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var priceTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +37,12 @@ extension WishItemViewController {
             print("wish item controller no item what")
             return
         }
-        self.navigationItem.title = item.name
+        nameTextField.text = item.name
         if let price = item.price {
-            priceLabel.text = String(format: "$%.2f", price)
+            priceTextField.text = String(format: "%.2f", price)
         }
         else{
-            priceLabel.text = "No Price"
+            priceTextField.text = "No Price"
         }
     }
 }
