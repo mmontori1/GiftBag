@@ -39,7 +39,6 @@ class ForgotPasswordViewController: UIViewController {
 
 extension ForgotPasswordViewController{
     func configureView(){
-        applyKeyboardPush()
-        applyKeyboardDismisser()
+        
     }
 }

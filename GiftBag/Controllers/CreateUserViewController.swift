@@ -71,8 +71,6 @@ class CreateUserViewController: UIViewController {
 
 extension CreateUserViewController{
     func configureView(){
-        applyKeyboardPush()
-        applyKeyboardDismisser()
         signUpButton.layer.cornerRadius = 10
     }
 }

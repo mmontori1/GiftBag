@@ -12,7 +12,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
-    @IBOutlet weak var createAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +77,6 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController{
     func configureView(){
-        applyKeyboardPush()
-        applyKeyboardDismisser()
         logInButton.layer.cornerRadius = 10
-        createAccountButton.layer.cornerRadius = 10
     }
 }
