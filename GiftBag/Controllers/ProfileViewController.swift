@@ -102,6 +102,9 @@ class ProfileViewController: UIViewController {
                 reloadWishlist()
 //                SCLAlertView().showSuccess("Success!", subTitle: "You've created a new wish list item")
             }
+            else if identifier == "saveEdit" {
+                reloadWishlist()
+            }
         }
         print("Returned to Main Screen!")
     }

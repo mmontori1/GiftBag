@@ -412,13 +412,13 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:DQo-qJ-TnY:image" translatesAutoresizingMaskIntoConstraints="NO" id="JPl-1d-gGa">
-                                <rect key="frame" x="36" y="159" width="303" height="303"/>
+                                <rect key="frame" x="36" y="160" width="303" height="303"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JPl-1d-gGa" secondAttribute="height" multiplier="1:1" id="xLv-KX-R6p"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozQ-nn-A7c">
-                                <rect key="frame" x="36" y="159" width="303" height="303"/>
+                                <rect key="frame" x="36" y="160" width="303" height="303"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="0.2030179795" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ozQ-nn-A7c" secondAttribute="height" multiplier="1:1" id="337-1K-o3E"/>
@@ -427,6 +427,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="changePictureClicked:" destination="LtB-a9-8li" eventType="touchUpInside" id="SDe-r4-Vng"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBV-k1-DZY">
                                 <rect key="frame" x="0.0" y="543" width="375" height="60"/>
@@ -435,28 +438,29 @@
                                 <state key="normal" image="save"/>
                                 <connections>
                                     <action selector="saveClicked:" destination="7Zi-GC-D3q" eventType="touchUpInside" id="BTG-gB-ebq"/>
+                                    <action selector="saveClicked:" destination="LtB-a9-8li" eventType="touchUpInside" id="wTY-MM-nwE"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ozQ-nn-A7c" firstAttribute="leading" secondItem="JPl-1d-gGa" secondAttribute="leading" id="0Zd-IV-J1Z"/>
                             <constraint firstItem="Ibr-QM-KsA" firstAttribute="centerX" secondItem="RAV-ub-0CM" secondAttribute="centerX" id="7Gc-3h-sI6"/>
-                            <constraint firstItem="JPl-1d-gGa" firstAttribute="leading" secondItem="RAV-ub-0CM" secondAttribute="leadingMargin" constant="20" id="8vc-aa-8tD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JPl-1d-gGa" secondAttribute="trailing" constant="20" id="9uH-fn-7yf"/>
+                            <constraint firstItem="JPl-1d-gGa" firstAttribute="top" secondItem="Ibr-QM-KsA" secondAttribute="bottom" constant="50" id="Bqn-TU-fyd"/>
+                            <constraint firstItem="ozQ-nn-A7c" firstAttribute="top" secondItem="JPl-1d-gGa" secondAttribute="top" id="Etx-JL-GCK"/>
                             <constraint firstItem="Ibr-QM-KsA" firstAttribute="top" secondItem="l0T-ee-3qq" secondAttribute="bottom" constant="20" id="HZj-J6-d5f"/>
-                            <constraint firstItem="JPl-1d-gGa" firstAttribute="top" secondItem="Ibr-QM-KsA" secondAttribute="bottom" constant="49" id="PxV-UA-vFL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JPl-1d-gGa" secondAttribute="trailing" constant="20" id="S2a-wI-7dC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ibr-QM-KsA" secondAttribute="trailing" constant="20" id="WKd-Gr-Uac"/>
                             <constraint firstItem="Ibr-QM-KsA" firstAttribute="leading" secondItem="RAV-ub-0CM" secondAttribute="leadingMargin" constant="20" id="Zu0-Tn-xWK"/>
-                            <constraint firstItem="JPl-1d-gGa" firstAttribute="leading" secondItem="ozQ-nn-A7c" secondAttribute="leading" id="ctC-KO-Td7"/>
-                            <constraint firstItem="JPl-1d-gGa" firstAttribute="top" secondItem="ozQ-nn-A7c" secondAttribute="top" id="j1i-PM-ZJ5"/>
-                            <constraint firstItem="ozQ-nn-A7c" firstAttribute="width" secondItem="JPl-1d-gGa" secondAttribute="width" id="u0Y-s8-FQh"/>
+                            <constraint firstItem="JPl-1d-gGa" firstAttribute="leading" secondItem="RAV-ub-0CM" secondAttribute="leadingMargin" constant="20" id="rPD-2b-OAm"/>
+                            <constraint firstItem="ozQ-nn-A7c" firstAttribute="width" secondItem="JPl-1d-gGa" secondAttribute="width" id="u6q-OZ-IPb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Pg-X3-mnf">
                         <barButtonItem key="leftBarButtonItem" image="exit" id="H2m-VA-fex">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="ini-tq-ZGR" kind="unwind" unwindAction="unwindToMain:" id="0Ug-Zo-eaf"/>
+                                <segue destination="ini-tq-ZGR" kind="unwind" identifier="saveEdit" unwindAction="unwindToMain:" id="0Ug-Zo-eaf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -464,6 +468,7 @@
                         <outlet property="imageView" destination="JPl-1d-gGa" id="JFm-qr-R2R"/>
                         <outlet property="nameTextField" destination="dG0-jx-YRJ" id="IF8-lG-O9N"/>
                         <outlet property="priceTextField" destination="KDY-s6-eP9" id="r97-ft-Kf6"/>
+                        <segue destination="ini-tq-ZGR" kind="unwind" identifier="cancelEdit" unwindAction="unwindToMain:" id="qAv-cv-Hed"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Maf-zf-Y2f" userLabel="First Responder" sceneMemberID="firstResponder"/>

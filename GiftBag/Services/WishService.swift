@@ -21,27 +21,27 @@ struct WishService {
                     return
                 }
                 item.imageURL = downloadURL.absoluteString
-                ref.setValue(item.dictValue) { (error, ref) in
-                    if let error = error {
-                        assertionFailure(error.localizedDescription)
-                        return completion(nil)
-                    }
-                    show(for: User.current, with: ref.key, completion: { (item) in
-                        completion(item)
-                    })
-                }
+                make(for: item, at: ref, completion: { (item) in
+                    completion(item)
+                })
             })
         }
         else {
-            ref.setValue(item.dictValue) { (error, ref) in
-                if let error = error {
-                    assertionFailure(error.localizedDescription)
-                    return completion(nil)
-                }
-                show(for: User.current, with: ref.key, completion: { (item) in
-                        completion(item)
-                })
+            make(for: item, at: ref, completion: { (item) in
+                completion(item)
+            })
+        }
+    }
+    
+    private static func make(for item : WishItem, at ref : DatabaseReference, completion: @escaping (WishItem?) -> Void){
+        ref.setValue(item.dictValue) { (error, ref) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                return completion(nil)
             }
+            show(for: User.current, with: ref.key, completion: { (item) in
+                completion(item)
+            })
         }
     }
     
@@ -56,7 +56,7 @@ struct WishService {
         })
     }
     
-    static func edit(for item : WishItem, name : String, price : Double?, linkURL: String?, imageURL: String?, completion: @escaping (WishItem?) -> Void) {
+    static func edit(for item : WishItem, name : String, price : Double?, linkURL: String?, image: UIImage?, completion: @escaping (WishItem?) -> Void) {
         guard let key = item.key else {
             return completion(nil)
         }
@@ -67,12 +67,28 @@ struct WishService {
         if let linkURL = linkURL {
             itemData["linkURL"] = linkURL
         }
-        if let imageURL = imageURL {
-            itemData["imageURL"] = imageURL
+        if let image = image {
+            let storageRef = Storage.storage().reference().child("images/items/\(User.current.uid)/\(key).jpg")
+            StorageService.uploadImage(image, at: storageRef, completion: { (downloadURL) in
+                guard let downloadURL = downloadURL else {
+                    return
+                }
+                itemData["imageURL"] = downloadURL.absoluteString
+                update(for: item, key: key, with: itemData, completion: { (item) in
+                    completion(item)
+                })
+            })
         }
-        
+        else {
+            update(for: item, key: key, with: itemData, completion: { (item) in
+                completion(item)
+            })
+        }
+    }
+    
+    private static func update(for item: WishItem, key : String, with data : [String : Any], completion: @escaping (WishItem?) -> Void){
         let ref = Database.database().reference().child("wishItems").child(User.current.uid).child(key)
-        ref.updateChildValues(itemData) { (error, ref) in
+        ref.updateChildValues(data) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
                 return completion(nil)
