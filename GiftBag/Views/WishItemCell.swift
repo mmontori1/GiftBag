@@ -25,7 +25,8 @@ class WishItemCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         cellHeight = nameTextField.bounds.height + imageView.bounds.height + 50
-        self.clipsToBounds = true
+        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 5
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.lightGray.cgColor
@@ -36,6 +37,10 @@ class WishItemCell: UICollectionViewCell {
             return
         }
         nameTextField.text = item.name
+        if let imageURL = item.imageURL {
+            let imageURL = URL(string: imageURL)
+            imageView.kf.setImage(with: imageURL)
+        }
         setWillPlan()
         setHaveBought()
     }
@@ -49,9 +54,6 @@ class WishItemCell: UICollectionViewCell {
         
         willPlanImage.image = UIImage(named: "thinkEmpty")
         willPlanLabel.text = String(item.willPlan.count)
-        print(item.willPlan)
-        print(User.current.uid)
-        print("does \(item.name) exist? \(item.willPlan[User.current.uid] ?? false)")
         if item.willPlan.count > 0 {
             willPlanImage.image = UIImage(named: "thinkExists")
         }

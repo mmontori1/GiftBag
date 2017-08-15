@@ -8,21 +8,34 @@
 
 import UIKit
 import SCLAlertView
+import Kingfisher
+import FirebaseStorage
 
 class CreateWishListItemViewController: UIViewController {
 
+    let photoHelper = PhotoHelper()
     var newItem : WishItem? = nil
+    var pictureCheck = false
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var itemImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        photoHelper.completionHandler = { image in
+            self.itemImageView.image = image
+            self.pictureCheck = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func changePictureClicked(_ sender: UIButton) {
+        photoHelper.presentActionSheet(from: self)
     }
     
     @IBAction func saveClicked(_ sender: Any) {
@@ -32,8 +45,8 @@ class CreateWishListItemViewController: UIViewController {
                 return
         }
         
-        let linkURL : String? = nil
         var price : Double? = nil
+        var image : UIImage? = nil
         
         if let priceText = priceTextField.text,
             priceText != "" {
@@ -46,18 +59,20 @@ class CreateWishListItemViewController: UIViewController {
             price = value
         }
         
-        newItem = WishItem(name: name, price: price, linkURL: linkURL, imageURL: nil)
+        if pictureCheck {
+            image = self.itemImageView.image
+        }
+        
+        newItem = WishItem(name: name, price: price, linkURL: nil, imageURL: nil)
+        
         if let newItem = newItem  {
-            WishService.create(data: newItem) { (item) in
+            WishService.create(for: newItem, image: image) { (item) in
                 self.newItem = item
+                print("performing segue!")
+                self.performSegue(withIdentifier: "saveItem", sender: self)
+                print("performed segue!")
             }
         }
-        else {
-            print("no new item!!!")
-        }
-        print("performing segue!")
-        performSegue(withIdentifier: "saveItem", sender: self)
-        print("performed segue!")
     }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,5 +91,6 @@ class CreateWishListItemViewController: UIViewController {
 extension CreateWishListItemViewController {
     func configureView() {
         applyKeyboardDismisser()
+        itemImageView.image = UIImage(named: "comet")
     }
 }

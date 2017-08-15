@@ -7,18 +7,41 @@
 //
 
 import Foundation
+import UIKit
 import FirebaseDatabase.FIRDataSnapshot
+import FirebaseStorage
 
 struct WishService {
-    static func create(data item : WishItem, completion: @escaping (WishItem?) -> Void) {
+    static func create(for item : WishItem, image : UIImage?, completion: @escaping (WishItem?) -> Void) {
         let ref = Database.database().reference().child("wishItems").child(User.current.uid).childByAutoId()
-        ref.setValue(item.dictValue) { (error, ref) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-                return completion(nil)
+        if let image = image {
+            let storageRef = Storage.storage().reference().child("images/items/\(User.current.uid)/\(ref.key).jpg")
+            StorageService.uploadImage(image, at: storageRef, completion: { (downloadURL) in
+                guard let downloadURL = downloadURL else {
+                    return
+                }
+                item.imageURL = downloadURL.absoluteString
+                ref.setValue(item.dictValue) { (error, ref) in
+                    if let error = error {
+                        assertionFailure(error.localizedDescription)
+                        return completion(nil)
+                    }
+                    show(for: User.current, with: ref.key, completion: { (item) in
+                        completion(item)
+                    })
+                }
+            })
+        }
+        else {
+            ref.setValue(item.dictValue) { (error, ref) in
+                if let error = error {
+                    assertionFailure(error.localizedDescription)
+                    return completion(nil)
+                }
+                show(for: User.current, with: ref.key, completion: { (item) in
+                        completion(item)
+                })
             }
-            
-            completion(item)
         }
     }
     
@@ -31,6 +54,35 @@ struct WishService {
             
             completion(item)
         })
+    }
+    
+    static func edit(for item : WishItem, name : String, price : Double?, linkURL: String?, imageURL: String?, completion: @escaping (WishItem?) -> Void) {
+        guard let key = item.key else {
+            return completion(nil)
+        }
+        var itemData = ["name" : name] as [String : Any]
+        if let price = price {
+            itemData["price"] = price
+        }
+        if let linkURL = linkURL {
+            itemData["linkURL"] = linkURL
+        }
+        if let imageURL = imageURL {
+            itemData["imageURL"] = imageURL
+        }
+        
+        let ref = Database.database().reference().child("wishItems").child(User.current.uid).child(key)
+        ref.updateChildValues(itemData) { (error, ref) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                return completion(nil)
+            }
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                let item = WishItem(snapshot: snapshot)
+                completion(item)
+            })
+        }
     }
     
     static func setWillPlan(at user : User, for item : WishItem, completion: @escaping (WishItem?) -> Void){

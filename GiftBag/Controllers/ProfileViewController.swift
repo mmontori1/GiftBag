@@ -93,13 +93,14 @@ class ProfileViewController: UIViewController {
     @IBAction func unwindToMain(_ segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             if identifier == "saveItem" {
-                let createWishListController = segue.source as! CreateWishListItemViewController
-                guard let newItem = createWishListController.newItem else {
-                    SCLAlertView().genericError()
-                    return
-                }
-                items.append(newItem)
-                SCLAlertView().showSuccess("Success!", subTitle: "You've created a new wish list item")
+//                let createWishListController = segue.source as! CreateWishListItemViewController
+//                guard let newItem = createWishListController.newItem else {
+//                    SCLAlertView().genericError()
+//                    return
+//                }
+//                items.append(newItem)
+                reloadWishlist()
+//                SCLAlertView().showSuccess("Success!", subTitle: "You've created a new wish list item")
             }
         }
         print("Returned to Main Screen!")
