@@ -39,30 +39,23 @@ class WishItemViewController: UIViewController {
     @IBAction func saveClicked(_ sender: UIButton) {
         guard let item = wishItem,
             let name = nameTextField.text,
-            !name.isEmpty else {
-                SCLAlertView().showError("No name", subTitle: "Fill a name for your wishlist item")
+            !name.isEmpty,
+            let priceText = priceTextField.text,
+            priceText != "",
+            let value = Double(priceText),
+            value >= 0
+            else {
+                SCLAlertView().showError("Error with name or price", subTitle: "Fix your inputs on name or price")
+                view.endEditing(true)
                 return
         }
         
-        var price : Double? = nil
         var image : UIImage? = nil
-        
-        if let priceText = priceTextField.text,
-            priceText != "" {
-            guard let value = Double(priceText),
-                value >= 0 else {
-                    SCLAlertView().showError("Invalid Price value", subTitle: "Fill with a valid price")
-                    view.endEditing(true)
-                    priceTextField.text = nil
-                    return
-            }
-            price = value
-        }
         
         if pictureCheck {
             image = self.imageView.image
         }
-        WishService.edit(for: item, name: name, price: price, linkURL: nil, image: image) { (item) in
+        WishService.edit(for: item, name: name, price: value, linkURL: nil, image: image) { (item) in
             self.wishItem = item
             self.performSegue(withIdentifier: "saveEdit", sender: self)
         }

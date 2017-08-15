@@ -56,14 +56,12 @@ struct WishService {
         })
     }
     
-    static func edit(for item : WishItem, name : String, price : Double?, linkURL: String?, image: UIImage?, completion: @escaping (WishItem?) -> Void) {
+    static func edit(for item : WishItem, name : String, price : Double, linkURL: String?, image: UIImage?, completion: @escaping (WishItem?) -> Void) {
         guard let key = item.key else {
             return completion(nil)
         }
-        var itemData = ["name" : name] as [String : Any]
-        if let price = price {
-            itemData["price"] = price
-        }
+        var itemData = ["name" : name,
+                        "price" : price] as [String : Any]
         if let linkURL = linkURL {
             itemData["linkURL"] = linkURL
         }
