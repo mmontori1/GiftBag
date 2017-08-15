@@ -117,7 +117,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxO-kT-Ndq">
-                                                    <rect key="frame" x="0.0" y="10" width="129" height="17"/>
+                                                    <rect key="frame" x="13" y="10" width="103" height="17"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -136,8 +136,9 @@
                                             <constraint firstItem="nxO-kT-Ndq" firstAttribute="top" secondItem="QU3-LO-qgm" secondAttribute="top" constant="10" id="JQG-pn-gua"/>
                                             <constraint firstItem="buT-cC-lx7" firstAttribute="leading" secondItem="QU3-LO-qgm" secondAttribute="leading" constant="10" id="PMF-CA-8G8"/>
                                             <constraint firstItem="buT-cC-lx7" firstAttribute="top" secondItem="nxO-kT-Ndq" secondAttribute="bottom" constant="10" id="QlA-0B-5gd"/>
-                                            <constraint firstItem="nxO-kT-Ndq" firstAttribute="width" secondItem="QU3-LO-qgm" secondAttribute="width" id="aO3-za-l1L"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="nxO-kT-Ndq" secondAttribute="trailing" constant="5" id="cDi-jJ-AEl"/>
                                             <constraint firstItem="buT-cC-lx7" firstAttribute="centerX" secondItem="QU3-LO-qgm" secondAttribute="centerX" id="gLE-K1-M46"/>
+                                            <constraint firstItem="nxO-kT-Ndq" firstAttribute="leading" secondItem="QU3-LO-qgm" secondAttribute="leadingMargin" constant="5" id="tgn-TB-D9P"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="buT-cC-lx7" id="g2t-9I-6e8"/>
