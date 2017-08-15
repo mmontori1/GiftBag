@@ -40,31 +40,24 @@ class CreateWishListItemViewController: UIViewController {
     
     @IBAction func saveClicked(_ sender: Any) {
         guard let name = nameTextField.text,
-            !name.isEmpty else {
-                SCLAlertView().showError("No name", subTitle: "Fill a name for your wishlist item")
-                return
-        }
-        
-        var price : Double? = nil
-        var image : UIImage? = nil
-        
-        if let priceText = priceTextField.text,
-            priceText != "" {
-            guard let value = Double(priceText),
-                value >= 0 else {
-                SCLAlertView().showError("Invalid Price value", subTitle: "Fill with a valid price")
+            !name.isEmpty,
+            let priceText = priceTextField.text,
+            priceText != "",
+            let value = Double(priceText),
+            value >= 0
+            else {
+                SCLAlertView().showError("Error with name or price", subTitle: "Fix your inputs on name or price")
                 view.endEditing(true)
-                priceTextField.text = nil
                 return
-            }
-            price = value
         }
+        
+        var image : UIImage? = nil
         
         if pictureCheck {
             image = self.itemImageView.image
         }
         
-        newItem = WishItem(name: name, price: price, linkURL: nil, imageURL: nil)
+        newItem = WishItem(name: name, price: value, linkURL: nil, imageURL: nil)
         
         if let newItem = newItem  {
             WishService.create(for: newItem, image: image) { (item) in

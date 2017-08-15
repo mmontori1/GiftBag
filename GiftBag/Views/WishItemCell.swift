@@ -41,6 +41,9 @@ class WishItemCell: UICollectionViewCell {
             let imageURL = URL(string: imageURL)
             imageView.kf.setImage(with: imageURL)
         }
+        else {
+            imageView.image = UIImage(named: "comet")
+        }
         setWillPlan()
         setHaveBought()
     }

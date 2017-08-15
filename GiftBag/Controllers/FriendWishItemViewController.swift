@@ -70,12 +70,7 @@ extension FriendWishItemViewController {
             return
         }
         self.navigationItem.title = item.name
-        if let price = item.price {
-            priceLabel.text = String(format: "$%.2f", price)
-        }
-        else{
-            priceLabel.text = "No Price"
-        }
+        priceLabel.text = String(format: "$%.2f", item.price)
     }
     
     func setWillPlan(){

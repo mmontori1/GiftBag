@@ -81,18 +81,13 @@ extension WishItemViewController {
             return
         }
         nameTextField.text = item.name
+        priceTextField.text = String(format: "%.2f", item.price)
         if let imageURL = item.imageURL {
             let imageURL = URL(string: imageURL)
             imageView.kf.setImage(with: imageURL)
         }
         else {
             imageView.image = UIImage(named: "comet")
-        }
-        if let price = item.price {
-            priceTextField.text = String(format: "%.2f", price)
-        }
-        else{
-            priceTextField.text = "No Price"
         }
     }
 }

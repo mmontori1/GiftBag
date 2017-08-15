@@ -16,9 +16,7 @@ class ProfileViewController: UIViewController {
         didSet {
             itemCountLabel.text = String(items.count)
             items.sort(by: { $0.timestamp.compare($1.timestamp as Date) == .orderedDescending })
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
+            self.collectionView.reloadData()
         }
     }
     let refreshControl = UIRefreshControl()
@@ -93,14 +91,7 @@ class ProfileViewController: UIViewController {
     @IBAction func unwindToMain(_ segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
             if identifier == "saveItem" {
-//                let createWishListController = segue.source as! CreateWishListItemViewController
-//                guard let newItem = createWishListController.newItem else {
-//                    SCLAlertView().genericError()
-//                    return
-//                }
-//                items.append(newItem)
                 reloadWishlist()
-//                SCLAlertView().showSuccess("Success!", subTitle: "You've created a new wish list item")
             }
             else if identifier == "saveEdit" {
                 reloadWishlist()
@@ -158,7 +149,6 @@ extension ProfileViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WishItemCell", for: indexPath) as! WishItemCell
         
         cell.item = items[indexPath.row]
- 
         return cell
     }
 }
@@ -166,7 +156,6 @@ extension ProfileViewController: UICollectionViewDataSource {
 extension ProfileViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView,
                                  shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        print(items[indexPath.row].dictValue)
         selected = indexPath.row
         performSegue(withIdentifier: "toSelectedItem", sender: self)
         return false
