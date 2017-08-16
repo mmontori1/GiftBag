@@ -26,6 +26,8 @@
 		0180023A1F4386100044D835 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018002391F4386100044D835 /* LoginPageViewController.swift */; };
 		018568B61F3CA9EF00EE347A /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018568B51F3CA9EF00EE347A /* FriendCell.swift */; };
 		018CB9A21F2FA13B00174BFB /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 018CB9A11F2FA13B00174BFB /* Settings.storyboard */; };
+		01908D1B1F447FFE0078EB7E /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01908D1A1F447FFE0078EB7E /* Info.storyboard */; };
+		01908D1D1F4483FF0078EB7E /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01908D1C1F4483FF0078EB7E /* UserInfoViewController.swift */; };
 		0196053C1F2A209C00BFEFDB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0196053B1F2A209C00BFEFDB /* Profile.storyboard */; };
 		0196053E1F2A248900BFEFDB /* UIImageView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196053D1F2A248900BFEFDB /* UIImageView+Utility.swift */; };
 		019605401F2A2A9400BFEFDB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196053F1F2A2A9400BFEFDB /* EditProfileViewController.swift */; };
@@ -71,6 +73,8 @@
 		018002391F4386100044D835 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginPageViewController.swift; path = Controllers/LoginPageViewController.swift; sourceTree = "<group>"; };
 		018568B51F3CA9EF00EE347A /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendCell.swift; path = Views/FriendCell.swift; sourceTree = "<group>"; };
 		018CB9A11F2FA13B00174BFB /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
+		01908D1A1F447FFE0078EB7E /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Info.storyboard; path = Storyboards/Info.storyboard; sourceTree = "<group>"; };
+		01908D1C1F4483FF0078EB7E /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoViewController.swift; path = Controllers/UserInfoViewController.swift; sourceTree = "<group>"; };
 		0196053B1F2A209C00BFEFDB /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = Storyboards/Profile.storyboard; sourceTree = "<group>"; };
 		0196053D1F2A248900BFEFDB /* UIImageView+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Utility.swift"; path = "Extensions/UIImageView+Utility.swift"; sourceTree = "<group>"; };
 		0196053F1F2A2A9400BFEFDB /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = Controllers/EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 		015436011F3B572A00EE93A2 /* Login Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				01908D1C1F4483FF0078EB7E /* UserInfoViewController.swift */,
 				018002391F4386100044D835 /* LoginPageViewController.swift */,
 				01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */,
 				01F3C4711F291F94007B4AD2 /* ForgotPasswordViewController.swift */,
@@ -265,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				01F3C46B1F291F94007B4AD2 /* Login.storyboard */,
+				01908D1A1F447FFE0078EB7E /* Info.storyboard */,
 				01F3C46C1F291F94007B4AD2 /* Main.storyboard */,
 				0196053B1F2A209C00BFEFDB /* Profile.storyboard */,
 				015435FF1F3B550500EE93A2 /* Friends.storyboard */,
@@ -371,6 +377,7 @@
 				01F3C4771F291F94007B4AD2 /* Main.storyboard in Resources */,
 				015436001F3B550500EE93A2 /* Friends.storyboard in Resources */,
 				015435FE1F3B54F200EE93A2 /* Search.storyboard in Resources */,
+				01908D1B1F447FFE0078EB7E /* Info.storyboard in Resources */,
 				018CB9A21F2FA13B00174BFB /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +453,7 @@
 				0180023A1F4386100044D835 /* LoginPageViewController.swift in Sources */,
 				01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */,
 				012E60321F32136A00B4ED0A /* PhotoHelper.swift in Sources */,
+				01908D1D1F4483FF0078EB7E /* UserInfoViewController.swift in Sources */,
 				011DF4291F2B897A00240278 /* CreateWishListItemViewController.swift in Sources */,
 				0141E8841F30BC1A006CFAE5 /* WishItemCell.swift in Sources */,
 				0154360B1F3BA28200EE93A2 /* FriendRequestViewController.swift in Sources */,

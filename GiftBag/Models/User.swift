@@ -92,6 +92,11 @@ class User : NSObject {
         
         _current = user
     }
+    
+    class func clearCurrent(){
+        UserDefaults.standard.removeObject(forKey: "currentUser")
+        _current = nil
+    }
 }
 
 extension User: NSCoding {

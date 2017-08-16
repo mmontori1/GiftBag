@@ -173,6 +173,7 @@ struct AuthService {
     static func logUserOut(){
         do {
             try Auth.auth().signOut()
+            User.clearCurrent()
         } catch let error as NSError {
             assertionFailure("Error signing out: \(error.localizedDescription)")
         }

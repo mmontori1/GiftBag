@@ -11,11 +11,9 @@ import FirebaseAuth
 
 class CreateUserViewController: UIViewController {
 
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
     override func viewDidLoad() {
@@ -36,35 +34,34 @@ class CreateUserViewController: UIViewController {
     }
     
     @IBAction func signUpClicked(_ sender: UIButton) {
-        guard let firstName = firstNameTextField.text,
-            let lastName = lastNameTextField.text,
-            let username = usernameTextField.text,
-            let email = emailTextField.text,
+        guard let email = emailTextField.text,
             let password = passwordTextField.text,
-            !username.isEmpty,
-            !firstName.isEmpty,
-            !lastName.isEmpty
+            let confirm = confirmTextField.text,
+            password == confirm
+//            !username.isEmpty,
+//            !firstName.isEmpty,
+//            !lastName.isEmpty
             else {
                 print("Required fields are not all filled!")
                 return
             }
         
         AuthService.createUser(controller: self, email: email, password: password) { (authUser) in
-            guard let firUser = authUser else {
+            guard authUser != nil else {
                 return
             }
             
-            UserService.create(firUser, username: username, firstName: firstName, lastName: lastName) { (user) in
-                guard let user = user else {
-                    return
-                }
-                
-                User.setCurrent(user, writeToUserDefaults: true)
-                
-                let initialViewController = UIStoryboard.initialViewController(for: .main)
+//            UserService.create(firUser, username: username, firstName: firstName, lastName: lastName) { (user) in
+//                guard let user = user else {
+//                    return
+//                }
+//                
+//                User.setCurrent(user, writeToUserDefaults: true)
+            
+                let initialViewController = UIStoryboard.initialViewController(for: .info)
                 self.view.window?.rootViewController = initialViewController
                 self.view.window?.makeKeyAndVisible()
-            }
+//            }
         }
     }
 }

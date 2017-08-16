@@ -304,6 +304,7 @@
                             <constraint firstItem="gzr-JA-wjR" firstAttribute="leading" secondItem="QpD-bW-xns" secondAttribute="leadingMargin" id="BZJ-Hz-WFX"/>
                             <constraint firstAttribute="trailing" secondItem="3g9-DV-HtB" secondAttribute="trailing" id="GKH-8f-oua"/>
                             <constraint firstItem="CxQ-fs-FZ5" firstAttribute="height" secondItem="Vdf-3t-AQk" secondAttribute="height" id="GLB-1t-mHu"/>
+                            <constraint firstItem="Vdf-3t-AQk" firstAttribute="top" secondItem="zsI-kV-cmP" secondAttribute="bottom" constant="25" id="JGp-Ag-LYC"/>
                             <constraint firstAttribute="bottom" secondItem="3g9-DV-HtB" secondAttribute="bottom" id="JMg-d6-jDR"/>
                             <constraint firstItem="CxQ-fs-FZ5" firstAttribute="top" secondItem="Vdf-3t-AQk" secondAttribute="top" id="Twt-36-ygB"/>
                             <constraint firstItem="Vdf-3t-AQk" firstAttribute="centerX" secondItem="QpD-bW-xns" secondAttribute="centerX" id="XVN-v5-B53"/>
@@ -313,7 +314,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="gzr-JA-wjR" secondAttribute="trailing" id="hKi-sv-JgG"/>
                             <constraint firstItem="CxQ-fs-FZ5" firstAttribute="leading" secondItem="Vdf-3t-AQk" secondAttribute="leading" id="qW0-UF-Frx"/>
                             <constraint firstItem="CxQ-fs-FZ5" firstAttribute="width" secondItem="Vdf-3t-AQk" secondAttribute="width" id="wgp-6w-qcu"/>
-                            <constraint firstItem="Vdf-3t-AQk" firstAttribute="top" secondItem="zsI-kV-cmP" secondAttribute="bottom" constant="25" id="xJb-eJ-ge1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="FbT-6Y-hQn">

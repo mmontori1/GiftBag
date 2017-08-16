@@ -6,16 +6,64 @@
 //
 
 import Foundation
+import UIKit
 import FirebaseDatabase
+import FirebaseStorage
 
 struct UserService {
-    static func create(_ firUser: FIRUser, username: String, firstName: String, lastName: String, completion: @escaping (User?) -> Void) {
-        let userAttrs = ["username": username,
+    static func create(_ firUser: FIRUser, username: String, firstName: String, lastName: String, image : UIImage?, completion: @escaping (User?) -> Void) {
+        var userAttrs = ["username": username,
                          "firstName": firstName,
                          "lastName": lastName]
         
-        let ref = Database.database().reference().child("users").child(firUser.uid)
-        ref.setValue(userAttrs) { (error, ref) in
+        let userRef = Database.database().reference().child("users").child(firUser.uid)
+        if let image = image {
+            let ref = Storage.storage().reference().child("images/profile/\(firUser.uid).jpg")
+            StorageService.uploadImage(image, at: ref, completion: { (downloadURL) in
+                guard let downloadURL = downloadURL else {
+                    return
+                }
+                
+                userAttrs["profileURL"] = downloadURL.absoluteString
+                set(with: userAttrs, at: userRef, completion: { (user) in
+                    completion(user)
+                })
+            })
+        }
+        else{
+            set(with: userAttrs, at: userRef, completion: { (user) in
+                completion(user)
+            })
+        }
+    }
+    
+    static func edit(username: String, firstName: String, lastName: String, image : UIImage?, completion: @escaping (User?) -> Void) {
+        var userAttrs = ["username": username,
+                         "firstName": firstName,
+                         "lastName": lastName]
+        if let image = image {
+            let ref = Storage.storage().reference().child("images/profile/\(User.current.uid).jpg")
+            StorageService.uploadImage(image, at: ref, completion: { (downloadURL) in
+                guard let downloadURL = downloadURL else {
+                    return
+                }
+                
+                userAttrs["profileURL"] = downloadURL.absoluteString
+                update(with: userAttrs, completion: { (user) in
+                    completion(user)
+                })
+            })
+
+        }
+        else {
+            update(with: userAttrs, completion: { (user) in
+                completion(user)
+            })
+        }
+    }
+    
+    private static func set(with data : [String : Any], at ref : DatabaseReference, completion: @escaping (User?) -> Void) {
+        ref.setValue(data) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
                 return completion(nil)
@@ -28,13 +76,9 @@ struct UserService {
         }
     }
     
-    static func edit(username: String, firstName: String, lastName: String, completion: @escaping (User?) -> Void) {
-        let userAttrs = ["username": username,
-                         "firstName": firstName,
-                         "lastName": lastName]
-        
+    private static func update(with data : [String : Any], completion: @escaping (User?) -> Void){
         let ref = Database.database().reference().child("users").child(User.current.uid)
-        ref.updateChildValues(userAttrs) { (error, ref) in
+        ref.updateChildValues(data) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
                 return completion(nil)
@@ -45,6 +89,7 @@ struct UserService {
                 completion(user)
             })
         }
+
     }
     
     static func show(forUID uid: String, completion: @escaping (User?) -> Void) {
@@ -145,6 +190,7 @@ struct UserService {
         })
     }
     
+    /*
     static func editProfileImage(url: String, completion: @escaping (User?) -> Void) {
         let userAttrs = ["profileURL": url]
         
@@ -161,6 +207,7 @@ struct UserService {
             })
         }
     }
+    */
     
     static func showFriends(for user: User, completion: @escaping([User]) -> Void){
         let ref = Database.database().reference().child("friends").child(user.uid)

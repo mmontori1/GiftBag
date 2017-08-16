@@ -57,8 +57,10 @@ class LoginViewController: UIViewController {
                     self.view.window?.makeKeyAndVisible()
                 }
                 else {
-                    print("error: User does not exist!")
-                    return
+                    print("User does not exist!")
+                    let initialViewController = UIStoryboard.initialViewController(for: .info)
+                    self.view.window?.rootViewController = initialViewController
+                    self.view.window?.makeKeyAndVisible()
                 }
             }
         }

@@ -1,17 +1,18 @@
 //
-//  EditProfileViewController.swift
+//  UserInfoViewController.swift
 //  GiftBag
 //
-//  Created by Mariano Montori on 7/27/17.
+//  Created by Mariano Montori on 8/16/17.
 //  Copyright © 2017 Mariano Montori. All rights reserved.
 //
 
 import UIKit
 import SCLAlertView
 import Kingfisher
+import FirebaseAuth
 import FirebaseStorage
 
-class EditProfileViewController: UIViewController {
+class UserInfoViewController: UIViewController {
 
     let photoHelper = PhotoHelper()
     var pictureCheck = false
@@ -25,7 +26,7 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         photoHelper.completionHandler = { image in
-            self.profileImageView.kf.base.image = image
+            self.profileImageView.image = image
             self.pictureCheck = true
         }
         configureView()
@@ -36,25 +37,25 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func saveClicked(_ sender: UIButton) {
-        guard let username = usernameTextField.text,
+        guard let firUser = Auth.auth().currentUser,
+            let username = usernameTextField.text,
             let firstName = firstNameTextField.text,
             let lastName = lastNameTextField.text
             else { return }
         
-        if username == User.current.username &&
-            firstName == User.current.firstName &&
-            lastName == User.current.lastName &&
-            !pictureCheck {
-            SCLAlertView().showWarning("No changes made.", subTitle: "Make changes to your profile first.")
+        if (username.isEmpty ||
+            firstName.isEmpty ||
+            lastName.isEmpty){
+            SCLAlertView().showWarning("Fill out user info.", subTitle: "Please fill out username, first name, and last name")
             return
         }
         
         var image : UIImage? = nil
         if pictureCheck {
-            image = self.profileImageView.kf.base.image
+            image = self.profileImageView.image
         }
         
-        UserService.edit(username: username, firstName: firstName, lastName: lastName, image: image) { (user) in
+        UserService.create(firUser, username: username, firstName: firstName, lastName: lastName, image: image) { (user) in
             
             guard let user = user else {
                 SCLAlertView().genericError()
@@ -63,6 +64,9 @@ class EditProfileViewController: UIViewController {
             
             User.setCurrent(user, writeToUserDefaults: true)
             SCLAlertView().showSuccess("Success!", subTitle: "Your changes have been saved.")
+            let initialViewController = UIStoryboard.initialViewController(for: .main)
+            self.view.window?.rootViewController = initialViewController
+            self.view.window?.makeKeyAndVisible()
         }
     }
     @IBAction func editImageClicked(_ sender: UIButton) {
@@ -70,28 +74,16 @@ class EditProfileViewController: UIViewController {
     }
 }
 
-extension EditProfileViewController {
+extension UserInfoViewController {
     func configureView() {
         applyKeyboardDismisser()
         
         profileImageView.circular(width: 1.0, color: UIColor.darkGray.cgColor)
         editImageButton.circular()
-        
-        if let url = User.current.profileURL {
-            let imageURL = URL(string: url)
-            profileImageView.kf.setImage(with: imageURL)
-        }
-        else {
-            profileImageView.kf.base.image = UIImage(named: "defaultProfile")
-        }
-        
-        firstNameTextField.text = User.current.firstName
-        firstNameTextField.placeholder = "First Name"
-        
-        lastNameTextField.text = User.current.lastName
-        lastNameTextField.placeholder = "Last Name"
-        
-        usernameTextField.text = User.current.username
+        profileImageView.image = UIImage(named: "defaultProfile")
+
         usernameTextField.placeholder = "Username"
+        firstNameTextField.placeholder = "First Name"
+        lastNameTextField.placeholder = "Last Name"
     }
 }
