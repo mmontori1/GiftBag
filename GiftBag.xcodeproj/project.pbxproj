@@ -28,6 +28,7 @@
 		018CB9A21F2FA13B00174BFB /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 018CB9A11F2FA13B00174BFB /* Settings.storyboard */; };
 		01908D1B1F447FFE0078EB7E /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01908D1A1F447FFE0078EB7E /* Info.storyboard */; };
 		01908D1D1F4483FF0078EB7E /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01908D1C1F4483FF0078EB7E /* UserInfoViewController.swift */; };
+		01908D1F1F44D4350078EB7E /* InfoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01908D1E1F44D4350078EB7E /* InfoNavigationController.swift */; };
 		0196053C1F2A209C00BFEFDB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0196053B1F2A209C00BFEFDB /* Profile.storyboard */; };
 		0196053E1F2A248900BFEFDB /* UIImageView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196053D1F2A248900BFEFDB /* UIImageView+Utility.swift */; };
 		019605401F2A2A9400BFEFDB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196053F1F2A2A9400BFEFDB /* EditProfileViewController.swift */; };
@@ -75,6 +76,7 @@
 		018CB9A11F2FA13B00174BFB /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Storyboards/Settings.storyboard; sourceTree = "<group>"; };
 		01908D1A1F447FFE0078EB7E /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Info.storyboard; path = Storyboards/Info.storyboard; sourceTree = "<group>"; };
 		01908D1C1F4483FF0078EB7E /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoViewController.swift; path = Controllers/UserInfoViewController.swift; sourceTree = "<group>"; };
+		01908D1E1F44D4350078EB7E /* InfoNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoNavigationController.swift; path = Controllers/InfoNavigationController.swift; sourceTree = "<group>"; };
 		0196053B1F2A209C00BFEFDB /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = Storyboards/Profile.storyboard; sourceTree = "<group>"; };
 		0196053D1F2A248900BFEFDB /* UIImageView+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Utility.swift"; path = "Extensions/UIImageView+Utility.swift"; sourceTree = "<group>"; };
 		0196053F1F2A2A9400BFEFDB /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = Controllers/EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		015436011F3B572A00EE93A2 /* Login Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				01908D1E1F44D4350078EB7E /* InfoNavigationController.swift */,
 				01908D1C1F4483FF0078EB7E /* UserInfoViewController.swift */,
 				018002391F4386100044D835 /* LoginPageViewController.swift */,
 				01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */,
@@ -450,6 +453,7 @@
 				0196053E1F2A248900BFEFDB /* UIImageView+Utility.swift in Sources */,
 				01F3C47A1F291F94007B4AD2 /* LoginViewController.swift in Sources */,
 				012B9E881F42272300E76787 /* FriendWishItemViewController.swift in Sources */,
+				01908D1F1F44D4350078EB7E /* InfoNavigationController.swift in Sources */,
 				0180023A1F4386100044D835 /* LoginPageViewController.swift in Sources */,
 				01F3C4581F291EA9007B4AD2 /* AppDelegate.swift in Sources */,
 				012E60321F32136A00B4ED0A /* PhotoHelper.swift in Sources */,

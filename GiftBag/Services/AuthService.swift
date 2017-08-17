@@ -104,7 +104,7 @@ struct AuthService {
     }
     
     static func deleteAccount(user : FIRUser){
-        UserService.deleteUser(forUID: User.current.uid, success: { (success) in
+        UserService.deleteUser(for: User.current, success: { (success) in
             if success {
                 logUserOut()
                 user.delete { error in
@@ -170,10 +170,12 @@ struct AuthService {
         viewController.present(alertController, animated: true)
     }
     
-    static func logUserOut(){
+    static func logUserOut(_ clearUser : Bool = true){
         do {
             try Auth.auth().signOut()
-            User.clearCurrent()
+            if clearUser {
+                User.clearCurrent()
+            }
         } catch let error as NSError {
             assertionFailure("Error signing out: \(error.localizedDescription)")
         }

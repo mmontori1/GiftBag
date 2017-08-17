@@ -38,9 +38,6 @@ class CreateUserViewController: UIViewController {
             let password = passwordTextField.text,
             let confirm = confirmTextField.text,
             password == confirm
-//            !username.isEmpty,
-//            !firstName.isEmpty,
-//            !lastName.isEmpty
             else {
                 print("Required fields are not all filled!")
                 return
@@ -51,17 +48,9 @@ class CreateUserViewController: UIViewController {
                 return
             }
             
-//            UserService.create(firUser, username: username, firstName: firstName, lastName: lastName) { (user) in
-//                guard let user = user else {
-//                    return
-//                }
-//                
-//                User.setCurrent(user, writeToUserDefaults: true)
-            
-                let initialViewController = UIStoryboard.initialViewController(for: .info)
-                self.view.window?.rootViewController = initialViewController
-                self.view.window?.makeKeyAndVisible()
-//            }
+            let initialViewController = UIStoryboard.initialViewController(for: .info)
+            self.view.window?.rootViewController = initialViewController
+            self.view.window?.makeKeyAndVisible()
         }
     }
 }

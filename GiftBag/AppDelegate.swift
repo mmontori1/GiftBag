@@ -29,13 +29,16 @@ extension AppDelegate {
         let defaults = UserDefaults.standard
         let initialViewController: UIViewController
         
-        if Auth.auth().currentUser != nil,
-            let userData = defaults.object(forKey: "currentUser") as? Data,
-            let user = NSKeyedUnarchiver.unarchiveObject(with: userData) as? User {
-            
-            User.setCurrent(user)
-            
-            initialViewController = UIStoryboard.initialViewController(for: .main)
+        if Auth.auth().currentUser != nil {
+            if let userData = defaults.object(forKey: "currentUser") as? Data,
+                let user = NSKeyedUnarchiver.unarchiveObject(with: userData) as? User {
+                User.setCurrent(user)
+                initialViewController = UIStoryboard.initialViewController(for: .main)
+            }
+            else {
+                AuthService.logUserOut(false)
+                initialViewController = UIStoryboard.initialViewController(for: .login)
+            }
         }
         else {
             initialViewController = UIStoryboard.initialViewController(for: .login)

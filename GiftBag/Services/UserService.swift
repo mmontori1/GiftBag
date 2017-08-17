@@ -15,25 +15,28 @@ struct UserService {
         var userAttrs = ["username": username,
                          "firstName": firstName,
                          "lastName": lastName]
-        
-        let userRef = Database.database().reference().child("users").child(firUser.uid)
-        if let image = image {
-            let ref = Storage.storage().reference().child("images/profile/\(firUser.uid).jpg")
-            StorageService.uploadImage(image, at: ref, completion: { (downloadURL) in
-                guard let downloadURL = downloadURL else {
-                    return
+        checkForUniqueUsername(for: username) { (success) in
+            if success {
+                let userRef = Database.database().reference().child("users").child(firUser.uid)
+                if let image = image {
+                    let ref = Storage.storage().reference().child("images/profile/\(firUser.uid).jpg")
+                    StorageService.uploadImage(image, at: ref, completion: { (downloadURL) in
+                        guard let downloadURL = downloadURL else {
+                            return
+                        }
+                        
+                        userAttrs["profileURL"] = downloadURL.absoluteString
+                        set(with: userAttrs, at: userRef, completion: { (user) in
+                            completion(user)
+                        })
+                    })
                 }
-                
-                userAttrs["profileURL"] = downloadURL.absoluteString
-                set(with: userAttrs, at: userRef, completion: { (user) in
-                    completion(user)
-                })
-            })
-        }
-        else{
-            set(with: userAttrs, at: userRef, completion: { (user) in
-                completion(user)
-            })
+                else{
+                    set(with: userAttrs, at: userRef, completion: { (user) in
+                        completion(user)
+                    })
+                }
+            }
         }
     }
     
@@ -41,28 +44,36 @@ struct UserService {
         var userAttrs = ["username": username,
                          "firstName": firstName,
                          "lastName": lastName]
-        if let image = image {
-            let ref = Storage.storage().reference().child("images/profile/\(User.current.uid).jpg")
-            StorageService.uploadImage(image, at: ref, completion: { (downloadURL) in
-                guard let downloadURL = downloadURL else {
-                    return
+        checkForUniqueUsername(for: username) { (success) in
+            if success {
+                if let image = image {
+                    let ref = Storage.storage().reference().child("images/profile/\(User.current.uid).jpg")
+                    StorageService.uploadImage(image, at: ref, completion: { (downloadURL) in
+                        guard let downloadURL = downloadURL else {
+                            return
+                        }
+                        
+                        userAttrs["profileURL"] = downloadURL.absoluteString
+                        update(with: userAttrs, completion: { (user) in
+                            completion(user)
+                        })
+                    })
+                    
                 }
-                
-                userAttrs["profileURL"] = downloadURL.absoluteString
-                update(with: userAttrs, completion: { (user) in
-                    completion(user)
-                })
-            })
-
-        }
-        else {
-            update(with: userAttrs, completion: { (user) in
-                completion(user)
-            })
+                else {
+                    update(with: userAttrs, completion: { (user) in
+                        completion(user)
+                    })
+                }
+            }
         }
     }
     
     private static func set(with data : [String : Any], at ref : DatabaseReference, completion: @escaping (User?) -> Void) {
+        let usernameRef = Database.database().reference().child("usernames")
+        guard let username = data["username"] as? String else {
+            return
+        }
         ref.setValue(data) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
@@ -70,6 +81,7 @@ struct UserService {
             }
             
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                usernameRef.updateChildValues([username  : true])
                 let user = User(snapshot: snapshot)
                 completion(user)
             })
@@ -78,6 +90,10 @@ struct UserService {
     
     private static func update(with data : [String : Any], completion: @escaping (User?) -> Void){
         let ref = Database.database().reference().child("users").child(User.current.uid)
+        let usernameRef = Database.database().reference().child("usernames")
+        guard let username = data["username"] as? String else {
+            return
+        }
         ref.updateChildValues(data) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
@@ -85,6 +101,8 @@ struct UserService {
             }
             
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                usernameRef.updateChildValues([User.current.username  : NSNull()])
+                usernameRef.updateChildValues([username  : true])
                 let user = User(snapshot: snapshot)
                 completion(user)
             })
@@ -158,11 +176,12 @@ struct UserService {
         })
     }
     
-    static func deleteUser(forUID uid: String, success: @escaping (Bool) -> Void) {
+    static func deleteUser(for user: User, success: @escaping (Bool) -> Void) {
         let ref = Database.database().reference()
         var updatedData : [String : Any] = [:]
-        updatedData["users/\(uid)"] = NSNull()
-        updatedData["wishItems/\(uid)"] = NSNull()
+        updatedData["users/\(user.uid)"] = NSNull()
+        updatedData["usernames/\(user.username)"] = NSNull()
+        updatedData["wishItems/\(user.uid)"] = NSNull()
         ref.updateChildValues(updatedData) { (error, ref) -> Void in
             if let error = error {
                 print("error : \(error.localizedDescription)")
@@ -190,25 +209,6 @@ struct UserService {
         })
     }
     
-    /*
-    static func editProfileImage(url: String, completion: @escaping (User?) -> Void) {
-        let userAttrs = ["profileURL": url]
-        
-        let ref = Database.database().reference().child("users").child(User.current.uid)
-        ref.updateChildValues(userAttrs) { (error, ref) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-                return completion(nil)
-            }
-            
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                let user = User(snapshot: snapshot)
-                completion(user)
-            })
-        }
-    }
-    */
-    
     static func showFriends(for user: User, completion: @escaping([User]) -> Void){
         let ref = Database.database().reference().child("friends").child(user.uid)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -235,6 +235,19 @@ struct UserService {
             dispatcher.notify(queue: .main) {
                 completion(users)
             }
+        })
+    }
+    
+    static func checkForUniqueUsername(for name: String, success: @escaping (Bool) -> Void) {
+        let usernameRef = Database.database().reference().child("usernames")
+        usernameRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String : Any],
+                let newName = dict[name] as? Bool {
+                print("\(newName) exists")
+//                SCLAlertView().showError("Pick a unique username", subTitle: "Username \(name) already exists")
+                return success(false)
+            }
+            success(true)
         })
     }
 }
