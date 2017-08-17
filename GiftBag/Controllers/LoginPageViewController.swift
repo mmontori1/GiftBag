@@ -24,7 +24,7 @@ class LoginPageViewController: UIPageViewController {
         applyKeyboardPush()
         applyKeyboardDismisser()
         dismissKeyboard()
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor(red:0.63, green:1.00, blue:0.55, alpha:1.0)
         let pageControl: UIPageControl = UIPageControl.appearance(whenContainedInInstancesOf: [LoginPageViewController.self])
         pageControl.currentPageIndicatorTintColor = UIColor.black
         pageControl.pageIndicatorTintColor = UIColor.gray
@@ -51,7 +51,7 @@ extension LoginPageViewController: UIPageViewControllerDataSource {
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            return nil
+            return orderedViewControllers.last
         }
         
         guard orderedViewControllers.count > previousIndex else {
@@ -71,7 +71,7 @@ extension LoginPageViewController: UIPageViewControllerDataSource {
         let orderedViewControllersCount = orderedViewControllers.count
         
         guard orderedViewControllersCount != nextIndex else {
-            return nil
+            return orderedViewControllers.first
         }
         
         guard orderedViewControllersCount > nextIndex else {

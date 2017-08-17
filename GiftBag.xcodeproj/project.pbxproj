@@ -18,6 +18,7 @@
 		012E60371F32427E00B4ED0A /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012E60361F32427E00B4ED0A /* StorageService.swift */; };
 		0141E8841F30BC1A006CFAE5 /* WishItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141E8831F30BC1A006CFAE5 /* WishItemCell.swift */; };
 		015260261F4626010068778D /* GoodTimes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 015260251F4626010068778D /* GoodTimes.ttf */; };
+		015260281F4635BD0068778D /* LoginHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015260271F4635BD0068778D /* LoginHeaderViewController.swift */; };
 		0153AEA51F2ACA27005408E9 /* SCLAlertView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153AEA41F2ACA27005408E9 /* SCLAlertView+Utility.swift */; };
 		015435FE1F3B54F200EE93A2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015435FD1F3B54F200EE93A2 /* Search.storyboard */; };
 		015436001F3B550500EE93A2 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015435FF1F3B550500EE93A2 /* Friends.storyboard */; };
@@ -66,6 +67,7 @@
 		012E60361F32427E00B4ED0A /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = Services/StorageService.swift; sourceTree = "<group>"; };
 		0141E8831F30BC1A006CFAE5 /* WishItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishItemCell.swift; path = Views/WishItemCell.swift; sourceTree = "<group>"; };
 		015260251F4626010068778D /* GoodTimes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GoodTimes.ttf; path = Resources/GoodTimes.ttf; sourceTree = "<group>"; };
+		015260271F4635BD0068778D /* LoginHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginHeaderViewController.swift; path = Controllers/LoginHeaderViewController.swift; sourceTree = "<group>"; };
 		0153AEA41F2ACA27005408E9 /* SCLAlertView+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SCLAlertView+Utility.swift"; path = "Extensions/SCLAlertView+Utility.swift"; sourceTree = "<group>"; };
 		015435FD1F3B54F200EE93A2 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Search.storyboard; path = Storyboards/Search.storyboard; sourceTree = "<group>"; };
 		015435FF1F3B550500EE93A2 /* Friends.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Friends.storyboard; path = Storyboards/Friends.storyboard; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				01908D1E1F44D4350078EB7E /* InfoNavigationController.swift */,
 				01908D1C1F4483FF0078EB7E /* UserInfoViewController.swift */,
 				018002391F4386100044D835 /* LoginPageViewController.swift */,
+				015260271F4635BD0068778D /* LoginHeaderViewController.swift */,
 				01F3C46F1F291F94007B4AD2 /* LoginViewController.swift */,
 				01F3C4711F291F94007B4AD2 /* ForgotPasswordViewController.swift */,
 				01F3C4721F291F94007B4AD2 /* CreateUserViewController.swift */,
@@ -472,6 +475,7 @@
 				01EE55701F39F71E00FB4465 /* FriendsViewController.swift in Sources */,
 				011DF4251F2AEF2F00240278 /* WishItem.swift in Sources */,
 				018568B61F3CA9EF00EE347A /* FriendCell.swift in Sources */,
+				015260281F4635BD0068778D /* LoginHeaderViewController.swift in Sources */,
 				010BA4F31F38A654000C469C /* FriendService.swift in Sources */,
 				01E82A4F1F339C430050E362 /* WishItemViewController.swift in Sources */,
 				01F3C4781F291F94007B4AD2 /* ViewController+Utility.swift in Sources */,

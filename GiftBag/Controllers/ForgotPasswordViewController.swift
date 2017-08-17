@@ -11,8 +11,6 @@ import SCLAlertView
 
 class ForgotPasswordViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var forgotLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -47,8 +45,6 @@ extension ForgotPasswordViewController{
         resetButton.layer.cornerRadius = 10
         let goodTime = "GoodTimesRg-Regular"
         let helvetica = "Helvetica-Semibold"
-        titleLabel.font = UIFont(name: goodTime, size: 30)
-//        subtitleLabel.font = UIFont(name: helvetica, size: 12)
         forgotLabel.font = UIFont(name: goodTime, size: 20)
         emailLabel.font = UIFont(name: helvetica, size: 14)
         resetButton.titleLabel?.font = UIFont(name: goodTime, size: 15)

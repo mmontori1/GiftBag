@@ -9,8 +9,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -87,8 +85,6 @@ extension LoginViewController{
         let goodTime = "GoodTimesRg-Regular"
         let helvetica = "Helvetica-Semibold"
         logInButton.layer.cornerRadius = 10
-        titleLabel.font = UIFont(name: goodTime, size: 30)
-//        subtitleLabel.font = UIFont(name: helvetica, size: 12)
         loginLabel.font = UIFont(name: goodTime, size: 20)
         emailLabel.font = UIFont(name: helvetica, size: 14)
         passwordLabel.font = UIFont(name: helvetica, size: 14)
