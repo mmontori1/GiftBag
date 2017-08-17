@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIViewController {
+extension UIViewController : UIGestureRecognizerDelegate{
     class Keyboard {
         static var pushValue : CGFloat = 0
     }
@@ -26,7 +26,6 @@ extension UIViewController {
             if self.view.frame.origin.y == 0{
                 self.view.frame.origin.y -= keyboardSize.height
                 Keyboard.pushValue = keyboardSize.height
-                print(Keyboard.pushValue)
             }
         }
     }
@@ -37,7 +36,6 @@ extension UIViewController {
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if self.view.frame.origin.y != 0{
                 self.view.frame.origin.y += Keyboard.pushValue
-                print(Keyboard.pushValue)
             }
         }
     }
@@ -45,10 +43,21 @@ extension UIViewController {
     func applyKeyboardDismisser(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
+        tap.delegate = self
         view.addGestureRecognizer(tap)
     }
     
     func dismissKeyboard(){
         view.endEditing(true)
+    }
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard let view = touch.view else {
+            return true
+        }
+        if view.isDescendant(of: self.view) && view.isKind(of: UIButton.self){
+            return false
+        }
+        return true
     }
 }

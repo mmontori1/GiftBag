@@ -12,6 +12,7 @@ import SCLAlertView
 class ForgotPasswordViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var resetButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,6 @@ class ForgotPasswordViewController: UIViewController {
 
 extension ForgotPasswordViewController{
     func configureView(){
-        
+        resetButton.layer.cornerRadius = 10
     }
 }

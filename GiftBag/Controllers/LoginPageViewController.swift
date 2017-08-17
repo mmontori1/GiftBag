@@ -51,7 +51,7 @@ extension LoginPageViewController: UIPageViewControllerDataSource {
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            return orderedViewControllers.last
+            return nil
         }
         
         guard orderedViewControllers.count > previousIndex else {
@@ -71,7 +71,7 @@ extension LoginPageViewController: UIPageViewControllerDataSource {
         let orderedViewControllersCount = orderedViewControllers.count
         
         guard orderedViewControllersCount != nextIndex else {
-            return orderedViewControllers.first
+            return nil
         }
         
         guard orderedViewControllersCount > nextIndex else {

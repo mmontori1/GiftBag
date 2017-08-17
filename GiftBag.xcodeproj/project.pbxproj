@@ -18,7 +18,6 @@
 		012E60371F32427E00B4ED0A /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012E60361F32427E00B4ED0A /* StorageService.swift */; };
 		0141E8841F30BC1A006CFAE5 /* WishItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141E8831F30BC1A006CFAE5 /* WishItemCell.swift */; };
 		0153AEA51F2ACA27005408E9 /* SCLAlertView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153AEA41F2ACA27005408E9 /* SCLAlertView+Utility.swift */; };
-		0153AEA71F2ACFED005408E9 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153AEA61F2ACFED005408E9 /* FirebaseService.swift */; };
 		015435FE1F3B54F200EE93A2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015435FD1F3B54F200EE93A2 /* Search.storyboard */; };
 		015436001F3B550500EE93A2 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015435FF1F3B550500EE93A2 /* Friends.storyboard */; };
 		015436071F3B583000EE93A2 /* DisplayFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015436061F3B583000EE93A2 /* DisplayFriendViewController.swift */; };
@@ -66,7 +65,6 @@
 		012E60361F32427E00B4ED0A /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = Services/StorageService.swift; sourceTree = "<group>"; };
 		0141E8831F30BC1A006CFAE5 /* WishItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishItemCell.swift; path = Views/WishItemCell.swift; sourceTree = "<group>"; };
 		0153AEA41F2ACA27005408E9 /* SCLAlertView+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SCLAlertView+Utility.swift"; path = "Extensions/SCLAlertView+Utility.swift"; sourceTree = "<group>"; };
-		0153AEA61F2ACFED005408E9 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = Services/FirebaseService.swift; sourceTree = "<group>"; };
 		015435FD1F3B54F200EE93A2 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Search.storyboard; path = Storyboards/Search.storyboard; sourceTree = "<group>"; };
 		015435FF1F3B550500EE93A2 /* Friends.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Friends.storyboard; path = Storyboards/Friends.storyboard; sourceTree = "<group>"; };
 		015436061F3B583000EE93A2 /* DisplayFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayFriendViewController.swift; path = Controllers/DisplayFriendViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 				01F3C4801F291FAB007B4AD2 /* Extensions */,
 				01F3C4841F291FC8007B4AD2 /* Supporting */,
 				01F3C45E1F291EA9007B4AD2 /* Assets.xcassets */,
-				01F3C4601F291EA9007B4AD2 /* LaunchScreen.storyboard */,
 			);
 			path = GiftBag;
 			sourceTree = "<group>";
@@ -228,7 +225,6 @@
 			children = (
 				012E60361F32427E00B4ED0A /* StorageService.swift */,
 				011DF4261F2B758D00240278 /* WishService.swift */,
-				0153AEA61F2ACFED005408E9 /* FirebaseService.swift */,
 				01F3C4691F291F94007B4AD2 /* AuthService.swift */,
 				01F3C46A1F291F94007B4AD2 /* UserService.swift */,
 				010BA4F21F38A654000C469C /* FriendService.swift */,
@@ -272,6 +268,7 @@
 		01F3C4831F291FC2007B4AD2 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				01F3C4601F291EA9007B4AD2 /* LaunchScreen.storyboard */,
 				01F3C46B1F291F94007B4AD2 /* Login.storyboard */,
 				01908D1A1F447FFE0078EB7E /* Info.storyboard */,
 				01F3C46C1F291F94007B4AD2 /* Main.storyboard */,
@@ -445,7 +442,6 @@
 				019605401F2A2A9400BFEFDB /* EditProfileViewController.swift in Sources */,
 				019605421F2A6AFB00BFEFDB /* ProfileNavigationController.swift in Sources */,
 				011DF4271F2B758D00240278 /* WishService.swift in Sources */,
-				0153AEA71F2ACFED005408E9 /* FirebaseService.swift in Sources */,
 				01F3C47C1F291F94007B4AD2 /* ForgotPasswordViewController.swift in Sources */,
 				01F3C47B1F291F94007B4AD2 /* ProfileViewController.swift in Sources */,
 				015436071F3B583000EE93A2 /* DisplayFriendViewController.swift in Sources */,
