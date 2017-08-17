@@ -11,8 +11,14 @@ import FirebaseAuth
 
 class CreateUserViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var createAccountLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmLabel: UILabel!
     @IBOutlet weak var confirmTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
@@ -58,5 +64,15 @@ class CreateUserViewController: UIViewController {
 extension CreateUserViewController{
     func configureView(){
         signUpButton.layer.cornerRadius = 10
+        let goodTime = "GoodTimesRg-Regular"
+        let helvetica = "Helvetica-Semibold"
+        signUpButton.layer.cornerRadius = 10
+        titleLabel.font = UIFont(name: goodTime, size: 30)
+//        subtitleLabel.font = UIFont(name: helvetica, size: 12)
+        createAccountLabel.font = UIFont(name: goodTime, size: 20)
+        emailLabel.font = UIFont(name: helvetica, size: 14)
+        passwordLabel.font = UIFont(name: helvetica, size: 14)
+        confirmLabel.font = UIFont(name: helvetica, size: 14)
+        signUpButton.titleLabel?.font = UIFont(name: goodTime, size: 15)
     }
 }
