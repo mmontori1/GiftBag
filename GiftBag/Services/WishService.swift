@@ -99,6 +99,22 @@ struct WishService {
         }
     }
     
+    static func delete(for item : WishItem, success: @escaping (Bool) -> Void){
+        let currentUID = User.current.uid
+        guard let key = item.key else {
+            return
+        }
+        let ref = Database.database().reference().child("wishItems").child(currentUID)
+        let updatedData = [key : NSNull()]
+        ref.updateChildValues(updatedData) { (error, ref) -> Void in
+            if let error = error {
+                print("error : \(error.localizedDescription)")
+                return success(false)
+            }
+            success(true)
+        }
+    }
+    
     static func setWillPlan(at user : User, for item : WishItem, completion: @escaping (WishItem?) -> Void){
         let currentUID = User.current.uid
         guard let key = item.key else {

@@ -36,6 +36,17 @@ class WishItemViewController: UIViewController {
         photoHelper.presentActionSheet(from: self)
     }
     
+    @IBAction func deleteItemClicked(_ sender: Any) {
+        guard let item = wishItem else {
+            return
+        }
+        WishService.delete(for: item) { (success) in
+            if success {
+                self.performSegue(withIdentifier: "cancelEdit", sender: self)
+            }
+        }
+    }
+    
     @IBAction func saveClicked(_ sender: UIButton) {
         guard let item = wishItem,
             let name = nameTextField.text,

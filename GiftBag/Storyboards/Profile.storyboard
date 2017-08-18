@@ -279,7 +279,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGH-oQ-2vX">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="60"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.62745098040000002" green="1" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="save"/>
                                         <connections>
                                             <action selector="saveClicked:" destination="7Zi-GC-D3q" eventType="touchUpInside" id="soZ-gV-7Hi"/>
@@ -435,7 +435,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBV-k1-DZY">
                                 <rect key="frame" x="0.0" y="543" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.62745098040000002" green="1" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="save"/>
                                 <connections>
                                     <action selector="saveClicked:" destination="7Zi-GC-D3q" eventType="touchUpInside" id="BTG-gB-ebq"/>
@@ -462,6 +462,12 @@
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="ini-tq-ZGR" kind="unwind" identifier="saveEdit" unwindAction="unwindToMain:" id="0Ug-Zo-eaf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="delete" id="Ace-Ts-AQK">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="deleteItemClicked:" destination="LtB-a9-8li" id="G43-aC-tyh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -515,6 +521,7 @@
         <image name="cancel" width="25" height="25"/>
         <image name="comet" width="256" height="256"/>
         <image name="defaultProfile" width="256" height="256"/>
+        <image name="delete" width="25" height="25"/>
         <image name="exit" width="25" height="25"/>
         <image name="imageView:DQo-qJ-TnY:image" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
