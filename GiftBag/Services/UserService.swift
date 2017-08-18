@@ -158,17 +158,36 @@ struct UserService {
     
     static func deleteUser(for user: User, success: @escaping (Bool) -> Void) {
         let ref = Database.database().reference()
-//        let friendsRef = ref.child("friends").child(user.uid)
+        let storageRef = Storage.storage().reference().child("images/profile/\(User.current.uid).jpg")
         var updatedData : [String : Any] = [:]
+        var check = true
         updatedData["users/\(user.uid)"] = NSNull()
         updatedData["wishItems/\(user.uid)"] = NSNull()
         updatedData["friendRequests/\(user.uid)"] = NSNull()
+        
+        let dispatcher = DispatchGroup()
+        
+        if let _ = user.profileURL {
+            dispatcher.enter()
+            StorageService.deleteImage(at: storageRef) { (result) in
+                if !result {
+                    check = false
+                }
+                dispatcher.leave()
+            }
+        }
+        
+        dispatcher.enter()
         ref.updateChildValues(updatedData) { (error, ref) -> Void in
             if let error = error {
                 print("error : \(error.localizedDescription)")
-                return success(false)
+                check = false
             }
-            success(true)
+            dispatcher.leave()
+        }
+        
+        dispatcher.notify(queue: .main) {
+            success(check)
         }
     }
     

@@ -25,4 +25,14 @@ struct StorageService {
             completion(metadata?.downloadURL())
         })
     }
+    
+    static func deleteImage(at ref : StorageReference, success: @escaping (Bool) -> Void){
+        ref.delete { (error) in
+            if let error = error {
+                print("error : \(error.localizedDescription)")
+                return success(false)
+            }
+            success(true)
+        }
+    }
 }

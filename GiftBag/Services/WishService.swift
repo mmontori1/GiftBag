@@ -100,18 +100,37 @@ struct WishService {
     }
     
     static func delete(for item : WishItem, success: @escaping (Bool) -> Void){
-        let currentUID = User.current.uid
         guard let key = item.key else {
             return
         }
+        var check = true
+        let currentUID = User.current.uid
         let ref = Database.database().reference().child("wishItems").child(currentUID)
+        let storageRef = Storage.storage().reference().child("images/items/\(User.current.uid)/\(key).jpg")
         let updatedData = [key : NSNull()]
+        let dispatcher = DispatchGroup()
+        
+        if let _ = item.imageURL {
+            dispatcher.enter()
+            StorageService.deleteImage(at: storageRef) { (result) in
+                if !result {
+                    check = false
+                }
+                dispatcher.leave()
+            }
+        }
+        
+        dispatcher.enter()
         ref.updateChildValues(updatedData) { (error, ref) -> Void in
             if let error = error {
                 print("error : \(error.localizedDescription)")
-                return success(false)
+                check = false
             }
-            success(true)
+            dispatcher.leave()
+        }
+        
+        dispatcher.notify(queue: .main) {
+            success(check)
         }
     }
     
