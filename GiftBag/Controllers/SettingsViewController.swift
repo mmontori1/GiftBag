@@ -14,9 +14,18 @@ class SettingsViewController: UITableViewController {
     
     var authHandle: AuthStateDidChangeListenerHandle?
     
+    @IBOutlet weak var editLabel: UILabel!
+    @IBOutlet weak var resetPassLabel: UILabel!
+    @IBOutlet weak var logOutLabel: UILabel!
+    @IBOutlet weak var deleteLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         authHandle = AuthService.authListener(viewController: self)
+        editLabel.font = UIFont(name: Styles.mainFont, size: 17)
+        resetPassLabel.font = UIFont(name: Styles.mainFont, size: 17)
+        logOutLabel.font = UIFont(name: Styles.mainFont, size: 17)
+        deleteLabel.font = UIFont(name: Styles.mainFont, size: 17)
     }
 
     override func didReceiveMemoryWarning() {

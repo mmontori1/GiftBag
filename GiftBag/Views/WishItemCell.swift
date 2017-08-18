@@ -9,7 +9,8 @@
 import UIKit
 
 class WishItemCell: UICollectionViewCell {
-    @IBOutlet weak var nameTextField: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var willPlanImage: UIImageView?
     @IBOutlet weak var willPlanLabel: UILabel?
@@ -24,7 +25,7 @@ class WishItemCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cellHeight = nameTextField.bounds.height + imageView.bounds.height + 50
+        cellHeight = nameLabel.bounds.height + imageView.bounds.height + 50
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 5
@@ -36,7 +37,8 @@ class WishItemCell: UICollectionViewCell {
         guard let item = item else {
             return
         }
-        nameTextField.text = item.name
+        nameLabel.text = item.name
+        nameLabel.font = UIFont(name: Styles.mainFont, size: 14)
         if let imageURL = item.imageURL {
             let imageURL = URL(string: imageURL)
             imageView.kf.setImage(with: imageURL)

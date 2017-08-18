@@ -18,8 +18,11 @@ class EditProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var editImageButton: UIButton!
+    @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     
     override func viewDidLoad() {
@@ -85,12 +88,15 @@ extension EditProfileViewController {
             profileImageView.kf.base.image = UIImage(named: "defaultProfile")
         }
         
+        firstNameLabel.font = UIFont(name: Styles.mainFont, size: 17)
         firstNameTextField.text = User.current.firstName
         firstNameTextField.placeholder = "First Name"
         
+        lastNameLabel.font = UIFont(name: Styles.mainFont, size: 17)
         lastNameTextField.text = User.current.lastName
         lastNameTextField.placeholder = "Last Name"
         
+        usernameLabel.font = UIFont(name: Styles.mainFont, size: 17)
         usernameTextField.text = User.current.username
         usernameTextField.placeholder = "Username"
     }

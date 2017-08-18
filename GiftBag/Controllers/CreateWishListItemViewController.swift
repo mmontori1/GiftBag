@@ -17,7 +17,10 @@ class CreateWishListItemViewController: UIViewController {
     var newItem : WishItem? = nil
     var pictureCheck = false
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var itemImageView: UIImageView!
     
@@ -86,5 +89,8 @@ extension CreateWishListItemViewController {
     func configureView() {
         applyKeyboardDismisser()
         itemImageView.image = UIImage(named: "comet")
+        titleLabel.font = UIFont(name: Styles.mainFont, size: 24)
+        nameLabel.font = UIFont(name: Styles.mainFont, size: 17)
+        priceLabel.font = UIFont(name: Styles.mainFont, size: 17)
     }
 }

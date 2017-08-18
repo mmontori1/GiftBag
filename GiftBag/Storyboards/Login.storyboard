@@ -33,7 +33,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y3T-5s-x5D">
-                                        <rect key="frame" x="10" y="54" width="355" height="150"/>
+                                        <rect key="frame" x="10" y="64" width="355" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bO2-9G-gVO">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
@@ -91,7 +91,7 @@
                                     <constraint firstItem="XBW-5Z-kpg" firstAttribute="leading" secondItem="O1O-Ed-unx" secondAttribute="leading" id="45o-Mf-cdb"/>
                                     <constraint firstItem="y3T-5s-x5D" firstAttribute="leading" secondItem="O1O-Ed-unx" secondAttribute="leading" constant="10" id="9yh-6j-j85"/>
                                     <constraint firstAttribute="trailing" secondItem="y3T-5s-x5D" secondAttribute="trailing" constant="10" id="CS9-3l-Ebs"/>
-                                    <constraint firstItem="y3T-5s-x5D" firstAttribute="top" secondItem="XBW-5Z-kpg" secondAttribute="bottom" constant="15" id="E0L-Gf-inW"/>
+                                    <constraint firstItem="y3T-5s-x5D" firstAttribute="top" secondItem="XBW-5Z-kpg" secondAttribute="bottom" constant="25" id="E0L-Gf-inW"/>
                                     <constraint firstItem="13f-zx-wmL" firstAttribute="leading" secondItem="O1O-Ed-unx" secondAttribute="leading" constant="20" id="FjK-Tb-jFP"/>
                                     <constraint firstItem="XBW-5Z-kpg" firstAttribute="top" secondItem="O1O-Ed-unx" secondAttribute="top" constant="10" id="N1t-Ol-7in"/>
                                     <constraint firstItem="13f-zx-wmL" firstAttribute="centerX" secondItem="O1O-Ed-unx" secondAttribute="centerX" id="hiP-he-krx"/>
@@ -144,7 +144,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8YM-qB-4ee">
-                                        <rect key="frame" x="26" y="54" width="323" height="62"/>
+                                        <rect key="frame" x="26" y="64" width="323" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q47-Vi-AVq">
                                                 <rect key="frame" x="0.0" y="0.0" width="323" height="17"/>
@@ -182,7 +182,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="iXC-rX-xcf" firstAttribute="top" secondItem="B90-Vo-8rS" secondAttribute="top" constant="10" id="3ly-lt-biv"/>
-                                    <constraint firstItem="8YM-qB-4ee" firstAttribute="top" secondItem="iXC-rX-xcf" secondAttribute="bottom" constant="15" id="Bin-pm-6qS"/>
+                                    <constraint firstItem="8YM-qB-4ee" firstAttribute="top" secondItem="iXC-rX-xcf" secondAttribute="bottom" constant="25" id="Bin-pm-6qS"/>
                                     <constraint firstAttribute="trailing" secondItem="iXC-rX-xcf" secondAttribute="trailing" id="CLT-Sv-rOu"/>
                                     <constraint firstItem="iXC-rX-xcf" firstAttribute="leading" secondItem="B90-Vo-8rS" secondAttribute="leading" id="GpY-4z-N3A"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8YM-qB-4ee" secondAttribute="bottom" id="Hic-ic-aMV"/>
@@ -236,7 +236,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gyy-WT-xHt">
-                                        <rect key="frame" x="26" y="54" width="323" height="191"/>
+                                        <rect key="frame" x="26" y="64" width="323" height="191"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1R8-EL-GtS">
                                                 <rect key="frame" x="0.0" y="0.0" width="323" height="17"/>
@@ -300,7 +300,7 @@
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gyy-WT-xHt" secondAttribute="bottom" id="WDU-Td-knz"/>
                                     <constraint firstItem="gyy-WT-xHt" firstAttribute="centerX" secondItem="BXA-MS-Rha" secondAttribute="centerX" id="Zxr-I1-LhJ"/>
                                     <constraint firstAttribute="bottom" secondItem="i4Y-XX-jSV" secondAttribute="bottom" constant="25" id="c4e-K6-Kfm"/>
-                                    <constraint firstItem="gyy-WT-xHt" firstAttribute="top" secondItem="FJb-7V-NXm" secondAttribute="bottom" constant="15" id="d48-de-veR"/>
+                                    <constraint firstItem="gyy-WT-xHt" firstAttribute="top" secondItem="FJb-7V-NXm" secondAttribute="bottom" constant="25" id="d48-de-veR"/>
                                     <constraint firstItem="FJb-7V-NXm" firstAttribute="top" secondItem="BXA-MS-Rha" secondAttribute="top" constant="10" id="dJh-DP-Zer"/>
                                     <constraint firstAttribute="trailing" secondItem="i4Y-XX-jSV" secondAttribute="trailing" constant="20" id="i96-Cm-4JP"/>
                                     <constraint firstItem="i4Y-XX-jSV" firstAttribute="centerX" secondItem="BXA-MS-Rha" secondAttribute="centerX" id="nYx-6Y-Qa0"/>
@@ -410,7 +410,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ysv-V0-29W" customClass="InfoNavigationController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ml7-s6-GEr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ml7-s6-GEr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

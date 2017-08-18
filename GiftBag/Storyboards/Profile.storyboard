@@ -73,7 +73,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="items" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAh-HF-pxN">
                                                         <rect key="frame" x="0.0" y="73.5" width="234" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -142,7 +142,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="buT-cC-lx7" id="g2t-9I-6e8"/>
-                                            <outlet property="nameTextField" destination="nxO-kT-Ndq" id="xUY-ow-ZJt"/>
+                                            <outlet property="nameLabel" destination="nxO-kT-Ndq" id="QNS-Lf-RLr"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -180,6 +180,7 @@
                     <connections>
                         <outlet property="collectionView" destination="QRN-Pt-7ow" id="oqo-xY-znU"/>
                         <outlet property="itemCountLabel" destination="II5-Id-It6" id="IyV-mI-dCt"/>
+                        <outlet property="itemLabel" destination="tAh-HF-pxN" id="9gp-vz-IqP"/>
                         <outlet property="nameLabel" destination="oGh-NM-PcK" id="mLk-ks-IDR"/>
                         <outlet property="profileImage" destination="MU6-er-ovn" id="6JE-Oe-Vux"/>
                         <outlet property="usernameLabel" destination="vRo-3G-u3B" id="lKY-2F-dUg"/>
@@ -329,8 +330,11 @@
                     </view>
                     <connections>
                         <outlet property="itemImageView" destination="DQo-qJ-TnY" id="4og-AX-FFf"/>
+                        <outlet property="nameLabel" destination="1QO-B2-AGp" id="gDL-LC-swz"/>
                         <outlet property="nameTextField" destination="Eno-EN-oAM" id="VgR-Ba-nUB"/>
+                        <outlet property="priceLabel" destination="hGi-1w-Uxw" id="ege-RY-59s"/>
                         <outlet property="priceTextField" destination="e4o-7m-VPH" id="wdF-hr-XRC"/>
+                        <outlet property="titleLabel" destination="irf-AY-5ed" id="54m-Pf-qQS"/>
                         <segue destination="QE8-57-k9B" kind="unwind" identifier="saveItem" unwindAction="unwindToMain:" id="tLY-fj-Xdv"/>
                     </connections>
                 </viewController>
@@ -478,7 +482,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="JPl-1d-gGa" id="JFm-qr-R2R"/>
+                        <outlet property="nameLabel" destination="bH3-oQ-oJv" id="RHG-zW-xNa"/>
                         <outlet property="nameTextField" destination="dG0-jx-YRJ" id="IF8-lG-O9N"/>
+                        <outlet property="priceLabel" destination="Ke9-q9-L5W" id="UtR-ID-JvP"/>
                         <outlet property="priceTextField" destination="KDY-s6-eP9" id="r97-ft-Kf6"/>
                         <segue destination="ini-tq-ZGR" kind="unwind" identifier="cancelEdit" unwindAction="unwindToMain:" id="qAv-cv-Hed"/>
                     </connections>

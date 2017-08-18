@@ -29,6 +29,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var itemCountLabel: UILabel!
+    @IBOutlet weak var itemLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -132,6 +133,10 @@ extension ProfileViewController {
         nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         usernameLabel.text = User.current.username
         itemCountLabel.text = String(items.count)
+        usernameLabel.font = UIFont(name: Styles.mainFont, size: 22)
+        nameLabel.font = UIFont(name: Styles.mainFont, size: 14)
+        itemCountLabel.font = UIFont(name: Styles.mainFont, size: 20)
+        itemLabel.font = UIFont(name: Styles.mainFont, size: 12)
     }
     
     func resetProfilePic(url : String){
@@ -169,7 +174,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         let totalHorizontalSpacing = (columns - 1) * spacing
         
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
-        let itemHeight : CGFloat = 144 * itemWidth / 130
+        let itemHeight : CGFloat = 150 * itemWidth / 130
         let itemSize = CGSize(width: itemWidth, height: itemHeight)
         
         return itemSize

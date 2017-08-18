@@ -16,7 +16,9 @@ class WishItemViewController: UIViewController {
     var pictureCheck = false
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
     
     override func viewDidLoad() {
@@ -76,7 +78,8 @@ class WishItemViewController: UIViewController {
 extension WishItemViewController {
     func configureView(){
         setLabels()
-        
+        nameLabel.font = UIFont(name: Styles.mainFont, size: 22)
+        priceLabel.font = UIFont(name: Styles.mainFont, size: 22)
     }
     
     func setLabels(){

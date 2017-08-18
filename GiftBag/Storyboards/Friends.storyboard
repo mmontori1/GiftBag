@@ -130,7 +130,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics">
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </simulatedTabBarMetrics>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DBg-9O-QjP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DBg-9O-QjP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -231,7 +231,7 @@
                                         <connections>
                                             <outlet property="haveBoughtImage" destination="2hW-WY-Emh" id="I23-RX-AGJ"/>
                                             <outlet property="imageView" destination="otd-O4-hZ9" id="FFI-2s-slo"/>
-                                            <outlet property="nameTextField" destination="e6l-Iq-4ym" id="910-FR-eHN"/>
+                                            <outlet property="nameLabel" destination="e6l-Iq-4ym" id="5y6-2J-BOR"/>
                                             <outlet property="willPlanImage" destination="F2V-eN-rQt" id="Ftg-Uw-554"/>
                                             <outlet property="willPlanLabel" destination="6Rp-M8-MzQ" id="Xza-WZ-laQ"/>
                                         </connections>

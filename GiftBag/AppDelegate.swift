@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         configureInitialRootViewController(for: window)
         UINavigationBar.appearance().barTintColor = Styles.lightGreen
+        if let font = UIFont(name: Styles.mainFont, size: 25) {
+            let titleAtributes : [String : Any] = [NSFontAttributeName: font]
+            UINavigationBar.appearance().titleTextAttributes = titleAtributes
+        }
         return true
     }
 
