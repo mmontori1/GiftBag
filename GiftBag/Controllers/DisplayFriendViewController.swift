@@ -32,6 +32,7 @@ class DisplayFriendViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var itemCountLabel: UILabel!
+    @IBOutlet weak var itemLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +89,10 @@ extension DisplayFriendViewController {
         collectionView.addSubview(refreshControl)
         collectionView.alwaysBounceVertical = true
         profileImage.circular(width: 1.0, color: UIColor.lightGray.cgColor)
+        usernameLabel.font = UIFont(name: Styles.mainFont, size: 22)
+        nameLabel.font = UIFont(name: Styles.mainFont, size: 14)
+        itemCountLabel.font = UIFont(name: Styles.mainFont, size: 20)
+        itemLabel.font = UIFont(name: Styles.mainFont, size: 12)
     }
     
     func configureWillAppear(_ animated: Bool){

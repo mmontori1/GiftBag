@@ -35,6 +35,8 @@ extension FriendCell {
     func configureCell(){
         loadingView.hidesWhenStopped = true
         profileImageView.circular(width: 1.0, color: UIColor.darkGray.cgColor)
+        usernameLabel.font = UIFont(name: Styles.mainFont, size: 20)
+        nameLabel.font = UIFont(name: Styles.mainFont, size: 14)
     }
     
     func setUp(){

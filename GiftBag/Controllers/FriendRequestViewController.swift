@@ -45,6 +45,8 @@ class FriendRequestViewController: UIViewController {
 
 extension FriendRequestViewController {
     func configureView(){
+        usernameLabel.font = UIFont(name: Styles.mainFont, size: 30)
+        nameLabel.font = UIFont(name: Styles.mainFont, size: 20)
         guard let user = friend else {
             return
         }

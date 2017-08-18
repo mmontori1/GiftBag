@@ -292,7 +292,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="items" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2S-N5-cl7">
                                                         <rect key="frame" x="0.0" y="73.5" width="234" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -341,6 +341,7 @@
                     <connections>
                         <outlet property="collectionView" destination="yXC-BC-Y81" id="ic6-Nr-ehU"/>
                         <outlet property="itemCountLabel" destination="4QD-TS-a3R" id="58J-6F-WLZ"/>
+                        <outlet property="itemLabel" destination="X2S-N5-cl7" id="sWd-4I-Oor"/>
                         <outlet property="nameLabel" destination="gj6-HE-Gny" id="WfF-hs-RMB"/>
                         <outlet property="profileImage" destination="M7R-vn-80K" id="th1-Vx-wMK"/>
                         <outlet property="usernameLabel" destination="11a-0w-SdL" id="87m-vR-vvL"/>
@@ -444,7 +445,7 @@
                                     <constraint firstItem="UKP-1o-Wea" firstAttribute="width" secondItem="DPM-Vh-Ulu" secondAttribute="width" id="ikE-tM-dav"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5MG-uz-gxC">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5MG-uz-gxC">
                                 <rect key="frame" x="0.0" y="407" width="375" height="211"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -473,6 +474,7 @@
                         <outlet property="haveBoughtButton" destination="fF3-ph-Awe" id="Kc3-P3-8eQ"/>
                         <outlet property="imageView" destination="dcX-Ls-DKv" id="NOA-GC-yP7"/>
                         <outlet property="priceLabel" destination="Ggk-vn-0wQ" id="8aI-w9-kCg"/>
+                        <outlet property="priceTitleLabel" destination="yUr-ul-Gad" id="q3n-0C-HxB"/>
                         <outlet property="willPlanButton" destination="3Vv-0T-K2S" id="pt9-da-mGu"/>
                         <outlet property="willPlanLabel" destination="X3t-ph-ywX" id="5Lm-An-ley"/>
                     </connections>

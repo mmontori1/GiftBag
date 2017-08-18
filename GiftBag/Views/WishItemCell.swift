@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class WishItemCell: UICollectionViewCell {
     
@@ -59,6 +60,7 @@ class WishItemCell: UICollectionViewCell {
         
         willPlanImage.image = UIImage(named: "thinkEmpty")
         willPlanLabel.text = String(item.willPlan.count)
+        willPlanLabel.font = UIFont(name: Styles.mainFont, size: 17)
         if item.willPlan.count > 0 {
             willPlanImage.image = UIImage(named: "thinkExists")
         }

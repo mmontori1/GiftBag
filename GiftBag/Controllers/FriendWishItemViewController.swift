@@ -12,6 +12,7 @@ class FriendWishItemViewController: UIViewController {
     var friend : User?
     var wishItem : WishItem?
     
+    @IBOutlet weak var priceTitleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var willPlanButton: UIButton!
@@ -65,6 +66,9 @@ extension FriendWishItemViewController {
     }
     
     func setLabels(){
+        priceTitleLabel.font = UIFont(name: Styles.mainFont, size: 22)
+        priceLabel.font = UIFont(name: Styles.mainFont, size: 22)
+        willPlanLabel.font = UIFont(name: Styles.mainFont, size: 22)
         guard let item = wishItem else {
             print("wish item controller no item what")
             return
@@ -82,6 +86,7 @@ extension FriendWishItemViewController {
         }
         willPlanImage.image = UIImage(named: "thinkEmpty")
         willPlanLabel.text = String(item.willPlan.count)
+        
         if item.willPlan.count > 0 {
             willPlanImage.image = UIImage(named: "thinkExists")
         }
