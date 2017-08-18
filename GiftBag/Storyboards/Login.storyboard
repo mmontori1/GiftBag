@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UFo-ep-gTG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ysv-V0-29W">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -327,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwL-BU-3P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.8" y="849.62518740629696"/>
+            <point key="canvasLocation" x="1996" y="849.62518740629696"/>
         </scene>
         <!--Login Header View Controller-->
         <scene sceneID="kAs-du-JGa">
@@ -348,13 +348,13 @@
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJh-aA-eaa">
-                                <rect key="frame" x="0.0" y="20" width="375" height="43"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create and share wishlists with your friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t71-oH-UpT">
-                                <rect key="frame" x="16" y="63" width="343" height="36"/>
+                                <rect key="frame" x="16" y="107" width="343" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="gR2-Hu-igX"/>
                                 </constraints>
@@ -363,7 +363,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="250-wd-V4W">
-                                <rect key="frame" x="137" y="99" width="100" height="100"/>
+                                <rect key="frame" x="137" y="143" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="250-wd-V4W" secondAttribute="height" multiplier="1:1" id="TBg-ea-ewx"/>
                                     <constraint firstAttribute="width" constant="100" id="kN3-qw-GNF"/>
@@ -388,13 +388,14 @@
                             <constraint firstAttribute="trailing" secondItem="grO-fV-GAO" secondAttribute="trailing" id="yuR-lk-DkR"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="psT-2X-wie"/>
                     <connections>
                         <outlet property="titleLabel" destination="LJh-aA-eaa" id="x2A-BQ-wmd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43N-0N-R2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1087.2" y="845.1274362818591"/>
+            <point key="canvasLocation" x="-148" y="845.1274362818591"/>
         </scene>
         <!--Login Page View Controller-->
         <scene sceneID="AiT-ut-rW1">
@@ -402,7 +403,25 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QPl-IE-s2x" customClass="LoginPageViewController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ei4-4U-kvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="845"/>
+            <point key="canvasLocation" x="1056.8" y="844.22788605697156"/>
+        </scene>
+        <!--Info Navigation Controller-->
+        <scene sceneID="FDi-YA-p61">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ysv-V0-29W" customClass="InfoNavigationController" customModule="GiftBag" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ml7-s6-GEr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UFo-ep-gTG" kind="relationship" relationship="rootViewController" id="3HY-to-Nrt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QHQ-DE-GTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1087.2" y="845.1274362818591"/>
         </scene>
     </scenes>
     <resources>
