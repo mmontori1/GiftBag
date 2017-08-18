@@ -62,12 +62,10 @@ class CreateUserViewController: UIViewController {
 extension CreateUserViewController{
     func configureView(){
         signUpButton.layer.cornerRadius = 10
-        let goodTime = "GoodTimesRg-Regular"
-        let helvetica = "Helvetica-Semibold"
-        createAccountLabel.font = UIFont(name: goodTime, size: 20)
-        emailLabel.font = UIFont(name: helvetica, size: 14)
-        passwordLabel.font = UIFont(name: helvetica, size: 14)
-        confirmLabel.font = UIFont(name: helvetica, size: 14)
-        signUpButton.titleLabel?.font = UIFont(name: goodTime, size: 15)
+        createAccountLabel.font = UIFont(name: Styles.mainFont, size: 20)
+        emailLabel.font = UIFont(name: Styles.mainFont, size: 14)
+        passwordLabel.font = UIFont(name: Styles.mainFont, size: 14)
+        confirmLabel.font = UIFont(name: Styles.mainFont, size: 14)
+        signUpButton.titleLabel?.font = UIFont(name: Styles.mainFont, size: 15)
     }
 }

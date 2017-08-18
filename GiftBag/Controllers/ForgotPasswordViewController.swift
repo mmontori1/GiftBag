@@ -43,10 +43,8 @@ class ForgotPasswordViewController: UIViewController {
 extension ForgotPasswordViewController{
     func configureView(){
         resetButton.layer.cornerRadius = 10
-        let goodTime = "GoodTimesRg-Regular"
-        let helvetica = "Helvetica-Semibold"
-        forgotLabel.font = UIFont(name: goodTime, size: 20)
-        emailLabel.font = UIFont(name: helvetica, size: 14)
-        resetButton.titleLabel?.font = UIFont(name: goodTime, size: 15)
+        forgotLabel.font = UIFont(name: Styles.mainFont, size: 20)
+        emailLabel.font = UIFont(name: Styles.mainFont, size: 14)
+        resetButton.titleLabel?.font = UIFont(name: Styles.mainFont, size: 15)
     }
 }

@@ -17,10 +17,14 @@ class UserInfoViewController: UIViewController {
     let photoHelper = PhotoHelper()
     var pictureCheck = false
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var editImageButton: UIButton!
+    @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     
     override func viewDidLoad() {
@@ -86,5 +90,10 @@ extension UserInfoViewController {
         usernameTextField.placeholder = "Username"
         firstNameTextField.placeholder = "First Name"
         lastNameTextField.placeholder = "Last Name"
+        
+        titleLabel.font = UIFont(name: Styles.mainFont, size: 32)
+        usernameLabel.font = UIFont(name: Styles.mainFont, size: 14)
+        firstNameLabel.font = UIFont(name: Styles.mainFont, size: 14)
+        lastNameLabel.font = UIFont(name: Styles.mainFont, size: 14)
     }
 }

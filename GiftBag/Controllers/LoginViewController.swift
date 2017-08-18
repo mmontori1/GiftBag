@@ -82,12 +82,10 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController{
     func configureView(){
-        let goodTime = "GoodTimesRg-Regular"
-        let helvetica = "Helvetica-Semibold"
         logInButton.layer.cornerRadius = 10
-        loginLabel.font = UIFont(name: goodTime, size: 20)
-        emailLabel.font = UIFont(name: helvetica, size: 14)
-        passwordLabel.font = UIFont(name: helvetica, size: 14)
-        logInButton.titleLabel?.font = UIFont(name: goodTime, size: 15)
+        loginLabel.font = UIFont(name: Styles.mainFont, size: 20)
+        emailLabel.font = UIFont(name: Styles.mainFont, size: 14)
+        passwordLabel.font = UIFont(name: Styles.mainFont, size: 14)
+        logInButton.titleLabel?.font = UIFont(name: Styles.mainFont, size: 15)
     }
 }

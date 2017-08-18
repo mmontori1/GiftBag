@@ -15,8 +15,7 @@ class LoginHeaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyKeyboardDismisser()
-        let goodTime = "GoodTimesRg-Regular"
-        titleLabel.font = UIFont(name: goodTime, size: 30)
+        titleLabel.font = UIFont(name: Styles.mainFont, size: 30)
     }
 
     override func didReceiveMemoryWarning() {

@@ -21,7 +21,7 @@ class LoginPageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red:0.63, green:1.00, blue:0.55, alpha:1.0)
+        self.view.backgroundColor = Styles.lightGreen
         let pageControl: UIPageControl = UIPageControl.appearance(whenContainedInInstancesOf: [LoginPageViewController.self])
         pageControl.currentPageIndicatorTintColor = UIColor.black
         pageControl.pageIndicatorTintColor = UIColor.gray

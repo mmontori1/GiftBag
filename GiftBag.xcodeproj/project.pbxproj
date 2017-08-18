@@ -16,6 +16,13 @@
 		012E60321F32136A00B4ED0A /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012E60311F32136A00B4ED0A /* PhotoHelper.swift */; };
 		012E60351F321CF100B4ED0A /* UIButton+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012E60341F321CF000B4ED0A /* UIButton+Utility.swift */; };
 		012E60371F32427E00B4ED0A /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012E60361F32427E00B4ED0A /* StorageService.swift */; };
+		0135825F1F472A8200257702 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135825E1F472A8200257702 /* Styles.swift */; };
+		013582611F472B5400257702 /* Helvetidoodle.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 013582601F472B5400257702 /* Helvetidoodle.ttf */; };
+		013582641F472E4F00257702 /* adlanta.light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 013582621F472E4F00257702 /* adlanta.light.otf */; };
+		013582651F472E4F00257702 /* adlanta.regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 013582631F472E4F00257702 /* adlanta.regular.otf */; };
+		013582671F472F8200257702 /* opossum.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 013582661F472F8200257702 /* opossum.regular.ttf */; };
+		013582691F47308B00257702 /* balker.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 013582681F47308B00257702 /* balker.regular.ttf */; };
+		0135826D1F47335100257702 /* UniNeueLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0135826C1F47335100257702 /* UniNeueLight.otf */; };
 		0141E8841F30BC1A006CFAE5 /* WishItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141E8831F30BC1A006CFAE5 /* WishItemCell.swift */; };
 		015260261F4626010068778D /* GoodTimes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 015260251F4626010068778D /* GoodTimes.ttf */; };
 		015260281F4635BD0068778D /* LoginHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015260271F4635BD0068778D /* LoginHeaderViewController.swift */; };
@@ -65,6 +72,13 @@
 		012E60311F32136A00B4ED0A /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoHelper.swift; path = Helper/PhotoHelper.swift; sourceTree = "<group>"; };
 		012E60341F321CF000B4ED0A /* UIButton+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Utility.swift"; path = "Extensions/UIButton+Utility.swift"; sourceTree = "<group>"; };
 		012E60361F32427E00B4ED0A /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = Services/StorageService.swift; sourceTree = "<group>"; };
+		0135825E1F472A8200257702 /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Styles.swift; path = Resources/Styles.swift; sourceTree = "<group>"; };
+		013582601F472B5400257702 /* Helvetidoodle.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Helvetidoodle.ttf; path = Resources/Helvetidoodle.ttf; sourceTree = "<group>"; };
+		013582621F472E4F00257702 /* adlanta.light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = adlanta.light.otf; path = Resources/adlanta.light.otf; sourceTree = "<group>"; };
+		013582631F472E4F00257702 /* adlanta.regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = adlanta.regular.otf; path = Resources/adlanta.regular.otf; sourceTree = "<group>"; };
+		013582661F472F8200257702 /* opossum.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = opossum.regular.ttf; path = Resources/opossum.regular.ttf; sourceTree = "<group>"; };
+		013582681F47308B00257702 /* balker.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = balker.regular.ttf; path = Resources/balker.regular.ttf; sourceTree = "<group>"; };
+		0135826C1F47335100257702 /* UniNeueLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UniNeueLight.otf; path = Resources/UniNeueLight.otf; sourceTree = "<group>"; };
 		0141E8831F30BC1A006CFAE5 /* WishItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishItemCell.swift; path = Views/WishItemCell.swift; sourceTree = "<group>"; };
 		015260251F4626010068778D /* GoodTimes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GoodTimes.ttf; path = Resources/GoodTimes.ttf; sourceTree = "<group>"; };
 		015260271F4635BD0068778D /* LoginHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginHeaderViewController.swift; path = Controllers/LoginHeaderViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +154,13 @@
 		015260221F4624EE0068778D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0135826C1F47335100257702 /* UniNeueLight.otf */,
+				013582681F47308B00257702 /* balker.regular.ttf */,
+				013582661F472F8200257702 /* opossum.regular.ttf */,
+				013582621F472E4F00257702 /* adlanta.light.otf */,
+				013582631F472E4F00257702 /* adlanta.regular.otf */,
+				013582601F472B5400257702 /* Helvetidoodle.ttf */,
+				0135825E1F472A8200257702 /* Styles.swift */,
 				015260251F4626010068778D /* GoodTimes.ttf */,
 			);
 			name = Resources;
@@ -384,16 +405,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0196053C1F2A209C00BFEFDB /* Profile.storyboard in Resources */,
+				013582611F472B5400257702 /* Helvetidoodle.ttf in Resources */,
 				01F3C4621F291EA9007B4AD2 /* LaunchScreen.storyboard in Resources */,
+				013582671F472F8200257702 /* opossum.regular.ttf in Resources */,
 				01F3C45F1F291EA9007B4AD2 /* Assets.xcassets in Resources */,
 				01F3C4871F2920E7007B4AD2 /* GoogleService-Info.plist in Resources */,
 				01F3C4761F291F94007B4AD2 /* Login.storyboard in Resources */,
 				015260261F4626010068778D /* GoodTimes.ttf in Resources */,
 				01F3C4771F291F94007B4AD2 /* Main.storyboard in Resources */,
 				015436001F3B550500EE93A2 /* Friends.storyboard in Resources */,
+				013582641F472E4F00257702 /* adlanta.light.otf in Resources */,
 				015435FE1F3B54F200EE93A2 /* Search.storyboard in Resources */,
+				0135826D1F47335100257702 /* UniNeueLight.otf in Resources */,
 				01908D1B1F447FFE0078EB7E /* Info.storyboard in Resources */,
 				018CB9A21F2FA13B00174BFB /* Settings.storyboard in Resources */,
+				013582651F472E4F00257702 /* adlanta.regular.otf in Resources */,
+				013582691F47308B00257702 /* balker.regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				012E60351F321CF100B4ED0A /* UIButton+Utility.swift in Sources */,
+				0135825F1F472A8200257702 /* Styles.swift in Sources */,
 				012E60371F32427E00B4ED0A /* StorageService.swift in Sources */,
 				019605401F2A2A9400BFEFDB /* EditProfileViewController.swift in Sources */,
 				019605421F2A6AFB00BFEFDB /* ProfileNavigationController.swift in Sources */,
