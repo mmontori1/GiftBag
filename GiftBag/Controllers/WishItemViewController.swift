@@ -77,6 +77,7 @@ class WishItemViewController: UIViewController {
 
 extension WishItemViewController {
     func configureView(){
+        applyKeyboardDismisser()
         setLabels()
         nameLabel.font = UIFont(name: Styles.mainFont, size: 22)
         priceLabel.font = UIFont(name: Styles.mainFont, size: 22)
