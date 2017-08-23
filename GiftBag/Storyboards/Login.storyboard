@@ -362,28 +362,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="250-wd-V4W">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comet" translatesAutoresizingMaskIntoConstraints="NO" id="kx2-Wh-6oV">
                                 <rect key="frame" x="137" y="99" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="250-wd-V4W" secondAttribute="height" multiplier="1:1" id="TBg-ea-ewx"/>
-                                    <constraint firstAttribute="width" constant="100" id="kN3-qw-GNF"/>
+                                    <constraint firstAttribute="width" constant="100" id="fP7-OM-Yqi"/>
+                                    <constraint firstAttribute="width" secondItem="kx2-Wh-6oV" secondAttribute="height" multiplier="1:1" id="s97-JJ-qOD"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LJh-aA-eaa" firstAttribute="leading" secondItem="XOw-ll-pFb" secondAttribute="leading" id="6Pb-8T-PKE"/>
-                            <constraint firstItem="250-wd-V4W" firstAttribute="top" secondItem="t71-oH-UpT" secondAttribute="bottom" id="AGg-3A-yFF"/>
                             <constraint firstItem="t71-oH-UpT" firstAttribute="trailing" secondItem="XOw-ll-pFb" secondAttribute="trailingMargin" id="AlW-Ad-YAz"/>
                             <constraint firstItem="t71-oH-UpT" firstAttribute="leading" secondItem="XOw-ll-pFb" secondAttribute="leadingMargin" id="Mpt-Z6-64a"/>
                             <constraint firstAttribute="trailing" secondItem="LJh-aA-eaa" secondAttribute="trailing" id="OHo-dI-02v"/>
                             <constraint firstItem="6uS-Jz-fhk" firstAttribute="top" secondItem="grO-fV-GAO" secondAttribute="bottom" id="PPi-bN-m7m"/>
                             <constraint firstItem="grO-fV-GAO" firstAttribute="leading" secondItem="XOw-ll-pFb" secondAttribute="leading" id="UMH-eR-mih"/>
                             <constraint firstItem="grO-fV-GAO" firstAttribute="top" secondItem="XOw-ll-pFb" secondAttribute="top" id="cjW-AY-Ikm"/>
-                            <constraint firstItem="250-wd-V4W" firstAttribute="centerX" secondItem="XOw-ll-pFb" secondAttribute="centerX" id="eMF-ua-S4z"/>
+                            <constraint firstItem="kx2-Wh-6oV" firstAttribute="top" secondItem="t71-oH-UpT" secondAttribute="bottom" id="oNY-oO-pmA"/>
                             <constraint firstItem="t71-oH-UpT" firstAttribute="top" secondItem="LJh-aA-eaa" secondAttribute="bottom" id="ojy-hS-9Bc"/>
-                            <constraint firstItem="t71-oH-UpT" firstAttribute="centerX" secondItem="250-wd-V4W" secondAttribute="centerX" id="r26-CR-Mwp"/>
-                            <constraint firstItem="250-wd-V4W" firstAttribute="top" secondItem="t71-oH-UpT" secondAttribute="bottom" id="u7E-bR-Pao"/>
+                            <constraint firstItem="kx2-Wh-6oV" firstAttribute="centerX" secondItem="grO-fV-GAO" secondAttribute="centerX" id="xe3-6A-ryI"/>
                             <constraint firstItem="LJh-aA-eaa" firstAttribute="top" secondItem="jfd-fP-OvF" secondAttribute="bottom" id="yZO-Nt-V0E"/>
                             <constraint firstAttribute="trailing" secondItem="grO-fV-GAO" secondAttribute="trailing" id="yuR-lk-DkR"/>
                         </constraints>
@@ -425,6 +423,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="comet" width="256" height="256"/>
+        <image name="comet" width="128" height="128"/>
     </resources>
 </document>

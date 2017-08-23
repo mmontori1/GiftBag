@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 typealias FIRUser = FirebaseAuth.User
 
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        IQKeyboardManager.sharedManager().enable = true
         configureInitialRootViewController(for: window)
         UINavigationBar.appearance().barTintColor = Styles.lightGreen
         if let font = UIFont(name: Styles.mainFont, size: 25) {

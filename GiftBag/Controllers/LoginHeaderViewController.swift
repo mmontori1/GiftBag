@@ -14,7 +14,7 @@ class LoginHeaderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyKeyboardDismisser()
+//        applyKeyboardDismisser()
         titleLabel.font = UIFont(name: Styles.mainFont, size: 30)
     }
 

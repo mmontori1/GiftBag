@@ -60,6 +60,24 @@ class FriendWishItemViewController: UIViewController {
         }
     }
     
+    @IBAction func reportClicked(_ sender: Any) {
+        let alertController = UIAlertController(title: nil, message: "Do you want to report this item for being inappropriate", preferredStyle: .actionSheet)
+        
+        let reportAction = UIAlertAction(title: "Report", style: .destructive) { _ in
+            guard let item = self.wishItem else {
+                return
+            }
+            WishService.report(item)
+        }
+        
+        alertController.addAction(reportAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true)
+    }
+    
 }
 
 extension FriendWishItemViewController {
@@ -79,6 +97,13 @@ extension FriendWishItemViewController {
         }
         self.navigationItem.title = item.name
         priceLabel.text = String(format: "$%.2f", item.price)
+        if let imageURL = item.imageURL {
+            let imageURL = URL(string: imageURL)
+            imageView.kf.setImage(with: imageURL)
+        }
+        else {
+            imageView.image = UIImage(named: "comet")
+        }
     }
     
     func setWillPlan(){

@@ -87,7 +87,7 @@ class CreateWishListItemViewController: UIViewController {
 
 extension CreateWishListItemViewController {
     func configureView() {
-        applyKeyboardDismisser()
+//        applyKeyboardDismisser()
         itemImageView.image = UIImage(named: "comet")
         titleLabel.font = UIFont(name: Styles.mainFont, size: 24)
         nameLabel.font = UIFont(name: Styles.mainFont, size: 17)

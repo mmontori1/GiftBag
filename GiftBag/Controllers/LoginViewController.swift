@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginClicked(_ sender: UIButton) {
-        dismissKeyboard()
+//        dismissKeyboard()
         guard let email = emailTextField.text,
             let password = passwordTextField.text else{
             return
@@ -70,12 +70,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func createAccountClicked(_ sender: UIButton) {
-        dismissKeyboard()
+//        dismissKeyboard()
         performSegue(withIdentifier: "createUser", sender: self)
     }
     
     @IBAction func forgotPasswordClicked(_ sender: UIButton) {
-        dismissKeyboard()
+//        dismissKeyboard()
         performSegue(withIdentifier: "forgotPassword", sender: self)
     }
 }

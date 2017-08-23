@@ -530,7 +530,7 @@
     <resources>
         <image name="add" width="25" height="25"/>
         <image name="cancel" width="25" height="25"/>
-        <image name="comet" width="256" height="256"/>
+        <image name="comet" width="128" height="128"/>
         <image name="defaultProfile" width="256" height="256"/>
         <image name="delete" width="25" height="25"/>
         <image name="exit" width="25" height="25"/>

@@ -56,7 +56,7 @@ class FindFriendsViewController: UIViewController {
 
 extension FindFriendsViewController{
     func configureView() {
-        applyKeyboardDismisser()
+//        applyKeyboardDismisser()
     }
 }
 
@@ -133,7 +133,7 @@ extension FindFriendsViewController: UITableViewDataSource, UITableViewDelegate 
 
 extension FindFriendsViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        dismissKeyboard()
+//        dismissKeyboard()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

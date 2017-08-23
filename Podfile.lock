@@ -40,6 +40,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
+  - IQKeyboardManagerSwift (4.0.10)
   - Kingfisher (3.10.2)
   - SCLAlertView (0.7.0)
 
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - IQKeyboardManagerSwift
   - Kingfisher (~> 3.0)
   - SCLAlertView
 
@@ -61,9 +63,10 @@ SPEC CHECKSUMS:
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   Kingfisher: 7297492bf8cec9b2e2dee3519f2219948580d98e
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 8ab1e12f3533d1957718f7d7e725a3b68994c73a
+PODFILE CHECKSUM: c830f9302d1dcd13387d55ad1d5a7a545100d1b6
 
 COCOAPODS: 1.2.1

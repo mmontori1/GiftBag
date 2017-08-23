@@ -12,7 +12,7 @@ class InfoNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyKeyboardPush()
+//        applyKeyboardPush()
     }
     
     override func didReceiveMemoryWarning() {

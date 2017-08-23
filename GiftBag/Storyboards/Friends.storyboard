@@ -130,7 +130,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics">
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </simulatedTabBarMetrics>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DBg-9O-QjP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DBg-9O-QjP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -490,6 +490,12 @@
                                 <segue destination="mOn-w9-xoU" kind="unwind" unwindAction="unwindToDisplayFriend:" id="gDf-nZ-9AZ"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="report" id="pHb-eU-sjH">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="reportClicked:" destination="3Zh-TT-G7U" id="N4U-PN-do2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="haveBoughtButton" destination="fF3-ph-Awe" id="Kc3-P3-8eQ"/>
@@ -507,11 +513,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="comet" width="256" height="256"/>
+        <image name="comet" width="128" height="128"/>
         <image name="defaultProfile" width="256" height="256"/>
         <image name="exit" width="25" height="25"/>
         <image name="friends" width="25" height="25"/>
         <image name="giveEmpty" width="25" height="25"/>
+        <image name="report" width="25" height="25"/>
         <image name="thinkEmpty" width="25" height="25"/>
     </resources>
 </document>

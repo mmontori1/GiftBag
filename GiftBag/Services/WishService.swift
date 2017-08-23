@@ -257,4 +257,30 @@ struct WishService {
             success(true)
         }
     }
+    
+    static func report(_ item : WishItem) {
+        guard let key = item.key else {
+            return
+        }
+        
+        let reportRef = Database.database().reference().child("reports").child(key)
+        let reportersRef = reportRef.child("reporter_uids")
+        let countRef = reportRef.child("count")
+        
+        var dict : [String : Any] = ["poster_uid": item.poster.uid]
+        let reporterDict = [User.current.uid : true]
+        if let imageURL = item.imageURL {
+            dict["image_url"] = imageURL
+        }
+        
+        reportRef.updateChildValues(dict)
+        reportersRef.updateChildValues(reporterDict)
+        countRef.runTransactionBlock({ (mutableData) -> TransactionResult in
+            let currentCount = mutableData.value as? Int ?? 0
+            
+            mutableData.value = currentCount + 1
+            
+            return TransactionResult.success(withValue: mutableData)
+        })
+    }
 }
