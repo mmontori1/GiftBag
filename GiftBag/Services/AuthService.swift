@@ -58,6 +58,11 @@ struct AuthService {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
+        if let popover = alertController.popoverPresentationController {
+            popover.sourceView = controller.view;
+            popover.sourceRect = CGRect(x: controller.view.bounds.midX, y: controller.view.bounds.midY, width: 0, height: 0)
+        }
+        
         controller.present(alertController, animated: true)
     }
     
@@ -99,6 +104,11 @@ struct AuthService {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
+        
+        if let popover = alertController.popoverPresentationController {
+            popover.sourceView = viewController.view;
+            popover.sourceRect = CGRect(x: viewController.view.bounds.midX, y: viewController.view.bounds.midY, width: 0, height: 0)
+        }
         
         viewController.present(alertController, animated: true)
     }
@@ -167,6 +177,11 @@ struct AuthService {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
+        if let popover = alertController.popoverPresentationController {
+            popover.sourceView = viewController.view;
+            popover.sourceRect = CGRect(x: viewController.view.bounds.midX, y: viewController.view.bounds.midY, width: 0, height: 0)
+        }
+        
         viewController.present(alertController, animated: true)
     }
     
@@ -187,24 +202,40 @@ struct AuthService {
             let invalidEmailAlert = UIAlertController(title: "Invalid Email", message:
                 "It seems like you have put in an invalid email.", preferredStyle: UIAlertControllerStyle.alert)
             invalidEmailAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
+            if let popover = invalidEmailAlert.popoverPresentationController {
+                popover.sourceView = controller.view;
+                popover.sourceRect = CGRect(x: controller.view.bounds.midX, y: controller.view.bounds.midY, width: 0, height: 0)
+            }
             controller.present(invalidEmailAlert, animated: true, completion: nil)
             break;
         case "The password is invalid or the user does not have a password.":
             let wrongPasswordAlert = UIAlertController(title: "Wrong Password", message:
                 "It seems like you have entered the wrong password.", preferredStyle: UIAlertControllerStyle.alert)
             wrongPasswordAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
+            if let popover = wrongPasswordAlert.popoverPresentationController {
+                popover.sourceView = controller.view;
+                popover.sourceRect = CGRect(x: controller.view.bounds.midX, y: controller.view.bounds.midY, width: 0, height: 0)
+            }
             controller.present(wrongPasswordAlert, animated: true, completion: nil)
             break;
         case "There is no user record corresponding to this identifier. The user may have been deleted.":
             let wrongPasswordAlert = UIAlertController(title: "No Account Found", message:
                 "We couldn't find an account that corresponds to that email. Do you want to create an account?", preferredStyle: UIAlertControllerStyle.alert)
             wrongPasswordAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
+            if let popover = wrongPasswordAlert.popoverPresentationController {
+                popover.sourceView = controller.view;
+                popover.sourceRect = CGRect(x: controller.view.bounds.midX, y: controller.view.bounds.midY, width: 0, height: 0)
+            }
             controller.present(wrongPasswordAlert, animated: true, completion: nil)
             break;
         default:
             let loginFailedAlert = UIAlertController(title: "Error Logging In", message:
                 "There was an error logging you in. Please try again soon.", preferredStyle: UIAlertControllerStyle.alert)
             loginFailedAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
+            if let popover = loginFailedAlert.popoverPresentationController {
+                popover.sourceView = controller.view;
+                popover.sourceRect = CGRect(x: controller.view.bounds.midX, y: controller.view.bounds.midY, width: 0, height: 0)
+            }
             controller.present(loginFailedAlert, animated: true, completion: nil)
             break;
         }
@@ -216,12 +247,20 @@ struct AuthService {
             let invalidEmail = UIAlertController(title: "Email is not properly formatted.", message:
                 "Please enter a valid email to sign up with..", preferredStyle: UIAlertControllerStyle.alert)
             invalidEmail.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
+            if let popover = invalidEmail.popoverPresentationController {
+                popover.sourceView = controller.view;
+                popover.sourceRect = CGRect(x: controller.view.bounds.midX, y: controller.view.bounds.midY, width: 0, height: 0)
+            }
             controller.present(invalidEmail, animated: true, completion: nil)
             break;
         default:
             let generalErrorAlert = UIAlertController(title: "We are having trouble signing you up.", message:
                 "We are having trouble signing you up, please try again soon.", preferredStyle: UIAlertControllerStyle.alert)
             generalErrorAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
+            if let popover = generalErrorAlert.popoverPresentationController {
+                popover.sourceView = controller.view;
+                popover.sourceRect = CGRect(x: controller.view.bounds.midX, y: controller.view.bounds.midY, width: 0, height: 0)
+            }
             controller.present(generalErrorAlert, animated: true, completion: nil)
             break;
         }

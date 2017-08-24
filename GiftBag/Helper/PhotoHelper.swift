@@ -35,6 +35,10 @@ class PhotoHelper: NSObject {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
+        if let popover = alertController.popoverPresentationController {
+            popover.sourceView = viewController.view;
+            popover.sourceRect = CGRect(x: viewController.view.bounds.midX, y: viewController.view.bounds.midY, width: 0, height: 0)
+        }
         viewController.present(alertController, animated: true)
     }
     
