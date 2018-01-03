@@ -80,8 +80,7 @@ class UserInfoViewController: UIViewController {
 
 extension UserInfoViewController {
     func configureView() {
-//        applyKeyboardDismisser()
-//        dismissKeyboard()
+        applyKeyboardDismisser()
         
         profileImageView.circular(width: 1.0, color: UIColor.darkGray.cgColor)
         editImageButton.circular()

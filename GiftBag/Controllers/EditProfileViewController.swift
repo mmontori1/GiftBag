@@ -75,7 +75,7 @@ class EditProfileViewController: UIViewController {
 
 extension EditProfileViewController {
     func configureView() {
-//        applyKeyboardDismisser()
+        applyKeyboardDismisser()
         
         profileImageView.circular(width: 1.0, color: UIColor.darkGray.cgColor)
         editImageButton.circular()

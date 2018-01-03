@@ -56,7 +56,7 @@ class FindFriendsViewController: UIViewController {
 
 extension FindFriendsViewController{
     func configureView() {
-//        applyKeyboardDismisser()
+        applyKeyboardDismisser()
     }
 }
 
